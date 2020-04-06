@@ -5,7 +5,7 @@ export interface ISpruce<Context = unknown> extends ExecutionContext<Context> {
 	mercury: any
 }
 
-export default class AbstractTest {
+export default class BaseTest {
 	protected static async wait(ms: number) {
 		return new Promise(resolve => {
 			setTimeout(() => resolve(), ms)

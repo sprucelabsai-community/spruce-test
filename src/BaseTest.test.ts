@@ -12,9 +12,9 @@ export default class BaseTestTest extends BaseTest {
 		spruce.context.hello = 'world'
 	}
 
-	@test('can access context')
-	protected static async canAccessContext(spruce: ISpruce<IContext>) {
-		spruce.is(spruce.context.hello, 'world', 'Setting context failed')
+	@test('can access context as manager')
+	protected static async canAccessContext(assert, spruce: ISpruce<IContext>) {
+		assert.is(spruce.context.hello, 'world', 'Setting context failed')
 	}
 
 	@test('should pass basic asserts')

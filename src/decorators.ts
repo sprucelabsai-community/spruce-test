@@ -28,7 +28,7 @@ function hookupTestClass(target: any) {
 }
 
 /** Test decorator */
-export default function test(description: string) {
+export default function test(description: string, ...args: any[]) {
 	return function(
 		target: any,
 		propertyKey: string,
@@ -40,13 +40,13 @@ export default function test(description: string) {
 		// Make sure each test gets the spruce
 		ava(description, t => {
 			const sp = spruce.mixinExecutionContext(t)
-			return descriptor.value(sp)
+			return descriptor.value(sp, ...args)
 		})
 	}
 }
 
 /** Only decorator */
-test.only = (description: string) => {
+test.only = (description: string, ...args: any[]) => {
 	return function(
 		target: any,
 		propertyKey: string,
@@ -58,13 +58,13 @@ test.only = (description: string) => {
 		// Make sure each test gets the spruce
 		ava.only(description, t => {
 			const sp = spruce.mixinExecutionContext(t)
-			return descriptor.value(sp)
+			return descriptor.value(sp, ...args)
 		})
 	}
 }
 
 /** Serial decorator */
-test.serial = (description: string) => {
+test.serial = (description: string, ...args: any[]) => {
 	return function(
 		target: any,
 		propertyKey: string,
@@ -76,25 +76,18 @@ test.serial = (description: string) => {
 		// Make sure each test gets the spruce
 		ava.serial(description, t => {
 			const sp = spruce.mixinExecutionContext(t)
-			return descriptor.value(sp)
+			return descriptor.value(sp, ...args)
 		})
 	}
 }
 
 /** Todo decorator */
 test.todo = (description: string) => {
-	return function(
-		target: any,
-		propertyKey: string,
-		descriptor: PropertyDescriptor
-	) {
+	return function(target: any) {
 		// Lets attach before/after
 		hookupTestClass(target)
 
 		// Make sure each test gets the spruce
-		ava.todo(description, t => {
-			const sp = spruce.mixinExecutionContext(t)
-			return descriptor.value(sp)
-		})
+		ava.todo(description)
 	}
 }
