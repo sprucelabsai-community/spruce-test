@@ -1,5 +1,6 @@
-import BaseTest, { ISpruce } from './BaseTest'
+import BaseTest from './BaseTest'
 import test from './decorators'
+import { ExecutionContext } from 'ava'
 
 /** Context just for this test */
 interface IContext {
@@ -7,20 +8,20 @@ interface IContext {
 }
 
 export default class BaseTestTest extends BaseTest {
-	protected static beforeEach(spruce: ISpruce<IContext>) {
+	protected static beforeEach(t: ExecutionContext<IContext>) {
 		// Test setting something to the context
-		spruce.context.hello = 'world'
+		t.context.hello = 'world'
 	}
 
-	@test('can access context')
-	protected static async canAccessContext(spruce: ISpruce<IContext>) {
-		spruce.is(spruce.context.hello, 'world', 'Setting context failed')
+	@test('can access context as manager')
+	protected static async canAccessContext(t: ExecutionContext<IContext>) {
+		t.is(t.context.hello, 'world', 'Setting context failed')
 	}
 
 	@test('should pass basic asserts')
-	protected static async shouldPass(spruce: ISpruce<IContext>) {
-		spruce.true(true)
-		spruce.false(false)
-		spruce.is(5, 5, `Thing's don't equal`)
+	protected static async shouldPass(t: ExecutionContext<IContext>) {
+		t.true(true)
+		t.false(false)
+		t.is(5, 5, `Thing's don't equal`)
 	}
 }
