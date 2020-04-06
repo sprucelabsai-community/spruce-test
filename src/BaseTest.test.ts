@@ -1,4 +1,4 @@
-import AbstractTest, { ISpruce } from './BaseTest'
+import BaseTest, { ISpruce } from './BaseTest'
 import test from './decorators'
 
 /** Context just for this test */
@@ -6,7 +6,7 @@ interface IContext {
 	hello: string
 }
 
-export default class BaseTestTest extends AbstractTest {
+export default class BaseTestTest extends BaseTest {
 	protected static beforeEach(spruce: ISpruce<IContext>) {
 		// Test setting something to the context
 		spruce.context.hello = 'world'
