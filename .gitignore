@@ -4,6 +4,7 @@ node_modules/
 # Built files
 coverage/
 __TEST__/
+build/
 
 # Logs
 *.log
@@ -11,5 +12,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-build/
-mercury.min.*
+
+# Mac
+.DS_IGNORE

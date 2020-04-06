@@ -1,26 +1,12 @@
-/* eslint-disable no-undef */
-// The base test model that all others will extend
-export default class BaseTest {
-	// Auto hookup before/after/beforeEach/afterEach
-	public constructor() {
-		before(() => this.before())
-		after(() => this.after())
-		beforeEach(() => this.beforeEach())
-		afterEach(() => this.afterEach())
-		this.setup()
-	}
+import { ExecutionContext } from 'ava'
 
-	protected setup() {}
+// The Spruce object for all tests
+export interface ISpruce<Context = unknown> extends ExecutionContext<Context> {
+	mercury: any
+}
 
-	protected async beforeEach() {}
-
-	protected async afterEach() {}
-
-	protected async before() {}
-
-	protected async after() {}
-
-	protected async wait(ms: number) {
+export default class AbstractTest {
+	protected static async wait(ms: number) {
 		return new Promise(resolve => {
 			setTimeout(() => resolve(), ms)
 		})

@@ -1,3 +1,2 @@
-import BaseTest from "./src/BaseTest";
-
-export BaseTest
+import AbstractTest from './src/BaseTest'
+export default AbstractTest
