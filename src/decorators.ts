@@ -1,5 +1,5 @@
 import ava from 'ava'
-import { spruce } from './TestSpruce'
+import { spruce } from './Spruce'
 
 /** Hooks up before, after, etc. */
 function hookupTestClass(target: any) {
@@ -30,8 +30,7 @@ export default function test(description: string, ...args: any[]) {
 
 		// Make sure each test gets the spruce
 		ava(description, t => {
-			const sp = spruce.mixinExecutionContext(t)
-			return descriptor.value(sp, ...args)
+			return descriptor.value(t, spruce.spruce(), ...args)
 		})
 	}
 }
@@ -48,8 +47,7 @@ test.only = (description: string, ...args: any[]) => {
 
 		// Make sure each test gets the spruce
 		ava.only(description, t => {
-			const sp = spruce.mixinExecutionContext(t)
-			return descriptor.value(sp, ...args)
+			return descriptor.value(t, spruce.spruce(), ...args)
 		})
 	}
 }
@@ -66,8 +64,7 @@ test.serial = (description: string, ...args: any[]) => {
 
 		// Make sure each test gets the spruce
 		ava.serial(description, t => {
-			const sp = spruce.mixinExecutionContext(t)
-			return descriptor.value(sp, ...args)
+			return descriptor.value(t, spruce.spruce(), ...args)
 		})
 	}
 }
@@ -77,7 +74,6 @@ test.todo = (description: string) => {
 	return function(target: any) {
 		// Lets attach before/after
 		hookupTestClass(target)
-
 		// Make sure each test gets the spruce
 		ava.todo(description)
 	}
