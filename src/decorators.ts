@@ -14,16 +14,7 @@ function hookupTestClass(target: any) {
 			return
 		}
 		// @ts-ignore
-		ava[hook](async t => {
-			// Mixin execution context to the spruce object
-			const sp = spruce.mixinExecutionContext(t)
-
-			// Invoke the hook method
-			await target[hook](sp)
-
-			// Save back context so it's available in the future
-			t.context = sp.context
-		})
+		ava[hook](async t => target[hook](t, spruce.spruce()))
 	})
 }
 
