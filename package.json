@@ -45,5 +45,13 @@
 		"typescript": "^3.8"
 	},
 	"peerDependencies": {},
-	"dependencies": {}
+	"dependencies": {},
+	"ava": {
+		"extensions": [
+			"ts"
+		],
+		"require": [
+			"ts-node/register"
+		]
+	}
 }
