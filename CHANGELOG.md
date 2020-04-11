@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/sprucelabsai/spruce-test/compare/v1.0.3...v1.1.0) (2020-04-11)
+
+
+### Features
+
+* base tests have resolvepath helper ([72e25f5](https://github.com/sprucelabsai/spruce-test/commit/72e25f5))
+
 ## [1.0.3](https://github.com/sprucelabsai/spruce-test/compare/v1.0.2...v1.0.3) (2020-04-07)
 
 ## [1.0.2](https://github.com/sprucelabsai/spruce-test/compare/v1.0.1...v1.0.2) (2020-04-07)
