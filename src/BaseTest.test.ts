@@ -1,6 +1,7 @@
 import BaseTest from './BaseTest'
 import test from './decorators'
 import assert from './assert'
+import faker from './faker'
 import { ISpruce } from './Spruce'
 
 let isBeforeAllCalled = false
@@ -53,6 +54,11 @@ export default class BaseTestTest extends BaseTest {
 	protected static async calledEach() {
 		assert.equal(beforeEachCount, 5)
 		assert.equal(afterEachCount, 4)
+	}
+
+	@test('can create fake data')
+	protected static async fakeData() {
+		assert.isString(faker.name.firstName())
 	}
 
 	@test.todo('can create a TODO test')
