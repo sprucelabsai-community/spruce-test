@@ -33,9 +33,6 @@
 	},
 	"devDependencies": {
 		"@sprucelabs/semantic-release": "^3.0.4",
-		"@types/chai": "^4.2.11",
-		"@types/faker": "^4.1.11",
-		"@types/jest": "^25.2.1",
 		"chokidar-cli": "^2.1.0",
 		"concurrently": "^5.0.2",
 		"eslint": "^5",
@@ -47,6 +44,9 @@
 	"dependencies": {
 		"@babel/core": "^7.9.0",
 		"@babel/preset-env": "^7.9.5",
+		"@types/chai": "^4.2.11",
+		"@types/faker": "^4.1.11",
+		"@types/jest": "^25.2.1",
 		"babel-jest": "^25.4.0",
 		"chai": "^4.2.0",
 		"faker": "^4.1.0",
