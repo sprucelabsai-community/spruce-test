@@ -1,4 +1,3 @@
-import ava from 'ava'
 import { spruce } from './Spruce'
 
 /** Hooks up before, after, etc. */
@@ -7,14 +6,18 @@ function hookupTestClass(target: any) {
 		return
 	}
 	target.__isHookedUp = true
-	const hooks = ['before', 'beforeEach', 'after', 'afterEach']
+	const hooks = ['beforeAll', 'beforeEach', 'afterAll', 'afterEach']
 	hooks.forEach(hook => {
 		// Have they defined a hook
 		if (!target[hook]) {
 			return
 		}
+
 		// @ts-ignore
-		ava[hook](async t => target[hook](t, spruce.spruce()))
+		if (global[hook]) {
+			// @ts-ignore
+			global[hook](async () => target[hook](spruce.spruce()))
+		}
 	})
 }
 
@@ -29,8 +32,8 @@ export default function test(description: string, ...args: any[]) {
 		hookupTestClass(target)
 
 		// Make sure each test gets the spruce
-		ava(description, t => {
-			return descriptor.value(t, spruce.spruce(), ...args)
+		it(description, async () => {
+			return descriptor.value(spruce.spruce(), ...args)
 		})
 	}
 }
@@ -46,12 +49,13 @@ test.only = (description: string, ...args: any[]) => {
 		hookupTestClass(target)
 
 		// Make sure each test gets the spruce
-		ava.only(description, t => {
-			return descriptor.value(t, spruce.spruce(), ...args)
+		it.only(description, async () => {
+			return descriptor.value(spruce.spruce(), ...args)
 		})
 	}
 }
 
+// Nothing special needed. With jest, tests in the same file will run sequentially already
 /** Serial decorator */
 test.serial = (description: string, ...args: any[]) => {
 	return function(
@@ -63,18 +67,22 @@ test.serial = (description: string, ...args: any[]) => {
 		hookupTestClass(target)
 
 		// Make sure each test gets the spruce
-		ava.serial(description, t => {
-			return descriptor.value(t, spruce.spruce(), ...args)
+		it(description, async () => {
+			return descriptor.value(spruce.spruce(), ...args)
 		})
 	}
 }
 
 /** Todo decorator */
-test.todo = (description: string) => {
-	return function(target: any) {
+test.todo = (description: string, ..._args: any[]) => {
+	return function(
+		target: any,
+		_propertyKey: string,
+		_descriptor: PropertyDescriptor
+	) {
 		// Lets attach before/after
 		hookupTestClass(target)
 		// Make sure each test gets the spruce
-		ava.todo(description)
+		it.todo(description)
 	}
 }
