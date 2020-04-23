@@ -3,7 +3,7 @@ import path from 'path'
 /** Base test class chalk full of helpers to make testing more 🔥🔥🔥 */
 export default class BaseTest {
 	/** Resolve a local file relative to the test being run */
-	public static resolvePath(...filePath: string[]) {
+	protected static resolvePath(...filePath: string[]) {
 		// Paths should be resolved relative to the test file vs the root of the project
 		const cache = require('module')._cache
 		const matchedModule = Object.keys(cache)
