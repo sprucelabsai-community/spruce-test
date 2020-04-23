@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/sprucelabsai/spruce-test/compare/v1.1.0...v2.0.0) (2020-04-23)
+
+
+### Breaking Changes
+
+* use jest instead of ava ([5adb79f](https://github.com/sprucelabsai/spruce-test/commit/5adb79f))
+
+
+### Features
+
+* export faker ([b718c31](https://github.com/sprucelabsai/spruce-test/commit/b718c31))
+* jest implementation ([1754bbb](https://github.com/sprucelabsai/spruce-test/commit/1754bbb))
+
 # [1.1.0](https://github.com/sprucelabsai/spruce-test/compare/v1.0.3...v1.1.0) (2020-04-11)
 
 
