@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/sprucelabsai/spruce-test/compare/v2.0.0...v2.1.0) (2020-05-01)
+
+
+### Features
+
+* integrate ts-expect ([2d8da7d](https://github.com/sprucelabsai/spruce-test/commit/2d8da7d))
+
 # [2.0.0](https://github.com/sprucelabsai/spruce-test/compare/v1.1.0...v2.0.0) (2020-04-23)
 
 
