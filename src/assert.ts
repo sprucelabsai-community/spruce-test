@@ -1,6 +1,5 @@
 import { assert } from 'chai'
-
-export interface ISpruceAssert extends Chai.AssertStatic {}
+import { expectType } from 'ts-expect'
 
 // TODO: We could extend assert here
 /**
@@ -8,5 +7,9 @@ export interface ISpruceAssert extends Chai.AssertStatic {}
  *
  * Extends the chai assert library: https://www.chaijs.com/api/assert/
  * */
-const spruceAssert: ISpruceAssert = assert
+const spruceAssert = {
+	...assert,
+	expectType
+}
+
 export default spruceAssert

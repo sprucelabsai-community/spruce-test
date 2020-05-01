@@ -2,6 +2,18 @@ import path from 'path'
 
 /** Base test class chalk full of helpers to make testing more 🔥🔥🔥 */
 export default class BaseTest {
+	/** Override this method to execute code before all your tests */
+	protected static async beforeAll() {}
+
+	/** Override this method to execute code after all your tests */
+	protected static async afterAll() {}
+
+	/** Override this method to execute code before each of your tests run */
+	protected static async beforeEach() {}
+
+	/** Override this method to execute code after each of your tests run */
+	protected static async afterEach() {}
+
 	/** Resolve a local file relative to the test being run */
 	protected static resolvePath(...filePath: string[]) {
 		// Paths should be resolved relative to the test file vs the root of the project
