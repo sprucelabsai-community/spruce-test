@@ -80,21 +80,17 @@ test.serial = (description: string, ...args: any[]) => {
 }
 
 /** Todo decorator */
-test.todo = (description: string, ...args: any[]) => {
+test.todo = (description: string, ..._args: any[]) => {
 	return function(
 		target: any,
 		_propertyKey: string,
-		descriptor: PropertyDescriptor
+		_descriptor: PropertyDescriptor
 	) {
 		// Lets attach before/after
 		hookupTestClass(target)
 
-		const bound = descriptor.value.bind(target)
-
 		// Make sure each test gets the spruce
-		it.todo(description, async () => {
-			return bound(spruce.spruce(), ...args)
-		})
+		it.todo(description)
 	}
 }
 
@@ -116,4 +112,3 @@ test.skip = (description: string, ...args: any[]) => {
 		})
 	}
 }
-
