@@ -94,7 +94,7 @@ test.todo = (description: string, ..._args: any[]) => {
 	}
 }
 
-/** Todo decorator */
+/** Skip decorator */
 test.skip = (description: string, ...args: any[]) => {
 	return function(
 		target: any,
