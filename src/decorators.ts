@@ -31,9 +31,11 @@ export default function test(description: string, ...args: any[]) {
 		// Lets attach before/after
 		hookupTestClass(target)
 
+		const bound = descriptor.value.bind(target)
+
 		// Make sure each test gets the spruce
 		it(description, async () => {
-			return descriptor.value(spruce.spruce(), ...args)
+			return bound(spruce.spruce(), ...args)
 		})
 	}
 }
