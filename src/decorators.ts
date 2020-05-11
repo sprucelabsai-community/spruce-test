@@ -31,9 +31,11 @@ export default function test(description: string, ...args: any[]) {
 		// Lets attach before/after
 		hookupTestClass(target)
 
+		const bound = descriptor.value.bind(target)
+
 		// Make sure each test gets the spruce
 		it(description, async () => {
-			return descriptor.value(spruce.spruce(), ...args)
+			return bound(spruce.spruce(), ...args)
 		})
 	}
 }
@@ -48,9 +50,11 @@ test.only = (description: string, ...args: any[]) => {
 		// Lets attach before/after
 		hookupTestClass(target)
 
+		const bound = descriptor.value.bind(target)
+
 		// Make sure each test gets the spruce
 		it.only(description, async () => {
-			return descriptor.value(spruce.spruce(), ...args)
+			return bound(spruce.spruce(), ...args)
 		})
 	}
 }
@@ -66,9 +70,11 @@ test.serial = (description: string, ...args: any[]) => {
 		// Lets attach before/after
 		hookupTestClass(target)
 
+		const bound = descriptor.value.bind(target)
+
 		// Make sure each test gets the spruce
 		it(description, async () => {
-			return descriptor.value(spruce.spruce(), ...args)
+			return bound(spruce.spruce(), ...args)
 		})
 	}
 }
@@ -82,7 +88,27 @@ test.todo = (description: string, ..._args: any[]) => {
 	) {
 		// Lets attach before/after
 		hookupTestClass(target)
+
 		// Make sure each test gets the spruce
 		it.todo(description)
+	}
+}
+
+/** Skip decorator */
+test.skip = (description: string, ...args: any[]) => {
+	return function(
+		target: any,
+		_propertyKey: string,
+		descriptor: PropertyDescriptor
+	) {
+		// Lets attach before/after
+		hookupTestClass(target)
+
+		const bound = descriptor.value.bind(target)
+
+		// Make sure each test gets the spruce
+		it.skip(description, async () => {
+			return bound(spruce.spruce(), ...args)
+		})
 	}
 }

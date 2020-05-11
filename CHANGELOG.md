@@ -1,3 +1,17 @@
+## [2.2.1](https://github.com/sprucelabsai/spruce-test/compare/v2.2.0...v2.2.1) (2020-05-07)
+
+
+### Bug Fixes
+
+* this scope on tests and add [@test](https://github.com/test).skip decorator ([5e33809](https://github.com/sprucelabsai/spruce-test/commit/5e33809))
+
+# [2.2.0](https://github.com/sprucelabsai/spruce-test/compare/v2.1.0...v2.2.0) (2020-05-06)
+
+
+### Features
+
+* statically bind static statically ([1a6b5d6](https://github.com/sprucelabsai/spruce-test/commit/1a6b5d6))
+
 # [2.1.0](https://github.com/sprucelabsai/spruce-test/compare/v2.0.0...v2.1.0) (2020-05-01)
 
 

@@ -10,6 +10,8 @@ let beforeEachCount = 0
 let afterEachCount = 0
 
 export default class BaseTestTest extends BaseTest {
+	public static staticallyAvailable = true
+
 	public static async beforeAll() {
 		isBeforeAllCalled = true
 	}
