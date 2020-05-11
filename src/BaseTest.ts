@@ -2,8 +2,13 @@ import path from 'path'
 
 /** Base test class chalk full of helpers to make testing more 🔥🔥🔥 */
 export default class BaseTest {
+	/** The current cwd */
+	protected static cwd: string
+
 	/** Override this method to execute code before all your tests */
-	protected static async beforeAll() {}
+	protected static async beforeAll() {
+		this.cwd = process.cwd()
+	}
 
 	/** Override this method to execute code after all your tests */
 	protected static async afterAll() {}
@@ -16,14 +21,12 @@ export default class BaseTest {
 
 	/** Resolve a local file relative to the test being run */
 	protected static resolvePath(...filePath: string[]) {
-		// Paths should be resolved relative to the test file vs the root of the project
-		const cache = require('module')._cache
-		const matchedModule = Object.keys(cache)
-			.map(key => cache[key])
-			.find(item => item?.exports === this || item?.exports?.default === this)
-
-		const base = path.dirname(matchedModule.filename)
+		const cwd = this.cwd
 		let builtPath = path.join(...filePath)
+
+		if (!cwd) {
+			throw new Error('You must call super.beforeAll().')
+		}
 
 		if (builtPath[0] !== '/') {
 			// Relative to the cwd
@@ -31,7 +34,7 @@ export default class BaseTest {
 				builtPath = builtPath.substr(1)
 			}
 
-			builtPath = path.join(base, builtPath)
+			builtPath = path.join(cwd, builtPath)
 		}
 
 		return builtPath
