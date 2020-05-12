@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/sprucelabsai/spruce-test/compare/v2.2.1...v2.3.0) (2020-05-11)
+
+
+### Features
+
+* cwd fix ([1ebe3d8](https://github.com/sprucelabsai/spruce-test/commit/1ebe3d8))
+
 ## [2.2.1](https://github.com/sprucelabsai/spruce-test/compare/v2.2.0...v2.2.1) (2020-05-07)
 
 
