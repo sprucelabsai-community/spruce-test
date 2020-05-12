@@ -1,3 +1,11 @@
+# [2.4.0](https://github.com/sprucelabsai/spruce-test/compare/v2.3.0...v2.4.0) (2020-05-12)
+
+
+### Features
+
+* link fix ([358ef3c](https://github.com/sprucelabsai/spruce-test/commit/358ef3c))
+* readme update ([7872ad3](https://github.com/sprucelabsai/spruce-test/commit/7872ad3))
+
 # [2.3.0](https://github.com/sprucelabsai/spruce-test/compare/v2.2.1...v2.3.0) (2020-05-11)
 
 
