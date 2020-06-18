@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/sprucelabsai/spruce-test/compare/v2.6.0...v2.7.0) (2020-06-18)
+
+
+### Features
+
+* rename ([44a8918](https://github.com/sprucelabsai/spruce-test/commit/44a8918))
+
 # [2.6.0](https://github.com/sprucelabsai/spruce-test/compare/v2.5.0...v2.6.0) (2020-05-13)
 
 
