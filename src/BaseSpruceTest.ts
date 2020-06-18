@@ -1,7 +1,7 @@
 import path from 'path'
 
 /** Base test class chalk full of helpers to make testing more 🔥🔥🔥 */
-export default class BaseTest {
+export default class BaseSpruceTest {
 	/** The current cwd */
 	protected static cwd: string
 

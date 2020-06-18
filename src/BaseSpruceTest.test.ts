@@ -1,4 +1,4 @@
-import BaseTest from './BaseTest'
+import BaseSpruceTest from './BaseSpruceTest'
 import test from './decorators'
 import assert from './assert'
 import faker from './faker'
@@ -9,7 +9,7 @@ let isBeforeAllCalled = false
 let beforeEachCount = 0
 let afterEachCount = 0
 
-export default class BaseTestTest extends BaseTest {
+export default class BaseTestTest extends BaseSpruceTest {
 	public static staticallyAvailable = true
 
 	public static async beforeAll() {
