@@ -1,3 +1,10 @@
+# [2.9.0](https://github.com/sprucelabsai/spruce-test/compare/v2.8.0...v2.9.0) (2020-06-21)
+
+
+### Features
+
+* actual string resolution ([fd77337](https://github.com/sprucelabsai/spruce-test/commit/fd77337))
+
 # [2.8.0](https://github.com/sprucelabsai/spruce-test/compare/v2.7.1...v2.8.0) (2020-06-21)
 
 
