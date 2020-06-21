@@ -8,17 +8,16 @@ import { expectType } from 'ts-expect'
  * */
 
 export interface ISpruceAssert
-	extends Omit<Chai.AssertStatic, 'throws' | 'isString'> {
+	extends Omit<Chai.AssertStatic, 'throws' | 'isString' | 'include'> {
 	expectType: typeof expectType
-	isString: (
-		value: any,
-		message?: string | undefined
-	) => asserts value is string
-	throws: (
+	include<T>(haystack: T, needle: Partial<T>, message?: string): void
+	include(haystack: string, needle: string, message?: string): void
+	isString(value: any, message?: string | undefined): asserts value is string
+	throws(
 		cb: () => any | Promise<any>,
 		matcher?: string | RegExp | undefined,
 		msg?: string | undefined
-	) => Promise<void>
+	): Promise<void>
 }
 
 const spruceAssert: ISpruceAssert = {

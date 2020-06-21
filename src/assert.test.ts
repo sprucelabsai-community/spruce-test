@@ -1,6 +1,7 @@
 import BaseSpruceTest from './BaseSpruceTest'
 import test from './decorators'
 import assert from './assert'
+import { ISpruce } from './Spruce'
 
 interface ICustomObj {
 	testStr: string
@@ -107,5 +108,33 @@ export default class AssertTest extends BaseSpruceTest {
 		})()
 		assert.isString(path)
 		assert.expectType<string>(path)
+	}
+
+	@test(
+		'include uses partial and matches simple',
+		{ hello: 'world', taco: 'bell' },
+		{ taco: 'bell' }
+	)
+	@test(
+		'include uses partial and matches deep',
+		{ hello: 'world', taco: 'bell', flavor: { cheese: true } },
+		{ taco: 'bell' }
+	)
+	protected static includeTests(spruce: ISpruce, haystack: any, needle: any) {
+		assert.include(haystack, needle)
+	}
+
+	@test('test that include types well with partial')
+	protected static includeTestsObjectLiteral() {
+		assert.include({ cheesy: 'burrito', hello: 'world' }, { cheesy: 'burrito' })
+		assert.include('hello world', 'hello')
+	}
+
+	@test('test that includeDeep types well with partial')
+	protected static includeDeepTestsObjectLiteral() {
+		assert.deepNestedInclude(
+			{ cheesy: 'burrito', hello: 'world', sub: { bar: 'foo' } },
+			{ 'sub.bar': 'foo' }
+		)
 	}
 }
