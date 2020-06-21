@@ -1,3 +1,10 @@
+# [2.10.0](https://github.com/sprucelabsai/spruce-test/compare/v2.9.0...v2.10.0) (2020-06-21)
+
+
+### Features
+
+* better typeing for include ([8b182ce](https://github.com/sprucelabsai/spruce-test/commit/8b182ce))
+
 # [2.9.0](https://github.com/sprucelabsai/spruce-test/compare/v2.8.0...v2.9.0) (2020-06-21)
 
 
