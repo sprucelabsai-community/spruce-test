@@ -102,7 +102,9 @@ export default class AssertTest extends BaseSpruceTest {
 
 	@test('asserts is string (test will pass, types will fail)')
 	protected static async assertIsString() {
-		const path: string | undefined = 'test'
+		const path = ((): string | undefined => {
+			return 'test'
+		})()
 		assert.isString(path)
 		assert.expectType<string>(path)
 	}

@@ -7,8 +7,13 @@ import { expectType } from 'ts-expect'
  * Extends the chai assert library: https://www.chaijs.com/api/assert/
  * */
 
-export interface ISpruceAssert extends Omit<Chai.AssertStatic, 'throws'> {
+export interface ISpruceAssert
+	extends Omit<Chai.AssertStatic, 'throws' | 'isString'> {
 	expectType: typeof expectType
+	isString: (
+		value: any,
+		message?: string | undefined
+	) => asserts value is string
 	throws: (
 		cb: () => any | Promise<any>,
 		matcher?: string | RegExp | undefined,
@@ -19,14 +24,10 @@ export interface ISpruceAssert extends Omit<Chai.AssertStatic, 'throws'> {
 const spruceAssert: ISpruceAssert = {
 	...assert,
 	expectType,
-	isString(value: any, message?: string | undefined): asserts value is string {
+	isString(value, message) {
 		assert.isString(value, message)
 	},
-	async throws(
-		cb: () => any | Promise<any>,
-		matcher?: string | RegExp | undefined,
-		msg?: string | undefined
-	): Promise<void> {
+	async throws(cb, matcher, msg) {
 		let pass = false
 		try {
 			await cb()
