@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/sprucelabsai/spruce-test/compare/v2.7.1...v2.8.0) (2020-06-21)
+
+
+### Features
+
+* string asserts type resolve ([457df1b](https://github.com/sprucelabsai/spruce-test/commit/457df1b))
+
 ## [2.7.1](https://github.com/sprucelabsai/spruce-test/compare/v2.7.0...v2.7.1) (2020-06-20)
 
 # [2.7.0](https://github.com/sprucelabsai/spruce-test/compare/v2.6.0...v2.7.0) (2020-06-18)
