@@ -49,8 +49,8 @@ export default class BaseTestTest extends BaseSpruceTest {
 
 	@test('called beforeEach and afterEach')
 	protected static async calledEach() {
-		assert.equal(beforeEachCount, 5)
-		assert.equal(afterEachCount, 4)
+		assert.equal(beforeEachCount, 4)
+		assert.equal(afterEachCount, 3)
 	}
 
 	@test('can create fake data')
