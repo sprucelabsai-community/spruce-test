@@ -12,7 +12,9 @@ export interface ISpruceAssert
 	expectType: typeof expectType
 	include<T>(haystack: T, needle: Partial<T>, message?: string): void
 	include(haystack: string, needle: string, message?: string): void
+	include(haystack: any, needle: string, message?: string): void
 	isString(value: any, message?: string | undefined): asserts value is string
+	hasAllFunctions(obj: any, functionNames: string[]): void
 	throws(
 		cb: () => any | Promise<any>,
 		matcher?: string | RegExp | undefined,
@@ -23,8 +25,14 @@ export interface ISpruceAssert
 const spruceAssert: ISpruceAssert = {
 	...assert,
 	expectType,
-	isString(value, message) {
-		assert.isString(value, message)
+	hasAllFunctions(obj, functionNames) {
+		functionNames.forEach(name => {
+			if (typeof obj[name] !== 'function') {
+				throw new AssertionError(
+					`A function named "${name}" does not exist on ${JSON.stringify(obj)}`
+				)
+			}
+		})
 	},
 	async throws(cb, matcher, msg) {
 		let pass = false

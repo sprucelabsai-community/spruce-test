@@ -137,4 +137,23 @@ export default class AssertTest extends BaseSpruceTest {
 			{ 'sub.bar': 'foo' }
 		)
 	}
+
+	@test()
+	protected static hasAllFunctionsAndPasses() {
+		const obj = { func1: () => {}, func2() {}, foo: 'bar' }
+		assert.hasAllFunctions(obj, ['func1', 'func2'])
+	}
+
+	@test()
+	protected static hasAllFunctionsAndFails() {
+		const obj = { func1: () => {}, func2() {}, foo: 'bar' }
+		let errorHit = false
+		try {
+			assert.hasAllFunctions(obj, ['func1', 'func3'])
+		} catch (err) {
+			errorHit = true
+			assert.include(err.message, 'func3')
+		}
+		assert.isTrue(errorHit)
+	}
 }

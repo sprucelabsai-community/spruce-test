@@ -1,5 +1,3 @@
-import { spruce } from './Spruce'
-
 /** Hooks up before, after, etc. */
 function hookupTestClass(target: any) {
 	if (target.__isHookedUp) {
@@ -16,13 +14,13 @@ function hookupTestClass(target: any) {
 		// @ts-ignore
 		if (global[hook]) {
 			// @ts-ignore
-			global[hook](async () => target[hook](spruce.spruce()))
+			global[hook](async () => target[hook]())
 		}
 	})
 }
 
 /** Test decorator */
-export default function test(description: string, ...args: any[]) {
+export default function test(description?: string, ...args: any[]) {
 	return function(
 		target: any,
 		propertyKey: string,
@@ -34,14 +32,14 @@ export default function test(description: string, ...args: any[]) {
 		const bound = descriptor.value.bind(target)
 
 		// Make sure each test gets the spruce
-		it(description, async () => {
-			return bound(spruce.spruce(), ...args)
+		it(description ?? propertyKey, async () => {
+			return bound(...args)
 		})
 	}
 }
 
 /** Only decorator */
-test.only = (description: string, ...args: any[]) => {
+test.only = (description?: string, ...args: any[]) => {
 	return function(
 		target: any,
 		propertyKey: string,
@@ -53,52 +51,28 @@ test.only = (description: string, ...args: any[]) => {
 		const bound = descriptor.value.bind(target)
 
 		// Make sure each test gets the spruce
-		it.only(description, async () => {
-			return bound(spruce.spruce(), ...args)
-		})
-	}
-}
-
-// Nothing special needed. With jest, tests in the same file will run sequentially already
-/** Serial decorator */
-test.serial = (description: string, ...args: any[]) => {
-	return function(
-		target: any,
-		propertyKey: string,
-		descriptor: PropertyDescriptor
-	) {
-		// Lets attach before/after
-		hookupTestClass(target)
-
-		const bound = descriptor.value.bind(target)
-
-		// Make sure each test gets the spruce
-		it(description, async () => {
-			return bound(spruce.spruce(), ...args)
+		it.only(description ?? propertyKey, async () => {
+			return bound(...args)
 		})
 	}
 }
 
 /** Todo decorator */
-test.todo = (description: string, ..._args: any[]) => {
-	return function(
-		target: any,
-		_propertyKey: string,
-		_descriptor: PropertyDescriptor
-	) {
+test.todo = (description?: string, ..._args: any[]) => {
+	return function(target: any, propertyKey: string) {
 		// Lets attach before/after
 		hookupTestClass(target)
 
 		// Make sure each test gets the spruce
-		it.todo(description)
+		it.todo(description ?? propertyKey)
 	}
 }
 
 /** Skip decorator */
-test.skip = (description: string, ...args: any[]) => {
+test.skip = (description?: string, ...args: any[]) => {
 	return function(
 		target: any,
-		_propertyKey: string,
+		propertyKey: string,
 		descriptor: PropertyDescriptor
 	) {
 		// Lets attach before/after
@@ -107,8 +81,8 @@ test.skip = (description: string, ...args: any[]) => {
 		const bound = descriptor.value.bind(target)
 
 		// Make sure each test gets the spruce
-		it.skip(description, async () => {
-			return bound(spruce.spruce(), ...args)
+		it.skip(description ?? propertyKey, async () => {
+			return bound(...args)
 		})
 	}
 }
