@@ -1,4 +1,3 @@
-export * from './src/Spruce'
 import BaseSpruceTest from './src/BaseSpruceTest'
 export { default as assert } from './src/assert'
 export * from './src/assert'

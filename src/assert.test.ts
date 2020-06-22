@@ -1,7 +1,6 @@
 import BaseSpruceTest from './BaseSpruceTest'
 import test from './decorators'
 import assert from './assert'
-import { ISpruce } from './Spruce'
 
 interface ICustomObj {
 	testStr: string
@@ -120,7 +119,7 @@ export default class AssertTest extends BaseSpruceTest {
 		{ hello: 'world', taco: 'bell', flavor: { cheese: true } },
 		{ taco: 'bell' }
 	)
-	protected static includeTests(spruce: ISpruce, haystack: any, needle: any) {
+	protected static includeTests(haystack: any, needle: any) {
 		assert.include(haystack, needle)
 	}
 

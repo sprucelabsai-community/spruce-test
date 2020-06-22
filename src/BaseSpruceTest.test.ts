@@ -2,7 +2,6 @@ import BaseSpruceTest from './BaseSpruceTest'
 import test from './decorators'
 import assert from './assert'
 import faker from './faker'
-import { ISpruce } from './Spruce'
 
 let isBeforeAllCalled = false
 
@@ -32,12 +31,6 @@ export default class BaseTestTest extends BaseSpruceTest {
 		assert.isTrue(isBeforeAllCalled)
 	}
 
-	@test('can access Spruce IoC container')
-	protected static async canAccessSpruce(spruce: ISpruce) {
-		assert.isOk(spruce, 'Failed to load Spruce')
-		assert.isOk(spruce.mercury, 'Mercury missing from Spruce')
-	}
-
 	@test('should pass basic asserts')
 	protected static async shouldPass() {
 		assert.isTrue(true)
@@ -47,7 +40,6 @@ export default class BaseTestTest extends BaseSpruceTest {
 
 	@test('can pass variables to test handler from decorator', 'hello', 'world')
 	protected static async canAccessVarsFromDecorator(
-		spruce: ISpruce,
 		hello: string,
 		world: string
 	) {
