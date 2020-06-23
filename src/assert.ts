@@ -1,6 +1,14 @@
 import { assert, AssertionError } from 'chai'
 import { expectType } from 'ts-expect'
 
+type RecursivePartial<T> = {
+	[P in keyof T]?: T[P] extends (infer U)[]
+		? RecursivePartial<U>[]
+		: T[P] extends object
+		? RecursivePartial<T[P]>
+		: T[P]
+}
+
 /**
  * 🌲🤖 Assert things in tests
  *
@@ -10,7 +18,7 @@ import { expectType } from 'ts-expect'
 export interface ISpruceAssert
 	extends Omit<Chai.AssertStatic, 'throws' | 'isString' | 'include'> {
 	expectType: typeof expectType
-	include<T>(haystack: T, needle: Partial<T>, message?: string): void
+	include<T>(haystack: T, needle: RecursivePartial<T>, message?: string): void
 	include(haystack: string, needle: string, message?: string): void
 	include(haystack: any, needle: string, message?: string): void
 	isString(value: any, message?: string | undefined): asserts value is string
