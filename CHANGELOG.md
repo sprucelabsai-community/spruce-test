@@ -1,3 +1,16 @@
+# [3.0.0](https://github.com/sprucelabsai/spruce-test/compare/v2.10.0...v3.0.0) (2020-06-22)
+
+
+### Breaking Changes
+
+* removed spruce ioc ([af207de](https://github.com/sprucelabsai/spruce-test/commit/af207de))
+
+
+### Features
+
+* removal of IOC ([4c67241](https://github.com/sprucelabsai/spruce-test/commit/4c67241))
+* test fixes ([7dbf007](https://github.com/sprucelabsai/spruce-test/commit/7dbf007))
+
 # [2.10.0](https://github.com/sprucelabsai/spruce-test/compare/v2.9.0...v2.10.0) (2020-06-21)
 
 
