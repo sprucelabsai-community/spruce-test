@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/sprucelabsai/spruce-test/compare/v3.0.1...v3.1.0) (2020-06-24)
+
+
+### Features
+
+* throw returns error ([3afa38b](https://github.com/sprucelabsai/spruce-test/commit/3afa38b))
+
 ## [3.0.1](https://github.com/sprucelabsai/spruce-test/compare/v3.0.0...v3.0.1) (2020-06-23)
 
 # [3.0.0](https://github.com/sprucelabsai/spruce-test/compare/v2.10.0...v3.0.0) (2020-06-22)
