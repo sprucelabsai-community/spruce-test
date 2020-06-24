@@ -1,3 +1,10 @@
+# [4.0.0](https://github.com/sprucelabsai/spruce-test/compare/v3.1.0...v4.0.0) (2020-06-24)
+
+
+### Breaking Changes
+
+* isEqualTests ([d70ec76](https://github.com/sprucelabsai/spruce-test/commit/d70ec76))
+
 # [3.1.0](https://github.com/sprucelabsai/spruce-test/compare/v3.0.1...v3.1.0) (2020-06-24)
 
 
