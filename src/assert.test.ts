@@ -72,11 +72,20 @@ export default class AssertTest extends BaseSpruceTest {
 		assert.isTrue(errorThrown)
 	}
 
-	@test('matches error on regex match')
-	protected static async canMatchErrorByRegex() {
+	@test()
+	protected static async throwMatchesErrorByRegex() {
 		await assert.throws(async () => {
 			throw new Error('Match on string')
 		}, /on STRING/i)
+	}
+
+	@test()
+	protected static async throwReturnsTheError() {
+		const err = await assert.throws(async () => {
+			throw new Error('Match on string')
+		})
+
+		assert.equal(err.message, 'Match on string')
 	}
 
 	@test('does not matches error on bad regex match')

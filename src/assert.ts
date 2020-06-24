@@ -27,7 +27,7 @@ export interface ISpruceAssert
 		cb: () => any | Promise<any>,
 		matcher?: string | RegExp | undefined,
 		msg?: string | undefined
-	): Promise<void>
+	): Promise<Error>
 }
 
 const spruceAssert: ISpruceAssert = {
@@ -43,7 +43,6 @@ const spruceAssert: ISpruceAssert = {
 		})
 	},
 	async throws(cb, matcher, msg) {
-		let pass = false
 		try {
 			await cb()
 		} catch (err) {
@@ -59,12 +58,10 @@ const spruceAssert: ISpruceAssert = {
 						`Function expected to return error whose message matches the regex "${matcher}", but got back ${message}.`
 				)
 			} else {
-				pass = true
+				return err
 			}
 		}
-		if (!pass) {
-			throw new AssertionError('Function expected to throw error, but did not.')
-		}
+		throw new AssertionError('Function expected to throw error, but did not.')
 	}
 }
 
