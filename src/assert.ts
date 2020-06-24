@@ -16,13 +16,18 @@ type RecursivePartial<T> = {
  * */
 
 export interface ISpruceAssert
-	extends Omit<Chai.AssertStatic, 'throws' | 'isString' | 'include'> {
-	expectType: typeof expectType
+	extends Omit<
+		Chai.AssertStatic,
+		'throws' | 'isString' | 'include' | 'equal' | 'isEqual'
+	> {
+	isType: typeof expectType
+	isEqual: Chai.AssertStatic['strictEqual']
 	include<T>(haystack: T, needle: RecursivePartial<T>, message?: string): void
 	include(haystack: string, needle: string, message?: string): void
 	include(haystack: any, needle: string, message?: string): void
 	isString(value: any, message?: string | undefined): asserts value is string
 	hasAllFunctions(obj: any, functionNames: string[]): void
+	isOk<T>(value: T, message?: string): asserts value is NonNullable<T>
 	throws(
 		cb: () => any | Promise<any>,
 		matcher?: string | RegExp | undefined,
@@ -32,7 +37,8 @@ export interface ISpruceAssert
 
 const spruceAssert: ISpruceAssert = {
 	...assert,
-	expectType,
+	isEqual: assert.strictEqual,
+	isType: expectType,
 	hasAllFunctions(obj, functionNames) {
 		functionNames.forEach(name => {
 			if (typeof obj[name] !== 'function') {

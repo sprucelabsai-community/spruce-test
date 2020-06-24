@@ -1,4 +1,4 @@
-import BaseSpruceTest from './BaseSpruceTest'
+import AbstractSpruceTest from './AbstractSpruceTest'
 import test from './decorators'
 import assert from './assert'
 
@@ -6,17 +6,17 @@ interface ICustomObj {
 	testStr: string
 }
 
-export default class AssertTest extends BaseSpruceTest {
+export default class AssertTest extends AbstractSpruceTest {
 	@test('can assert types')
 	protected static async doesCallBeforeAll() {
-		assert.expectType<string>('string')
-		assert.expectType<number>(123)
+		assert.isType<string>('string')
+		assert.isType<number>(123)
 
 		const myCustomObj: ICustomObj = {
 			testStr: 'blah'
 		}
 
-		assert.expectType<ICustomObj>(myCustomObj)
+		assert.isType<ICustomObj>(myCustomObj)
 	}
 
 	@test('can handle async throws')
@@ -85,7 +85,7 @@ export default class AssertTest extends BaseSpruceTest {
 			throw new Error('Match on string')
 		})
 
-		assert.equal(err.message, 'Match on string')
+		assert.isEqual(err.message, 'Match on string')
 	}
 
 	@test('does not matches error on bad regex match')
@@ -115,7 +115,7 @@ export default class AssertTest extends BaseSpruceTest {
 			return 'test'
 		})()
 		assert.isString(path)
-		assert.expectType<string>(path)
+		assert.isType<string>(path)
 	}
 
 	@test(
@@ -163,5 +163,17 @@ export default class AssertTest extends BaseSpruceTest {
 			assert.include(err.message, 'func3')
 		}
 		assert.isTrue(errorHit)
+	}
+
+	@test()
+	protected static isOkAssertsAnObject() {
+		const run = (): string | undefined => {
+			return 'test'
+		}
+
+		const value = run()
+		assert.isOk(value)
+
+		assert.isType<string>(value)
 	}
 }
