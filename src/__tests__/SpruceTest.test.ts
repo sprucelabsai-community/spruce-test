@@ -1,7 +1,6 @@
-import AbstractSpruceTest from './AbstractSpruceTest'
-import test from './decorators'
-import assert from './assert'
-import faker from './faker'
+import AbstractSpruceTest from '../AbstractSpruceTest'
+import test from '../decorators'
+import assert from '../assert'
 
 let isBeforeAllCalled = false
 
@@ -26,13 +25,13 @@ export default class SpruceTest extends AbstractSpruceTest {
 		afterEachCount += 1
 	}
 
-	@test('calls beforeAll')
+	@test()
 	protected static async doesCallBeforeAll() {
 		assert.isTrue(isBeforeAllCalled)
 	}
 
-	@test('should pass basic asserts')
-	protected static async shouldPass() {
+	@test()
+	protected static async basicPassingTest() {
 		assert.isTrue(true)
 		assert.isFalse(false)
 		assert.isEqual(5, 5, `Thing's don't equal`)
@@ -47,19 +46,14 @@ export default class SpruceTest extends AbstractSpruceTest {
 		assert.isEqual(world, 'world')
 	}
 
-	@test('called beforeEach and afterEach')
-	protected static async calledEach() {
+	@test()
+	protected static async calledBeforeAndAfterEach() {
 		assert.isEqual(beforeEachCount, 4)
 		assert.isEqual(afterEachCount, 3)
 	}
 
-	@test('can create fake data')
-	protected static async fakeData() {
-		assert.isString(faker.name.firstName())
-	}
-
 	@test()
-	protected static async asyncDebuggerDoesntJumpToBfe() {
+	protected static async asyncDebuggerWaits() {
 		console.log('before')
 		const results = await this.wait(1000)
 		assert.isTrue(results)

@@ -1,9 +1,15 @@
 import path from 'path'
 
+export interface ITestPlugin {
+	afterAll?: () => void
+}
+
 /** Base test class chalk full of helpers to make testing more 🔥🔥🔥 */
 export default class AbstractSpruceTest {
 	/** The current cwd */
 	protected static cwd: string
+
+	private static plugins: ITestPlugin[] = []
 
 	/** Override this method to execute code before all your tests */
 	protected static async beforeAll() {
@@ -11,7 +17,9 @@ export default class AbstractSpruceTest {
 	}
 
 	/** Override this method to execute code after all your tests */
-	protected static async afterAll() {}
+	protected static async afterAll() {
+		this.plugins.forEach(plugin => plugin.afterAll?.())
+	}
 
 	/** Override this method to execute code before each of your tests run */
 	protected static async beforeEach() {}
@@ -39,10 +47,20 @@ export default class AbstractSpruceTest {
 
 		return builtPath
 	}
+
 	/** Hold for a sec  */
 	protected static async wait(ms = 1000) {
 		return new Promise(resolve => {
 			setTimeout(() => resolve(true), ms)
 		})
+	}
+
+	/** Plugins can listen in to all hooks and tests and do whatever else they need */
+	protected static addPlugin(plugin: ITestPlugin) {
+		this.plugins.push(plugin)
+	}
+
+	protected static async clearPlugins() {
+		this.plugins = []
 	}
 }
