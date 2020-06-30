@@ -29,10 +29,12 @@
 		"test": "jest",
 		"test.watch": "jest --watch",
 		"release": "semantic-release",
-		"local": "node --inspect=5200 ./build/index.js"
+		"local": "node --inspect=5200 ./build/index.js",
+		"arkit": "arkit -f index.ts -o arkit.svg"
 	},
 	"devDependencies": {
 		"@sprucelabs/semantic-release": "^3.0.4",
+		"arkit": "^1.6.4",
 		"chokidar-cli": "^2.1.0",
 		"concurrently": "^5.0.2",
 		"eslint": "^5",
