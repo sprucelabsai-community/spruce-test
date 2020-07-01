@@ -34,6 +34,7 @@
 	},
 	"devDependencies": {
 		"@sprucelabs/semantic-release": "^3.0.4",
+		"@types/deep-equal": "^1.0.1",
 		"@types/lodash": "^4.14.157",
 		"arkit": "^1.6.4",
 		"chokidar-cli": "^2.1.0",
@@ -51,6 +52,7 @@
 		"@types/faker": "^4.1.11",
 		"@types/jest": "^25.2.1",
 		"babel-jest": "^25.4.0",
+		"deep-equal": "^2.0.3",
 		"faker": "^4.1.0",
 		"jest": "^25.4.0",
 		"lodash": "^4.17.15",

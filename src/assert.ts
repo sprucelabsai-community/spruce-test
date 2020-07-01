@@ -1,3 +1,4 @@
+import deepEqual from 'deep-equal'
 import { isObjectLike, includes, get } from 'lodash'
 import { expectType } from 'ts-expect'
 import AssertionError from './AssertionError'
@@ -9,6 +10,7 @@ export interface ISpruceAssert {
 	isType: typeof expectType
 	areSameType<T extends any>(actual: T, expected: T): void
 	isEqual<T extends any>(actual: T, expected: T, message?: string): void
+	isEqualDeep<T extends any>(actual: T, expected: T, message?: string): void
 	isAbove<T extends any>(actual: T, floor: T, message?: string): void
 	isBelow<T>(actual: T, ceiling: T, message?: string): void
 	/* Not false, undefined, or null */
@@ -142,6 +144,16 @@ const spruceAssert: ISpruceAssert = {
 			throw new AssertionError(
 				message ??
 					`${JSON.stringify(actual)} does not equal ${JSON.stringify(expected)}`
+			)
+		}
+	},
+	isEqualDeep(actual, expected, message) {
+		if (!deepEqual(actual, expected)) {
+			throw new AssertionError(
+				message ??
+					`${JSON.stringify(actual)} does not deep equal(${JSON.stringify(
+						expected
+					)})`
 			)
 		}
 	},

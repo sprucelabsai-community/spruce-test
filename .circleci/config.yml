@@ -48,10 +48,6 @@ workflows:
     jobs:
       - test:
           context: public_package_publish
-          filters:
-            branches:
-              ignore:
-                - master
       - do_release:
           requires:
             - test
@@ -59,10 +55,7 @@ workflows:
           filters:
             branches:
               only:
-                - alpha
-                - qa
-                - dev
-                - /prerelease-.*/
+                - master
       - tag_latest:
           context: public_package_publish
           filters:
