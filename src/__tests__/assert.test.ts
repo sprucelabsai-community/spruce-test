@@ -1,6 +1,7 @@
 import AbstractSpruceTest from '../AbstractSpruceTest'
-import test from '../decorators'
 import assert from '../assert'
+import test from '../decorators'
+
 interface ICustomObj {
 	testStr: string
 }
