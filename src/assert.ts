@@ -3,78 +3,6 @@ import AssertionError from './AssertionError'
 import { isObjectLike, includes, get } from 'lodash'
 import { assert } from '..'
 
-type RecursivePartial<T> = {
-	[P in keyof T]?: T[P] extends (infer U)[]
-		? RecursivePartial<U>[]
-		: T[P] extends object
-		? RecursivePartial<T[P]>
-		: T[P]
-}
-
-function assertTypeof(actual: any, type: string, message: string | undefined) {
-	if (typeof actual !== type) {
-		throw new AssertionError(
-			message ?? `${JSON.stringify(actual)} is not a ${type}`
-		)
-	}
-}
-
-function checkDoesThrowError(
-	matcher: string | RegExp | undefined,
-	message: string,
-	msg: string | undefined
-) {
-	if (typeof matcher === 'string' && message.search(matcher) === -1) {
-		throw new AssertionError(
-			msg ??
-				`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`,
-			{
-				expected: matcher,
-				actual: message
-			}
-		)
-	} else if (matcher instanceof RegExp && message.search(matcher) === -1) {
-		throw new AssertionError(
-			msg ??
-				`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`,
-			{
-				actual: message,
-				expected: matcher
-			}
-		)
-	}
-}
-
-function partialContains(object: any, subObject: any) {
-	// Create arrays of property names
-	const objProps = object ? Object.getOwnPropertyNames(object) : []
-	const subProps = subObject ? Object.getOwnPropertyNames(subObject) : []
-
-	if (objProps.length == 0 || subProps.length === 0) {
-		return
-	}
-
-	if (subProps.length > objProps.length) {
-		return false
-	}
-
-	for (const subProp of subProps) {
-		if (!object.hasOwnProperty(subProp)) {
-			return false
-		}
-
-		if (object[subProp] !== subObject[subProp]) {
-			return false
-		}
-	}
-
-	return true
-}
-
-function valueAtPath(object: Record<string, any>, path: string) {
-	return get(object, path)
-}
-
 /**
  * 🌲🤖 Assert things in tests ⚡️
  * */
@@ -112,6 +40,107 @@ export interface ISpruceAssert {
 		matcher?: string | RegExp | undefined,
 		msg?: string | undefined
 	): Promise<Error>
+}
+
+type RecursivePartial<T> = {
+	[P in keyof T]?: T[P] extends (infer U)[]
+		? RecursivePartial<U>[]
+		: T[P] extends object
+		? RecursivePartial<T[P]>
+		: T[P]
+}
+
+function doHaystacksIncludeWithoutAsserting(
+	haystacks: any[],
+	needle: any,
+	doesInclude: ISpruceAssert['doesInclude']
+) {
+	return haystacks.find(haystack => {
+		try {
+			doesInclude(haystack, needle)
+			return true
+		} catch {
+			return false
+		}
+	})
+}
+
+function assertTypeof(actual: any, type: string, message: string | undefined) {
+	if (typeof actual !== type) {
+		throw new AssertionError(
+			message ?? `${JSON.stringify(actual)} is not a ${type}`
+		)
+	}
+}
+
+function checkDoesThrowError(
+	matcher: string | RegExp | undefined,
+	message: string,
+	msg: string | undefined
+) {
+	if (typeof matcher === 'string' && message.search(matcher) === -1) {
+		throw new AssertionError(
+			msg ??
+				`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`,
+			{
+				expected: matcher,
+				actual: message
+			}
+		)
+	} else if (matcher instanceof RegExp && message.search(matcher) === -1) {
+		throw new AssertionError(
+			msg ??
+				`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`,
+			{
+				actual: message,
+				expected: matcher
+			}
+		)
+	}
+}
+
+function partialContains(object: any, subObject: any) {
+	const objProps = object ? Object.getOwnPropertyNames(object) : []
+	const subProps = subObject ? Object.getOwnPropertyNames(subObject) : []
+
+	if (objProps.length == 0 || subProps.length === 0) {
+		return
+	}
+
+	if (subProps.length > objProps.length) {
+		return false
+	}
+
+	for (const subProp of subProps) {
+		if (!object.hasOwnProperty(subProp)) {
+			return false
+		}
+
+		if (object[subProp] !== subObject[subProp]) {
+			return false
+		}
+	}
+
+	return true
+}
+
+function valueAtPath(object: Record<string, any>, path: string) {
+	return get(object, path)
+}
+
+function parseIncludeNeedle(needle: any) {
+	const path = Object.keys(needle)[0]
+	const expected = needle[path]
+	const needleHasArrayNotation = path.search(/\[\]\./) > -1
+	return { needleHasArrayNotation, path, expected }
+}
+
+function splitPathBasedOnArrayNotation(path: string, haystack: any) {
+	const pathParts = path.split('[].')
+	const pathToFirstArray = pathParts.shift() ?? ''
+	const pathAfterFirstArray = pathParts.join('[].')
+	const actualBeforeArray = valueAtPath(haystack, pathToFirstArray)
+	return { actualBeforeArray, pathAfterFirstArray }
 }
 
 const spruceAssert: ISpruceAssert = {
@@ -164,49 +193,70 @@ const spruceAssert: ISpruceAssert = {
 			message ??
 			`${JSON.stringify(haystack)} does not include ${JSON.stringify(needle)}`
 
-		if (typeof haystack === 'string' && haystack.search(needle) === -1) {
-			throw new AssertionError(msg)
-		} else if (
-			isObjectLike(haystack) &&
-			!includes(haystack, needle) &&
-			!partialContains(haystack, needle)
-		) {
-			if (isObjectLike(needle)) {
-				const path = Object.keys(needle)[0]
-				const expected = needle[path]
+		const isHaystackObject = isObjectLike(haystack)
+		const { needleHasArrayNotation, path, expected } = parseIncludeNeedle(
+			needle
+		)
 
-				if (path.search(/\[\]\./) > -1) {
-					const pathParts = path.split('[].')
-					const pathToArray = pathParts.shift() ?? ''
-					const pathAfterArray = pathParts.join('[].')
-					const actualBeforeArray = valueAtPath(haystack, pathToArray)
+		if (Array.isArray(haystack)) {
+			let cleanedNeedle = needle
+			if (path.substr(0, 3) === '[].') {
+				cleanedNeedle = { [path.substr(3)]: expected }
+			}
 
-					if (!Array.isArray(actualBeforeArray)) {
-						throw new AssertionError(msg)
-					}
+			const found = doHaystacksIncludeWithoutAsserting(
+				haystack,
+				cleanedNeedle,
+				this.doesInclude.bind(this)
+			)
 
-					const match = actualBeforeArray.find(item => {
-						try {
-							debugger
-							this.doesInclude(item, { [pathAfterArray]: expected }, message)
-							return true
-						} catch {
-							debugger
-							return false
-						}
-					})
-
-					if (!match) {
-						throw new AssertionError(msg)
-					}
-				} else {
-					const actual = valueAtPath(haystack, path)
-					assert.isEqual(expected, actual, msg)
-				}
-			} else {
-				throw new AssertionError(msg)
+			if (found) {
+				return
 			}
 		}
+
+		if (typeof haystack === 'string' && haystack.search(needle) > -1) {
+			return
+		}
+
+		if (isHaystackObject && includes(haystack, needle)) {
+			return
+		}
+
+		if (isHaystackObject && partialContains(haystack, needle)) {
+			return
+		}
+
+		if (isHaystackObject && isObjectLike(needle) && !needleHasArrayNotation) {
+			const actual = valueAtPath(haystack, path)
+			assert.isEqual(expected, actual, msg)
+			return
+		}
+
+		if (isHaystackObject && isObjectLike(needle)) {
+			const {
+				actualBeforeArray,
+				pathAfterFirstArray
+			} = splitPathBasedOnArrayNotation(path, haystack)
+
+			if (!Array.isArray(actualBeforeArray)) {
+				throw new AssertionError(msg)
+			}
+
+			const found = doHaystacksIncludeWithoutAsserting(
+				actualBeforeArray,
+				{
+					[pathAfterFirstArray]: expected
+				},
+				this.doesInclude.bind(this)
+			)
+
+			if (found) {
+				return
+			}
+		}
+
+		throw new AssertionError(msg)
 	},
 	hasAllFunctions(obj, functionNames) {
 		functionNames.forEach(name => {

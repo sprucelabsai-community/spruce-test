@@ -208,6 +208,16 @@ export default class AssertTest extends AbstractSpruceTest {
 		},
 		{ 'flavors[].toppings[].meat': true }
 	)
+	@test(
+		'include can search array without index',
+		[{ cheese: true }, { meat: true }],
+		{ meat: true }
+	)
+	@test(
+		'include can search array without index',
+		[{ cheese: true }, { meat: true }],
+		{ '[].meat': true }
+	)
 	protected static includeTests(haystack: any, needle: any) {
 		assert.doesInclude(haystack, needle)
 	}
