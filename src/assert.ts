@@ -80,20 +80,12 @@ function checkDoesThrowError(
 	if (typeof matcher === 'string' && message.search(matcher) === -1) {
 		throw new AssertionError(
 			msg ??
-				`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`,
-			{
-				expected: matcher,
-				actual: message
-			}
+				`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`
 		)
 	} else if (matcher instanceof RegExp && message.search(matcher) === -1) {
 		throw new AssertionError(
 			msg ??
-				`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`,
-			{
-				actual: message,
-				expected: matcher
-			}
+				`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`
 		)
 	}
 }
@@ -277,10 +269,7 @@ const spruceAssert: ISpruceAssert = {
 			return err
 		}
 
-		throw new AssertionError('Expected a thrown error, but never got one!', {
-			actual: undefined,
-			expected: new Error()
-		})
+		throw new AssertionError('Expected a thrown error, but never got one!')
 	},
 
 	async doesThrowAsync(cb, matcher, msg) {
@@ -293,10 +282,7 @@ const spruceAssert: ISpruceAssert = {
 			return err
 		}
 
-		throw new AssertionError('Expected a thrown error, but never got one!', {
-			actual: undefined,
-			expected: new Error()
-		})
+		throw new AssertionError('Expected a thrown error, but never got one!')
 	}
 }
 
