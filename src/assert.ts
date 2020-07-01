@@ -1,7 +1,6 @@
 import { expectType } from 'ts-expect'
 import AssertionError from './AssertionError'
 import { isObjectLike, includes, get } from 'lodash'
-import { assert } from '..'
 
 /**
  * 🌲🤖 Assert things in tests ⚡️
@@ -229,7 +228,7 @@ const spruceAssert: ISpruceAssert = {
 
 		if (isHaystackObject && isObjectLike(needle) && !needleHasArrayNotation) {
 			const actual = valueAtPath(haystack, path)
-			assert.isEqual(expected, actual, msg)
+			this.isEqual(expected, actual, msg)
 			return
 		}
 

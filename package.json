@@ -30,7 +30,7 @@
 		"test.watch": "jest --watch",
 		"release": "semantic-release",
 		"local": "node --inspect=5200 ./build/index.js",
-		"arkit": "arkit -f index.ts -o arkit.svg"
+		"arkit": "arkit -f index.ts -o docs/images/arkit.svg"
 	},
 	"devDependencies": {
 		"@sprucelabs/semantic-release": "^3.0.4",
