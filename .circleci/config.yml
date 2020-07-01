@@ -59,7 +59,10 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - alpha
+                - qa
+                - dev
+                - /prerelease-.*/
       - tag_latest:
           context: public_package_publish
           filters:
