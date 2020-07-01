@@ -1,7 +1,7 @@
 <img src="https://raw.githubusercontent.com/sprucelabsai/spruce-test/master/docs/images/hero.jpg">
 
 <h1 align="center">
-Spruce XP Documentation
+Spruce XP Documentation Update!
 </h1>
 <h3 align="center">Spruce XP is an Experience Platform built to create unforgettable experiences and long-lasting relationships.
 </h3>
