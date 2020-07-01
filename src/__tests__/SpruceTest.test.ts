@@ -2,19 +2,14 @@ import AbstractSpruceTest from '../AbstractSpruceTest'
 import test from '../decorators'
 import assert from '../assert'
 
-let isBeforeAllCalled = false
+let beforeAllCount = 0
 
 let beforeEachCount = 0
 let afterEachCount = 0
 
 export default class SpruceTest extends AbstractSpruceTest {
-	protected static didSerial1Start = false
-	protected static didSerial1Finish = false
-	protected static didSerial2Finish = false
-	protected static didSerial2Start = false
-
 	protected static async beforeAll() {
-		isBeforeAllCalled = true
+		beforeAllCount += 1
 	}
 
 	protected static async beforeEach() {
@@ -27,7 +22,7 @@ export default class SpruceTest extends AbstractSpruceTest {
 
 	@test()
 	protected static async doesCallBeforeAll() {
-		assert.isTrue(isBeforeAllCalled)
+		assert.isEqual(beforeAllCount, 1)
 	}
 
 	@test()
@@ -54,9 +49,8 @@ export default class SpruceTest extends AbstractSpruceTest {
 
 	@test()
 	protected static async asyncDebuggerWaits() {
-		console.log('before')
 		const results = await this.wait(1000)
-		assert.isTrue(results)
+		assert.isOk(results)
 	}
 
 	@test.todo('can create a TODO test')

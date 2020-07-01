@@ -33,6 +33,7 @@
 	},
 	"devDependencies": {
 		"@sprucelabs/semantic-release": "^3.0.4",
+		"@types/lodash": "^4.14.157",
 		"chokidar-cli": "^2.1.0",
 		"concurrently": "^5.0.2",
 		"eslint": "^5",
@@ -48,9 +49,9 @@
 		"@types/faker": "^4.1.11",
 		"@types/jest": "^25.2.1",
 		"babel-jest": "^25.4.0",
-		"chai": "^4.2.0",
 		"faker": "^4.1.0",
 		"jest": "^25.4.0",
+		"lodash": "^4.17.15",
 		"ts-expect": "^1.1.0",
 		"ts-jest": "^25.4.0"
 	},
