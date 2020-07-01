@@ -57,7 +57,7 @@ workflows:
               only:
                 - master
       - tag_latest:
-					requires:
+          requires:
             - do_release
           context: public_package_publish
           filters:
