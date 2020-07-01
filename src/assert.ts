@@ -1,6 +1,6 @@
+import { isObjectLike, includes, get } from 'lodash'
 import { expectType } from 'ts-expect'
 import AssertionError from './AssertionError'
-import { isObjectLike, includes, get } from 'lodash'
 
 /**
  * 🌲🤖 Assert things in tests ⚡️

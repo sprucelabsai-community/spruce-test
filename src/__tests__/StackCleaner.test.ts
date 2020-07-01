@@ -1,6 +1,6 @@
-import test from '../decorators'
-import assert from '../assert'
 import AbstractSpruceTest from '../AbstractSpruceTest'
+import assert from '../assert'
+import test from '../decorators'
 import StackCleaner from '../StackCleaner'
 
 export default class ErrorStackTest extends AbstractSpruceTest {
