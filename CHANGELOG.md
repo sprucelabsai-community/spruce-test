@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/sprucelabsai/spruce-test/compare/v5.0.0...v5.1.0) (2020-07-01)
+
+
+### Features
+
+* deep equal ([3249948](https://github.com/sprucelabsai/spruce-test/commit/3249948))
+
 # [5.0.0](https://github.com/sprucelabsai/spruce-test/compare/v4.0.3...v5.0.0) (2020-07-01)
 
 
