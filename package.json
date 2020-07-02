@@ -6,7 +6,7 @@
 	"files": [
 		"build"
 	],
-	"version": "5.1.0",
+	"version": "5.1.1",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
 	"description": "Testing made 🔥🔥🔥 in the Spruce Experience Platform",
