@@ -33,7 +33,7 @@
 		"arkit": "arkit -f index.ts -o docs/images/arkit.svg"
 	},
 	"devDependencies": {
-		"@sprucelabs/semantic-release": "^3.0.4",
+		"@sprucelabs/semantic-release": "^4.0.4",
 		"@types/deep-equal": "^1.0.1",
 		"@types/lodash": "^4.14.157",
 		"arkit": "^1.6.4",
