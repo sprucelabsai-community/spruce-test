@@ -234,6 +234,20 @@ export default class AssertTest extends AbstractSpruceTest {
 			() => assert.doesInclude({ hello: 'world' }, 'taco'),
 			/does not include "taco"/
 		)
+
+		assert.doesThrow(
+			() =>
+				assert.doesInclude(
+					{
+						flavors: [
+							{ size: 'large', toppings: [{ meat: true }, { cheese: true }] },
+							{ size: 'small' }
+						]
+					},
+					{ 'flavors[].toppings[].meat': false }
+				),
+			/does not include/
+		)
 	}
 
 	@test()
@@ -293,5 +307,26 @@ export default class AssertTest extends AbstractSpruceTest {
 	@test()
 	protected static deepEqual() {
 		assert.isEqualDeep({ test: true }, { test: true })
+		assert.doesThrow(
+			() => assert.isEqualDeep({ test: true }, { test: false }),
+			/does not deep equal/
+		)
+	}
+
+	@test()
+	protected static isUndefined() {
+		assert.isUndefined(undefined)
+		assert.doesThrow(() => assert.isUndefined(true), /not undefined/)
+	}
+
+	@test()
+	protected static isNotEqual() {
+		assert.isNotEqual(true, false)
+		assert.doesThrow(() => assert.isNotEqual('do', 'do'), /should not equal/)
+	}
+
+	@test()
+	protected static fail() {
+		assert.doesThrow(() => assert.fail('waka waka'), 'waka waka')
 	}
 }
