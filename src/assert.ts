@@ -1,7 +1,7 @@
 import deepEqual from 'deep-equal'
-import { isObjectLike, includes, get } from 'lodash'
+import { isObjectLike } from 'lodash'
 import { expectType } from 'ts-expect'
-import AssertionError from './AssertionError'
+import { AssertUtils } from './AssertUtils'
 
 type RecursivePartial<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]
@@ -27,6 +27,7 @@ export interface ISpruceAssert {
 	): asserts value is NonNullable<T>
 	isTrue(actual: boolean, message?: string): asserts actual is true
 	isFalse(actual: boolean, message?: string): asserts actual is false
+	isObject<T extends any>(actual: T, message?: string): void
 	doesInclude<T>(
 		haystack: T,
 		needle: RecursivePartial<T>,
@@ -51,122 +52,6 @@ export interface ISpruceAssert {
 	fail(message?: string): void
 }
 
-class AssertUtils {
-	public static fail(message?: string) {
-		throw new AssertionError(message ?? 'Fail!')
-	}
-
-	public static doHaystacksIncludeWithoutAsserting(
-		haystacks: any[],
-		needle: any,
-		doesInclude: ISpruceAssert['doesInclude']
-	) {
-		return haystacks.find(haystack => {
-			try {
-				doesInclude(haystack, needle)
-				return true
-			} catch {
-				return false
-			}
-		})
-	}
-
-	public static assertTypeof(
-		actual: any,
-		type: string,
-		message: string | undefined
-	) {
-		if (typeof actual !== type) {
-			AssertUtils.fail(message ?? `${JSON.stringify(actual)} is not a ${type}`)
-		}
-	}
-
-	public static checkDoesThrowError(
-		matcher: string | RegExp | undefined,
-		message: string,
-		msg: string | undefined
-	) {
-		if (typeof matcher === 'string' && message.search(matcher) === -1) {
-			AssertUtils.fail(
-				msg ??
-					`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`
-			)
-		} else if (matcher instanceof RegExp && message.search(matcher) === -1) {
-			AssertUtils.fail(
-				msg ??
-					`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`
-			)
-		}
-	}
-
-	public static partialContains(object: any, subObject: any) {
-		const objProps = object ? Object.getOwnPropertyNames(object) : []
-		const subProps = subObject ? Object.getOwnPropertyNames(subObject) : []
-
-		if (objProps.length == 0 || subProps.length === 0) {
-			return
-		}
-
-		if (subProps.length > objProps.length) {
-			return false
-		}
-
-		for (const subProp of subProps) {
-			if (!object.hasOwnProperty(subProp)) {
-				return false
-			}
-
-			if (object[subProp] !== subObject[subProp]) {
-				return false
-			}
-		}
-
-		return true
-	}
-
-	public static valueAtPath(object: Record<string, any>, path: string) {
-		return get(object, path)
-	}
-
-	public static parseIncludeNeedle(needle: any) {
-		const path = Object.keys(needle)[0]
-		const expected = needle[path]
-		const needleHasArrayNotation = path.search(/\[\]\./) > -1
-		return { needleHasArrayNotation, path, expected }
-	}
-
-	public static splitPathBasedOnArrayNotation(path: string, haystack: any) {
-		const pathParts = path.split('[].')
-		const pathToFirstArray = pathParts.shift() ?? ''
-		const pathAfterFirstArray = pathParts.join('[].')
-		const actualBeforeArray = AssertUtils.valueAtPath(
-			haystack,
-			pathToFirstArray
-		)
-		return { actualBeforeArray, pathAfterFirstArray }
-	}
-
-	public static foundUsing3rdPartyIncludes(
-		haystack: any,
-		needle: any,
-		isHaystackObject: boolean
-	) {
-		let passed = false
-		if (typeof haystack === 'string' && haystack.search(needle) > -1) {
-			passed = true
-		}
-
-		if (isHaystackObject && includes(haystack, needle)) {
-			passed = true
-		}
-
-		if (isHaystackObject && AssertUtils.partialContains(haystack, needle)) {
-			passed = true
-		}
-		return passed
-	}
-}
-
 const spruceAssert: ISpruceAssert = {
 	areSameType() {},
 
@@ -174,7 +59,7 @@ const spruceAssert: ISpruceAssert = {
 
 	isEqual(actual, expected, message) {
 		if (actual !== expected) {
-			AssertUtils.fail(
+			this.fail(
 				message ??
 					`${JSON.stringify(actual)} does not equal ${JSON.stringify(expected)}`
 			)
@@ -183,7 +68,7 @@ const spruceAssert: ISpruceAssert = {
 
 	isNotEqual(actual, expected, message) {
 		if (actual === expected) {
-			AssertUtils.fail(
+			this.fail(
 				message ??
 					`${JSON.stringify(actual)} should not equal ${JSON.stringify(
 						expected
@@ -194,7 +79,7 @@ const spruceAssert: ISpruceAssert = {
 
 	isEqualDeep(actual, expected, message) {
 		if (!deepEqual(actual, expected)) {
-			AssertUtils.fail(
+			this.fail(
 				message ??
 					`${JSON.stringify(actual)} does not deep equal(${JSON.stringify(
 						expected
@@ -205,7 +90,7 @@ const spruceAssert: ISpruceAssert = {
 
 	isAbove(actual, floor, message) {
 		if (actual <= floor) {
-			AssertUtils.fail(
+			this.fail(
 				message ??
 					`${JSON.stringify(actual)} is not above ${JSON.stringify(floor)}`
 			)
@@ -214,7 +99,7 @@ const spruceAssert: ISpruceAssert = {
 
 	isBelow(actual, ceiling, message) {
 		if (actual >= ceiling) {
-			AssertUtils.fail(
+			this.fail(
 				message ??
 					`${JSON.stringify(actual)} is not below ${JSON.stringify(ceiling)}`
 			)
@@ -223,14 +108,14 @@ const spruceAssert: ISpruceAssert = {
 
 	isUndefined(actual, message) {
 		if (typeof actual !== 'undefined') {
-			AssertUtils.fail(message ?? `${JSON.stringify(actual)} is not undefined`)
+			this.fail(message ?? `${JSON.stringify(actual)} is not undefined`)
 		}
 	},
 
 	isOk(actual, message) {
 		// @ts-ignore
 		if (actual === false || actual === null || typeof actual === 'undefined') {
-			AssertUtils.fail(message ?? `${JSON.stringify(actual)} is not ok`)
+			this.fail(message ?? `${JSON.stringify(actual)} is not ok`)
 		}
 	},
 
@@ -248,6 +133,12 @@ const spruceAssert: ISpruceAssert = {
 
 	isFalse(actual, message) {
 		this.isEqual(actual, false, message)
+	},
+
+	isObject(actual, message) {
+		if (!isObjectLike(actual)) {
+			throw this.fail(message ?? `${JSON.stringify(actual)} is not an object`)
+		}
 	},
 
 	doesInclude(haystack: any, needle: any, message?: string) {
@@ -301,7 +192,7 @@ const spruceAssert: ISpruceAssert = {
 			} = AssertUtils.splitPathBasedOnArrayNotation(path, haystack)
 
 			if (!Array.isArray(actualBeforeArray)) {
-				AssertUtils.fail(msg)
+				this.fail(msg)
 			}
 
 			const found = AssertUtils.doHaystacksIncludeWithoutAsserting(
@@ -317,13 +208,13 @@ const spruceAssert: ISpruceAssert = {
 			}
 		}
 
-		AssertUtils.fail(msg)
+		this.fail(msg)
 	},
 
 	hasAllFunctions(obj, functionNames) {
 		functionNames.forEach(name => {
 			if (typeof obj[name] !== 'function') {
-				AssertUtils.fail(
+				this.fail(
 					`A function named "${name}" does not exist on ${JSON.stringify(obj)}`
 				)
 			}
@@ -340,7 +231,7 @@ const spruceAssert: ISpruceAssert = {
 			return err
 		}
 
-		AssertUtils.fail('Expected a thrown error, but never got one!')
+		this.fail('Expected a thrown error, but never got one!')
 	},
 
 	async doesThrowAsync(cb, matcher, msg) {
@@ -354,7 +245,7 @@ const spruceAssert: ISpruceAssert = {
 			return err
 		}
 
-		AssertUtils.fail('Expected a thrown error, but never got one!')
+		this.fail('Expected a thrown error, but never got one!')
 	},
 
 	fail: AssertUtils.fail

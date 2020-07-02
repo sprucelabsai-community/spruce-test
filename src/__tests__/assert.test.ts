@@ -329,4 +329,10 @@ export default class AssertTest extends AbstractSpruceTest {
 	protected static fail() {
 		assert.doesThrow(() => assert.fail('waka waka'), 'waka waka')
 	}
+
+	@test()
+	protected static isObject() {
+		assert.isObject({ test: true })
+		assert.doesThrow(() => assert.isObject(true), /not an object/gi)
+	}
 }
