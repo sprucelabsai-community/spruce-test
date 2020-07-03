@@ -1,5 +1,5 @@
 import deepEqual from 'deep-equal'
-import { isObjectLike } from 'lodash'
+import { isObjectLike, escapeRegExp } from 'lodash'
 import { expectType } from 'ts-expect'
 import { AssertUtils } from './AssertUtils'
 
@@ -142,9 +142,20 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	doesInclude(haystack: any, needle: any, message?: string) {
-		const msg =
+		let msg =
 			message ??
 			`${JSON.stringify(haystack)} does not include ${JSON.stringify(needle)}`
+
+		const isNeedleString = typeof needle === 'string'
+		const isNeedleRegex = needle instanceof RegExp
+
+		if (
+			typeof haystack === 'string' &&
+			(isNeedleString || isNeedleRegex) &&
+			haystack.search(isNeedleString ? escapeRegExp(needle) : needle) > -1
+		) {
+			return
+		}
 
 		const isHaystackObject = isObjectLike(haystack)
 		const {
@@ -160,7 +171,7 @@ const spruceAssert: ISpruceAssert = {
 				cleanedNeedle = { [path.substr(3)]: expected }
 			}
 
-			const found = AssertUtils.doHaystacksIncludeWithoutAsserting(
+			const found = AssertUtils.doHaystacksPassCheck(
 				haystack,
 				cleanedNeedle,
 				this.doesInclude.bind(this)
@@ -179,6 +190,9 @@ const spruceAssert: ISpruceAssert = {
 
 		if (isHaystackObject && isObjectLike(needle) && !needleHasArrayNotation) {
 			const actual = AssertUtils.valueAtPath(haystack, path)
+			msg = `${JSON.stringify(
+				actual
+			)} at ${path} does not include ${JSON.stringify(actual)}`
 
 			this.isEqualDeep(expected, actual, msg)
 
@@ -195,7 +209,7 @@ const spruceAssert: ISpruceAssert = {
 				this.fail(msg)
 			}
 
-			const found = AssertUtils.doHaystacksIncludeWithoutAsserting(
+			const found = AssertUtils.doHaystacksPassCheck(
 				actualBeforeArray,
 				{
 					[pathAfterFirstArray]: expected

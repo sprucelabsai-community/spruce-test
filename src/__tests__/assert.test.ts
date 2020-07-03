@@ -233,7 +233,7 @@ export default class AssertTest extends AbstractSpruceTest {
 	}
 
 	@test()
-	protected static doesIncludeFails() {
+	protected static doesIncludeFailsAsExpected() {
 		assert.doesThrow(
 			() => assert.doesInclude('taco', 'bravo'),
 			/does not include "bravo"/
@@ -244,7 +244,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			/does not include "taco"/
 		)
 
-		assert.doesThrow(
+		const err = assert.doesThrow(
 			() =>
 				assert.doesInclude(
 					{
@@ -257,6 +257,8 @@ export default class AssertTest extends AbstractSpruceTest {
 				),
 			/does not include/
 		)
+
+		assert.doesInclude(err.message, 'flavors[].toppings[].meat')
 	}
 
 	@test()
