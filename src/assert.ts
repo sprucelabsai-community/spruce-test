@@ -180,7 +180,7 @@ const spruceAssert: ISpruceAssert = {
 		if (isHaystackObject && isObjectLike(needle) && !needleHasArrayNotation) {
 			const actual = AssertUtils.valueAtPath(haystack, path)
 
-			this.isEqual(expected, actual, msg)
+			this.isEqualDeep(expected, actual, msg)
 
 			return
 		}
