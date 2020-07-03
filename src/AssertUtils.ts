@@ -6,14 +6,14 @@ export class AssertUtils {
 		throw new AssertionError(message ?? 'Fail!')
 	}
 
-	public static doHaystacksIncludeWithoutAsserting(
+	public static doHaystacksPassCheck(
 		haystacks: any[],
 		needle: any,
-		doesInclude: ISpruceAssert['doesInclude']
+		check: ISpruceAssert['doesInclude']
 	) {
-		return haystacks.find(haystack => {
+		return !!haystacks.find(haystack => {
 			try {
-				doesInclude(haystack, needle)
+				check(haystack, needle)
 				return true
 			} catch {
 				return false
@@ -27,7 +27,7 @@ export class AssertUtils {
 		message: string | undefined
 	) {
 		if (typeof actual !== type) {
-			AssertUtils.fail(message ?? `${JSON.stringify(actual)} is not a ${type}`)
+			this.fail(message ?? `${JSON.stringify(actual)} is not a ${type}`)
 		}
 	}
 
@@ -37,12 +37,12 @@ export class AssertUtils {
 		msg: string | undefined
 	) {
 		if (typeof matcher === 'string' && message.search(matcher) === -1) {
-			AssertUtils.fail(
+			this.fail(
 				msg ??
 					`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`
 			)
 		} else if (matcher instanceof RegExp && message.search(matcher) === -1) {
-			AssertUtils.fail(
+			this.fail(
 				msg ??
 					`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`
 			)
@@ -89,10 +89,7 @@ export class AssertUtils {
 		const pathParts = path.split('[].')
 		const pathToFirstArray = pathParts.shift() ?? ''
 		const pathAfterFirstArray = pathParts.join('[].')
-		const actualBeforeArray = AssertUtils.valueAtPath(
-			haystack,
-			pathToFirstArray
-		)
+		const actualBeforeArray = this.valueAtPath(haystack, pathToFirstArray)
 		return { actualBeforeArray, pathAfterFirstArray }
 	}
 
@@ -110,7 +107,7 @@ export class AssertUtils {
 			passed = true
 		}
 
-		if (isHaystackObject && AssertUtils.partialContains(haystack, needle)) {
+		if (isHaystackObject && this.partialContains(haystack, needle)) {
 			passed = true
 		}
 		return passed
