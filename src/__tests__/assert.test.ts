@@ -172,18 +172,27 @@ export default class AssertTest extends AbstractSpruceTest {
 		'bell'
 	)
 	@test(
-		'include can find object on 1st level',
+		'include can find scalar on 1st level',
 		{ hello: 'world', taco: 'bell', flavor: { cheese: true, buffalo: true } },
 		{ 'flavor.cheese': true }
 	)
 	@test(
-		'include can find object on 2nd level',
+		'include can find scalar on 2nd level',
 		{
 			hello: 'world',
 			taco: 'bell',
 			flavor: { cheese: { size: 'large', buffalo: true } }
 		},
 		{ 'flavor.cheese.size': 'large' }
+	)
+	@test(
+		'include can find object on 2nd level',
+		{
+			hello: 'world',
+			taco: 'bell',
+			flavor: { cheese: { size: 'large', buffalo: { wing: true } } }
+		},
+		{ 'flavor.cheese.buffalo': { wing: true } }
 	)
 	@test(
 		'include can search inside array with index',
