@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/sprucelabsai/spruce-test/compare/v5.1.4...v5.2.0) (2020-07-03)
+
+
+### Features
+
+* doesInclude searches string ([a0895ae](https://github.com/sprucelabsai/spruce-test/commit/a0895ae))
+
 ## [5.1.4](https://github.com/sprucelabsai/spruce-test/compare/v5.1.3...v5.1.4) (2020-07-03)
 
 ## [5.1.3](https://github.com/sprucelabsai/spruce-test/compare/v5.1.2...v5.1.3) (2020-07-02)
