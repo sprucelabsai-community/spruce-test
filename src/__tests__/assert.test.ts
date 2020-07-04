@@ -161,6 +161,7 @@ export default class AssertTest extends AbstractSpruceTest {
 	}
 
 	@test('include uses string to match string', 'hello world', 'world')
+	@test('assert regex on string', 'hello world', /world/gi)
 	@test(
 		'include uses partial and matches 0th level',
 		{ hello: 'world', taco: 'bell' },
@@ -230,35 +231,54 @@ export default class AssertTest extends AbstractSpruceTest {
 	)
 	protected static includeTests(haystack: any, needle: any) {
 		assert.doesInclude(haystack, needle)
+		assert.doesThrow(
+			() => assert.doesNotInclude(haystack, needle),
+			/should not include/
+		)
 	}
 
-	@test()
-	protected static doesIncludeFailsAsExpected() {
-		assert.doesThrow(
-			() => assert.doesInclude('taco', 'bravo'),
-			/does not include "bravo"/
-		)
-
-		assert.doesThrow(
-			() => assert.doesInclude({ hello: 'world' }, 'taco'),
-			/does not include "taco"/
-		)
-
+	@test(
+		'include fails as expected with strings',
+		'taco',
+		'bravo',
+		/does not include "bravo"/gi
+	)
+	@test(
+		'include fails as expected matching string against object',
+		{ hello: 'world' },
+		'taco',
+		/does not include "taco"/gi
+	)
+	@test(
+		'include fails as expected matching string against object',
+		{
+			flavors: [
+				{ size: 'large', toppings: [{ meat: true }, { cheese: true }] },
+				{ size: 'small' }
+			]
+		},
+		{ 'flavors[].toppings[].meat': false },
+		/does not include/gi
+	)
+	@test(
+		'include fails as expected matching string against object',
+		{
+			cheese: { size: 'large', toppings: { meat: true } }
+		},
+		{ 'cheese.toppings.stink': false },
+		/was not found/gi
+	)
+	protected static doesIncludeFailsAsExpected(
+		haystack: any,
+		needle: any,
+		matcher: any
+	) {
 		const err = assert.doesThrow(
-			() =>
-				assert.doesInclude(
-					{
-						flavors: [
-							{ size: 'large', toppings: [{ meat: true }, { cheese: true }] },
-							{ size: 'small' }
-						]
-					},
-					{ 'flavors[].toppings[].meat': false }
-				),
-			/does not include/
+			() => assert.doesInclude(haystack, needle),
+			matcher
 		)
 
-		assert.doesInclude(err.message, 'flavors[].toppings[].meat')
+		assert.doesNotInclude(err.message, 'undefined')
 	}
 
 	@test()
