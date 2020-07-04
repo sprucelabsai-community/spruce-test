@@ -2,6 +2,7 @@ import deepEqual from 'deep-equal'
 import { isObjectLike, escapeRegExp } from 'lodash'
 import { expectType } from 'ts-expect'
 import { AssertUtils } from './AssertUtils'
+import { assert } from '..'
 
 type RecursivePartial<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]
@@ -28,14 +29,26 @@ export interface ISpruceAssert {
 	isTrue(actual: boolean, message?: string): asserts actual is true
 	isFalse(actual: boolean, message?: string): asserts actual is false
 	isObject<T extends any>(actual: T, message?: string): void
+	doesNotInclude<T>(
+		haystack: T,
+		needle: RecursivePartial<T>,
+		message?: string
+	): void
+
+	doesNotInclude(haystack: string, needle: string, message?: string): void
+	doesNotInclude(haystack: any, needle: string, message?: string): void
+	doesNotInclude(haystack: any, needle: any, message?: string): void
+
 	doesInclude<T>(
 		haystack: T,
 		needle: RecursivePartial<T>,
 		message?: string
 	): void
+
 	doesInclude(haystack: string, needle: string, message?: string): void
 	doesInclude(haystack: any, needle: string, message?: string): void
 	doesInclude(haystack: any, needle: any, message?: string): void
+
 	isString(actual: any, message?: string): asserts actual is string
 	isFunction(actual: any, message?: string): asserts actual is Function
 	hasAllFunctions(obj: any, functionNames: string[]): void
@@ -141,6 +154,25 @@ const spruceAssert: ISpruceAssert = {
 		}
 	},
 
+	doesNotInclude(haystack: any, needle: any, message?: string) {
+		let doesInclude = false
+		try {
+			assert.doesInclude(haystack, needle)
+			doesInclude = true
+		} catch {
+			doesInclude = false
+		}
+
+		if (doesInclude) {
+			this.fail(
+				message ??
+					`${JSON.stringify(haystack)} should not include ${JSON.stringify(
+						needle
+					)}, but it does`
+			)
+		}
+	},
+
 	doesInclude(haystack: any, needle: any, message?: string) {
 		let msg =
 			message ??
@@ -190,9 +222,14 @@ const spruceAssert: ISpruceAssert = {
 
 		if (isHaystackObject && isObjectLike(needle) && !needleHasArrayNotation) {
 			const actual = AssertUtils.valueAtPath(haystack, path)
-			msg = `${JSON.stringify(
-				actual
-			)} at ${path} does not include ${JSON.stringify(actual)}`
+
+			if (!actual) {
+				msg = `The path ${path} was not found in ${JSON.stringify(haystack)}`
+			} else {
+				msg = `Expected ${JSON.stringify(needle[path])} in ${JSON.stringify(
+					haystack
+				)} at ${path}. Got ${JSON.stringify(actual)}`
+			}
 
 			this.isEqualDeep(expected, actual, msg)
 
