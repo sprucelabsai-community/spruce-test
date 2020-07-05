@@ -4,6 +4,8 @@ import { expectType } from 'ts-expect'
 import { AssertUtils } from './AssertUtils'
 import { assert } from '..'
 
+const stringify = AssertUtils.stringify
+
 type RecursivePartial<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]
 		? RecursivePartial<U>[]
@@ -73,10 +75,7 @@ const spruceAssert: ISpruceAssert = {
 	isEqual(actual, expected, message) {
 		if (actual !== expected) {
 			this.fail(
-				message ??
-					`${AssertUtils.stringify(actual)} does not equal ${AssertUtils.stringify(
-						expected
-					)}`
+				message ?? `${stringify(actual)} does not equal ${stringify(expected)}`
 			)
 		}
 	},
@@ -85,9 +84,7 @@ const spruceAssert: ISpruceAssert = {
 		if (actual === expected) {
 			this.fail(
 				message ??
-					`${AssertUtils.stringify(actual)} should not equal ${AssertUtils.stringify(
-						expected
-					)}`
+					`${stringify(actual)} should not equal ${stringify(expected)}`
 			)
 		}
 	},
@@ -96,9 +93,7 @@ const spruceAssert: ISpruceAssert = {
 		if (!deepEqual(actual, expected)) {
 			this.fail(
 				message ??
-					`${AssertUtils.stringify(
-						actual
-					)} does not deep equal(${AssertUtils.stringify(expected)})`
+					`${stringify(actual)} does not deep equal(${stringify(expected)})`
 			)
 		}
 	},
@@ -106,10 +101,7 @@ const spruceAssert: ISpruceAssert = {
 	isAbove(actual, floor, message) {
 		if (actual <= floor) {
 			this.fail(
-				message ??
-					`${AssertUtils.stringify(actual)} is not above ${AssertUtils.stringify(
-						floor
-					)}`
+				message ?? `${stringify(actual)} is not above ${stringify(floor)}`
 			)
 		}
 	},
@@ -117,24 +109,21 @@ const spruceAssert: ISpruceAssert = {
 	isBelow(actual, ceiling, message) {
 		if (actual >= ceiling) {
 			this.fail(
-				message ??
-					`${AssertUtils.stringify(actual)} is not below ${AssertUtils.stringify(
-						ceiling
-					)}`
+				message ?? `${stringify(actual)} is not below ${stringify(ceiling)}`
 			)
 		}
 	},
 
 	isUndefined(actual, message) {
 		if (typeof actual !== 'undefined') {
-			this.fail(message ?? `${AssertUtils.stringify(actual)} is not undefined`)
+			this.fail(message ?? `${stringify(actual)} is not undefined`)
 		}
 	},
 
 	isOk(actual, message) {
 		// @ts-ignore
 		if (actual === false || actual === null || typeof actual === 'undefined') {
-			this.fail(message ?? `${AssertUtils.stringify(actual)} is not ok`)
+			this.fail(message ?? `${stringify(actual)} is not ok`)
 		}
 	},
 
@@ -156,9 +145,7 @@ const spruceAssert: ISpruceAssert = {
 
 	isObject(actual, message) {
 		if (!isObjectLike(actual)) {
-			throw this.fail(
-				message ?? `${AssertUtils.stringify(actual)} is not an object`
-			)
+			throw this.fail(message ?? `${stringify(actual)} is not an object`)
 		}
 	},
 
@@ -174,19 +161,16 @@ const spruceAssert: ISpruceAssert = {
 		if (doesInclude) {
 			this.fail(
 				message ??
-					`${AssertUtils.stringify(
-						haystack
-					)} should not include ${AssertUtils.stringify(needle)}, but it does`
+					`${stringify(haystack)} should not include ${stringify(
+						needle
+					)}, but it does`
 			)
 		}
 	},
 
 	doesInclude(haystack: any, needle: any, message?: string) {
 		let msg =
-			message ??
-			`${AssertUtils.stringify(haystack)} does not include ${AssertUtils.stringify(
-				needle
-			)}`
+			message ?? `${stringify(haystack)} does not include ${stringify(needle)}`
 
 		const isNeedleString = typeof needle === 'string'
 		const isNeedleRegex = needle instanceof RegExp
@@ -234,15 +218,11 @@ const spruceAssert: ISpruceAssert = {
 			const actual = AssertUtils.valueAtPath(haystack, path)
 
 			if (!actual) {
-				msg = `The path ${path} was not found in ${AssertUtils.stringify(
-					haystack
-				)}`
+				msg = `The path ${path} was not found in ${stringify(haystack)}`
 			} else {
-				msg = `Expected ${AssertUtils.stringify(
-					needle[path]
-				)}, but found ${AssertUtils.stringify(
+				msg = `Expected ${stringify(needle[path])}, but found ${stringify(
 					actual
-				)} at ${path} in ${AssertUtils.stringify(haystack)}`
+				)} at ${path} in ${stringify(haystack)}`
 			}
 
 			this.isEqualDeep(expected, actual, msg)
@@ -280,9 +260,7 @@ const spruceAssert: ISpruceAssert = {
 		functionNames.forEach(name => {
 			if (typeof obj[name] !== 'function') {
 				this.fail(
-					`A function named "${name}" does not exist on ${AssertUtils.stringify(
-						obj
-					)}`
+					`A function named "${name}" does not exist on ${stringify(obj)}`
 				)
 			}
 		})

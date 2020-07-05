@@ -52,6 +52,7 @@
 		"@types/faker": "^4.1.11",
 		"@types/jest": "^25.2.1",
 		"babel-jest": "^25.4.0",
+		"chalk": "^4.1.0",
 		"deep-equal": "^2.0.3",
 		"faker": "^4.1.0",
 		"jest": "^25.4.0",
