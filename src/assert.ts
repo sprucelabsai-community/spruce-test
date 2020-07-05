@@ -1,8 +1,8 @@
+import chalk from 'chalk'
 import deepEqual from 'deep-equal'
 import { isObjectLike, escapeRegExp } from 'lodash'
 import { expectType } from 'ts-expect'
 import { AssertUtils } from './AssertUtils'
-import { assert } from '..'
 
 const stringify = AssertUtils.stringify
 
@@ -152,7 +152,7 @@ const spruceAssert: ISpruceAssert = {
 	doesNotInclude(haystack: any, needle: any, message?: string) {
 		let doesInclude = false
 		try {
-			assert.doesInclude(haystack, needle)
+			this.doesInclude(haystack, needle)
 			doesInclude = true
 		} catch {
 			doesInclude = false
@@ -218,11 +218,15 @@ const spruceAssert: ISpruceAssert = {
 			const actual = AssertUtils.valueAtPath(haystack, path)
 
 			if (!actual) {
-				msg = `The path ${path} was not found in ${stringify(haystack)}`
+				msg = `The path ${stringify(path)} was not found in ${stringify(
+					haystack
+				)}`
 			} else {
-				msg = `Expected ${stringify(needle[path])}, but found ${stringify(
-					actual
-				)} at ${path} in ${stringify(haystack)}`
+				msg = `Expected ${chalk.green(
+					stringify(needle[path])
+				)} but found ${chalk.red(stringify(actual))} at ${stringify(
+					path
+				)} in ${stringify(haystack)}`
 			}
 
 			this.isEqualDeep(expected, actual, msg)
@@ -251,6 +255,10 @@ const spruceAssert: ISpruceAssert = {
 			if (found) {
 				return
 			}
+
+			msg = `Could not find match ${stringify(expected)} at ${stringify(
+				pathAfterFirstArray
+			)} in ${stringify(actualBeforeArray)}.`
 		}
 
 		this.fail(msg)

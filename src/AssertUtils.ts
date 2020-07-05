@@ -1,14 +1,22 @@
+import chalk from 'chalk'
 import { includes, get } from 'lodash'
 import { ISpruceAssert } from './assert'
 import AssertionError from './AssertionError'
+
 export class AssertUtils {
 	public static fail(message?: string) {
 		throw new AssertionError(message ?? 'Fail!')
 	}
 
 	public static stringify(object: any): string {
-		const stringified = JSON.stringify(object, undefined, 2)
-		return stringified
+		let stringified
+
+		if (typeof object === 'undefined') {
+			stringified = 'undefined'
+		} else {
+			stringified = JSON.stringify(object, undefined, 2).replace(/\\/g, '')
+		}
+		return `\n\n${chalk.bold(stringified)}\n\n`
 	}
 
 	public static doHaystacksPassCheck(
