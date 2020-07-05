@@ -6,6 +6,11 @@ export class AssertUtils {
 		throw new AssertionError(message ?? 'Fail!')
 	}
 
+	public static stringify(object: any): string {
+		const stringified = JSON.stringify(object, undefined, 2)
+		return stringified
+	}
+
 	public static doHaystacksPassCheck(
 		haystacks: any[],
 		needle: any,

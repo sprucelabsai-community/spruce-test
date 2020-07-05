@@ -74,7 +74,9 @@ const spruceAssert: ISpruceAssert = {
 		if (actual !== expected) {
 			this.fail(
 				message ??
-					`${JSON.stringify(actual)} does not equal ${JSON.stringify(expected)}`
+					`${AssertUtils.stringify(actual)} does not equal ${AssertUtils.stringify(
+						expected
+					)}`
 			)
 		}
 	},
@@ -83,7 +85,7 @@ const spruceAssert: ISpruceAssert = {
 		if (actual === expected) {
 			this.fail(
 				message ??
-					`${JSON.stringify(actual)} should not equal ${JSON.stringify(
+					`${AssertUtils.stringify(actual)} should not equal ${AssertUtils.stringify(
 						expected
 					)}`
 			)
@@ -94,9 +96,9 @@ const spruceAssert: ISpruceAssert = {
 		if (!deepEqual(actual, expected)) {
 			this.fail(
 				message ??
-					`${JSON.stringify(actual)} does not deep equal(${JSON.stringify(
-						expected
-					)})`
+					`${AssertUtils.stringify(
+						actual
+					)} does not deep equal(${AssertUtils.stringify(expected)})`
 			)
 		}
 	},
@@ -105,7 +107,9 @@ const spruceAssert: ISpruceAssert = {
 		if (actual <= floor) {
 			this.fail(
 				message ??
-					`${JSON.stringify(actual)} is not above ${JSON.stringify(floor)}`
+					`${AssertUtils.stringify(actual)} is not above ${AssertUtils.stringify(
+						floor
+					)}`
 			)
 		}
 	},
@@ -114,21 +118,23 @@ const spruceAssert: ISpruceAssert = {
 		if (actual >= ceiling) {
 			this.fail(
 				message ??
-					`${JSON.stringify(actual)} is not below ${JSON.stringify(ceiling)}`
+					`${AssertUtils.stringify(actual)} is not below ${AssertUtils.stringify(
+						ceiling
+					)}`
 			)
 		}
 	},
 
 	isUndefined(actual, message) {
 		if (typeof actual !== 'undefined') {
-			this.fail(message ?? `${JSON.stringify(actual)} is not undefined`)
+			this.fail(message ?? `${AssertUtils.stringify(actual)} is not undefined`)
 		}
 	},
 
 	isOk(actual, message) {
 		// @ts-ignore
 		if (actual === false || actual === null || typeof actual === 'undefined') {
-			this.fail(message ?? `${JSON.stringify(actual)} is not ok`)
+			this.fail(message ?? `${AssertUtils.stringify(actual)} is not ok`)
 		}
 	},
 
@@ -150,7 +156,9 @@ const spruceAssert: ISpruceAssert = {
 
 	isObject(actual, message) {
 		if (!isObjectLike(actual)) {
-			throw this.fail(message ?? `${JSON.stringify(actual)} is not an object`)
+			throw this.fail(
+				message ?? `${AssertUtils.stringify(actual)} is not an object`
+			)
 		}
 	},
 
@@ -166,9 +174,9 @@ const spruceAssert: ISpruceAssert = {
 		if (doesInclude) {
 			this.fail(
 				message ??
-					`${JSON.stringify(haystack)} should not include ${JSON.stringify(
-						needle
-					)}, but it does`
+					`${AssertUtils.stringify(
+						haystack
+					)} should not include ${AssertUtils.stringify(needle)}, but it does`
 			)
 		}
 	},
@@ -176,7 +184,9 @@ const spruceAssert: ISpruceAssert = {
 	doesInclude(haystack: any, needle: any, message?: string) {
 		let msg =
 			message ??
-			`${JSON.stringify(haystack)} does not include ${JSON.stringify(needle)}`
+			`${AssertUtils.stringify(haystack)} does not include ${AssertUtils.stringify(
+				needle
+			)}`
 
 		const isNeedleString = typeof needle === 'string'
 		const isNeedleRegex = needle instanceof RegExp
@@ -224,11 +234,15 @@ const spruceAssert: ISpruceAssert = {
 			const actual = AssertUtils.valueAtPath(haystack, path)
 
 			if (!actual) {
-				msg = `The path ${path} was not found in ${JSON.stringify(haystack)}`
-			} else {
-				msg = `Expected ${JSON.stringify(needle[path])} in ${JSON.stringify(
+				msg = `The path ${path} was not found in ${AssertUtils.stringify(
 					haystack
-				)} at ${path}. Got ${JSON.stringify(actual)}`
+				)}`
+			} else {
+				msg = `Expected ${AssertUtils.stringify(
+					needle[path]
+				)}, but found ${AssertUtils.stringify(
+					actual
+				)} at ${path} in ${AssertUtils.stringify(haystack)}`
 			}
 
 			this.isEqualDeep(expected, actual, msg)
@@ -266,7 +280,9 @@ const spruceAssert: ISpruceAssert = {
 		functionNames.forEach(name => {
 			if (typeof obj[name] !== 'function') {
 				this.fail(
-					`A function named "${name}" does not exist on ${JSON.stringify(obj)}`
+					`A function named "${name}" does not exist on ${AssertUtils.stringify(
+						obj
+					)}`
 				)
 			}
 		})

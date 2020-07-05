@@ -268,7 +268,15 @@ export default class AssertTest extends AbstractSpruceTest {
 		{ 'cheese.toppings.stink': false },
 		/was not found/gi
 	)
-	protected static doesIncludeFailsAsExpected(
+	@test(
+		'include fails as expected by not showing full object if path matches but value differs',
+		{
+			cheese: { size: 'large', toppings: { meat: true } }
+		},
+		{ 'cheese.toppings.meat': false },
+		/expected false, but found true at/gi
+	)
+	protected static doesIncludeThrowsAsExpected(
 		haystack: any,
 		needle: any,
 		matcher: any
