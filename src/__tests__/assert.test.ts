@@ -64,7 +64,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		assert.isType<number>(123)
 
 		const myCustomObj: ICustomObj = {
-			testStr: 'blah'
+			testStr: 'blah',
 		}
 
 		assert.isType<ICustomObj>(myCustomObj)
@@ -182,7 +182,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		{
 			hello: 'world',
 			taco: 'bell',
-			flavor: { cheese: { size: 'large', buffalo: true } }
+			flavor: { cheese: { size: 'large', buffalo: true } },
 		},
 		{ 'flavor.cheese.size': 'large' }
 	)
@@ -191,21 +191,21 @@ export default class AssertTest extends AbstractSpruceTest {
 		{
 			hello: 'world',
 			taco: 'bell',
-			flavor: { cheese: { size: 'large', buffalo: { wing: true } } }
+			flavor: { cheese: { size: 'large', buffalo: { wing: true } } },
 		},
 		{ 'flavor.cheese.buffalo': { wing: true } }
 	)
 	@test(
 		'include can search inside array with index',
 		{
-			flavors: [{ cheese: true }, { peperoni: true }]
+			flavors: [{ cheese: true }, { peperoni: true }],
 		},
 		{ 'flavors[0].cheese': true }
 	)
 	@test(
 		'include can search inside array without index',
 		{
-			flavors: [{ cheese: true }, { peperoni: true }]
+			flavors: [{ cheese: true }, { peperoni: true }],
 		},
 		{ 'flavors[].peperoni': true }
 	)
@@ -214,8 +214,8 @@ export default class AssertTest extends AbstractSpruceTest {
 		{
 			flavors: [
 				{ size: 'large', toppings: [{ meat: true }, { cheese: true }] },
-				{ size: 'small' }
-			]
+				{ size: 'small' },
+			],
 		},
 		{ 'flavors[].toppings[].meat': true }
 	)
@@ -254,8 +254,8 @@ export default class AssertTest extends AbstractSpruceTest {
 		{
 			flavors: [
 				{ size: 'large', toppings: [{ meat: true }, { cheese: true }] },
-				{ size: 'small' }
-			]
+				{ size: 'small' },
+			],
 		},
 		{ 'flavors[].toppings[].meat': false },
 		/does not include/gi
@@ -263,7 +263,7 @@ export default class AssertTest extends AbstractSpruceTest {
 	@test(
 		'include fails as expected matching string against object',
 		{
-			cheese: { size: 'large', toppings: { meat: true } }
+			cheese: { size: 'large', toppings: { meat: true } },
 		},
 		{ 'cheese.toppings.stink': false },
 		/was not found/gi

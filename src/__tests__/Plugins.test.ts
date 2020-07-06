@@ -22,7 +22,7 @@ export default class PluginsTest extends AbstractSpruceTest {
 	@test()
 	protected static async acceptsPlugin() {
 		this.addPlugin({
-			afterAll() {}
+			afterAll() {},
 		})
 	}
 
@@ -32,7 +32,7 @@ export default class PluginsTest extends AbstractSpruceTest {
 		this.addPlugin({
 			afterAll: () => {
 				this.pluginAfterAllCalled = true
-			}
+			},
 		})
 	}
 }

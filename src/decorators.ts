@@ -5,7 +5,7 @@ function hookupTestClass(target: any) {
 	}
 	target.__isHookedUp = true
 	const hooks = ['beforeAll', 'beforeEach', 'afterAll', 'afterEach']
-	hooks.forEach(hook => {
+	hooks.forEach((hook) => {
 		// Have they defined a hook
 		if (!target[hook]) {
 			return
@@ -21,7 +21,7 @@ function hookupTestClass(target: any) {
 
 /** Test decorator */
 export default function test(description?: string, ...args: any[]) {
-	return function(
+	return function (
 		target: any,
 		propertyKey: string,
 		descriptor: PropertyDescriptor
@@ -40,7 +40,7 @@ export default function test(description?: string, ...args: any[]) {
 
 /** Only decorator */
 test.only = (description?: string, ...args: any[]) => {
-	return function(
+	return function (
 		target: any,
 		propertyKey: string,
 		descriptor: PropertyDescriptor
@@ -59,7 +59,7 @@ test.only = (description?: string, ...args: any[]) => {
 
 /** Todo decorator */
 test.todo = (description?: string, ..._args: any[]) => {
-	return function(target: any, propertyKey: string) {
+	return function (target: any, propertyKey: string) {
 		// Lets attach before/after
 		hookupTestClass(target)
 
@@ -70,7 +70,7 @@ test.todo = (description?: string, ..._args: any[]) => {
 
 /** Skip decorator */
 test.skip = (description?: string, ...args: any[]) => {
-	return function(
+	return function (
 		target: any,
 		propertyKey: string,
 		descriptor: PropertyDescriptor

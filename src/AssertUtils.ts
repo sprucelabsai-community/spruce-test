@@ -11,7 +11,7 @@ export class AssertUtils {
 		needle: any,
 		check: ISpruceAssert['doesInclude']
 	) {
-		return !!haystacks.find(haystack => {
+		return !!haystacks.find((haystack) => {
 			try {
 				check(haystack, needle)
 				return true
@@ -62,7 +62,7 @@ export class AssertUtils {
 		}
 
 		for (const subProp of subProps) {
-			if (!object.hasOwnProperty(subProp)) {
+			if (!Object.prototype.hasOwnProperty.call(object, subProp)) {
 				return false
 			}
 
