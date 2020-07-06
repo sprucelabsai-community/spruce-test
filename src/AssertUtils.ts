@@ -11,11 +11,23 @@ export class AssertUtils {
 	public static stringify(object: any): string {
 		let stringified
 
-		if (typeof object === 'undefined') {
+		if (object instanceof RegExp) {
+			stringified = `${object.toString()}`
+		} else if (typeof object === 'undefined') {
 			stringified = 'undefined'
+		} else if (typeof object === 'string') {
+			stringified = `"${object}"`
 		} else {
 			stringified = JSON.stringify(object, undefined, 2).replace(/\\/g, '')
 		}
+
+		if (stringified.length > 2000) {
+			stringified =
+				stringified.substr(0, 500) +
+				'\n\n... big object ...\n\n' +
+				stringified.substr(stringified.length - 500)
+		}
+
 		return `\n\n${chalk.bold(stringified)}\n\n`
 	}
 
@@ -94,7 +106,7 @@ export class AssertUtils {
 	public static parseIncludeNeedle(needle: any) {
 		const path = Object.keys(needle)[0]
 		const expected = needle[path]
-		const needleHasArrayNotation = path.search(/\[\]\./) > -1
+		const needleHasArrayNotation = path && path.search(/\[\]\./) > -1
 		return { needleHasArrayNotation, path, expected }
 	}
 

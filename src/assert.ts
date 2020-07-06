@@ -170,7 +170,10 @@ const spruceAssert: ISpruceAssert = {
 
 	doesInclude(haystack: any, needle: any, message?: string) {
 		let msg =
-			message ?? `${stringify(haystack)} does not include ${stringify(needle)}`
+			message ??
+			`Could not find ${chalk.green(stringify(needle))} in ${chalk.italic(
+				stringify(haystack)
+			)}`
 
 		const isNeedleString = typeof needle === 'string'
 		const isNeedleRegex = needle instanceof RegExp
@@ -178,7 +181,11 @@ const spruceAssert: ISpruceAssert = {
 		if (
 			typeof haystack === 'string' &&
 			(isNeedleString || isNeedleRegex) &&
-			haystack.search(isNeedleString ? escapeRegExp(needle) : needle) > -1
+			haystack.search(
+				isNeedleString && !(needle instanceof RegExp)
+					? escapeRegExp(needle)
+					: needle
+			) > -1
 		) {
 			return
 		}
