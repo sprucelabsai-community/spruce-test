@@ -6,7 +6,7 @@
 	"files": [
 		"build"
 	],
-	"version": "5.2.0",
+	"version": "5.2.2",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
 	"description": "Testing made 🔥🔥🔥 in the Spruce Experience Platform",
@@ -39,9 +39,9 @@
 		"arkit": "^1.6.4",
 		"chokidar-cli": "^2.1.0",
 		"concurrently": "^5.0.2",
-		"eslint": "^5",
+		"eslint": "^7.4.0",
 		"eslint-config-spruce": "^10.2.0",
-		"prettier": "^1.19",
+		"prettier": "^2.0.5",
 		"ts-node": "^8.8.1",
 		"typescript": "^3.8"
 	},
@@ -50,15 +50,14 @@
 		"@babel/preset-env": "^7.9.5",
 		"@types/chai": "^4.2.11",
 		"@types/faker": "^4.1.11",
-		"@types/jest": "^25.2.1",
-		"babel-jest": "^25.4.0",
-		"chalk": "^4.1.0",
+		"@types/jest": "^26.0.3",
+		"babel-jest": "^26.1.0",
 		"deep-equal": "^2.0.3",
 		"faker": "^4.1.0",
-		"jest": "^25.4.0",
+		"jest": "^26.1.0",
 		"lodash": "^4.17.15",
 		"ts-expect": "^1.1.0",
-		"ts-jest": "^25.4.0"
+		"ts-jest": "^26.1.1"
 	},
 	"babel": {
 		"presets": [

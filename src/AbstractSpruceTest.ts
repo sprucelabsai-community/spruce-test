@@ -18,7 +18,7 @@ export default class AbstractSpruceTest {
 
 	/** Override this method to execute code after all your tests */
 	protected static async afterAll() {
-		this.plugins.forEach(plugin => plugin.afterAll?.())
+		this.plugins.forEach((plugin) => plugin.afterAll?.())
 	}
 
 	/** Override this method to execute code before each of your tests run */
@@ -50,7 +50,7 @@ export default class AbstractSpruceTest {
 
 	/** Hold for a sec  */
 	protected static async wait(ms = 1000) {
-		return new Promise(resolve => {
+		return new Promise((resolve) => {
 			setTimeout(() => resolve(true), ms)
 		})
 	}
