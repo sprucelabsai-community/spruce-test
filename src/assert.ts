@@ -1,8 +1,10 @@
+import chalk from 'chalk'
 import deepEqual from 'deep-equal'
 import { isObjectLike, escapeRegExp } from 'lodash'
 import { expectType } from 'ts-expect'
 import { AssertUtils } from './AssertUtils'
-import { assert } from '..'
+
+const stringify = AssertUtils.stringify
 
 type RecursivePartial<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]
@@ -73,8 +75,7 @@ const spruceAssert: ISpruceAssert = {
 	isEqual(actual, expected, message) {
 		if (actual !== expected) {
 			this.fail(
-				message ??
-					`${JSON.stringify(actual)} does not equal ${JSON.stringify(expected)}`
+				message ?? `${stringify(actual)} does not equal ${stringify(expected)}`
 			)
 		}
 	},
@@ -83,9 +84,7 @@ const spruceAssert: ISpruceAssert = {
 		if (actual === expected) {
 			this.fail(
 				message ??
-					`${JSON.stringify(actual)} should not equal ${JSON.stringify(
-						expected
-					)}`
+					`${stringify(actual)} should not equal ${stringify(expected)}`
 			)
 		}
 	},
@@ -94,9 +93,7 @@ const spruceAssert: ISpruceAssert = {
 		if (!deepEqual(actual, expected)) {
 			this.fail(
 				message ??
-					`${JSON.stringify(actual)} does not deep equal(${JSON.stringify(
-						expected
-					)})`
+					`${stringify(actual)} does not deep equal(${stringify(expected)})`
 			)
 		}
 	},
@@ -104,8 +101,7 @@ const spruceAssert: ISpruceAssert = {
 	isAbove(actual, floor, message) {
 		if (actual <= floor) {
 			this.fail(
-				message ??
-					`${JSON.stringify(actual)} is not above ${JSON.stringify(floor)}`
+				message ?? `${stringify(actual)} is not above ${stringify(floor)}`
 			)
 		}
 	},
@@ -113,22 +109,21 @@ const spruceAssert: ISpruceAssert = {
 	isBelow(actual, ceiling, message) {
 		if (actual >= ceiling) {
 			this.fail(
-				message ??
-					`${JSON.stringify(actual)} is not below ${JSON.stringify(ceiling)}`
+				message ?? `${stringify(actual)} is not below ${stringify(ceiling)}`
 			)
 		}
 	},
 
 	isUndefined(actual, message) {
 		if (typeof actual !== 'undefined') {
-			this.fail(message ?? `${JSON.stringify(actual)} is not undefined`)
+			this.fail(message ?? `${stringify(actual)} is not undefined`)
 		}
 	},
 
 	isOk(actual, message) {
 		// @ts-ignore
 		if (actual === false || actual === null || typeof actual === 'undefined') {
-			this.fail(message ?? `${JSON.stringify(actual)} is not ok`)
+			this.fail(message ?? `${stringify(actual)} is not ok`)
 		}
 	},
 
@@ -150,14 +145,14 @@ const spruceAssert: ISpruceAssert = {
 
 	isObject(actual, message) {
 		if (!isObjectLike(actual)) {
-			throw this.fail(message ?? `${JSON.stringify(actual)} is not an object`)
+			throw this.fail(message ?? `${stringify(actual)} is not an object`)
 		}
 	},
 
 	doesNotInclude(haystack: any, needle: any, message?: string) {
 		let doesInclude = false
 		try {
-			assert.doesInclude(haystack, needle)
+			this.doesInclude(haystack, needle)
 			doesInclude = true
 		} catch {
 			doesInclude = false
@@ -166,7 +161,7 @@ const spruceAssert: ISpruceAssert = {
 		if (doesInclude) {
 			this.fail(
 				message ??
-					`${JSON.stringify(haystack)} should not include ${JSON.stringify(
+					`${stringify(haystack)} should not include ${stringify(
 						needle
 					)}, but it does`
 			)
@@ -176,7 +171,9 @@ const spruceAssert: ISpruceAssert = {
 	doesInclude(haystack: any, needle: any, message?: string) {
 		let msg =
 			message ??
-			`${JSON.stringify(haystack)} does not include ${JSON.stringify(needle)}`
+			`Could not find ${chalk.green(stringify(needle))} in ${chalk.italic(
+				stringify(haystack)
+			)}`
 
 		const isNeedleString = typeof needle === 'string'
 		const isNeedleRegex = needle instanceof RegExp
@@ -184,7 +181,11 @@ const spruceAssert: ISpruceAssert = {
 		if (
 			typeof haystack === 'string' &&
 			(isNeedleString || isNeedleRegex) &&
-			haystack.search(isNeedleString ? escapeRegExp(needle) : needle) > -1
+			haystack.search(
+				isNeedleString && !(needle instanceof RegExp)
+					? escapeRegExp(needle)
+					: needle
+			) > -1
 		) {
 			return
 		}
@@ -224,11 +225,15 @@ const spruceAssert: ISpruceAssert = {
 			const actual = AssertUtils.valueAtPath(haystack, path)
 
 			if (!actual) {
-				msg = `The path ${path} was not found in ${JSON.stringify(haystack)}`
-			} else {
-				msg = `Expected ${JSON.stringify(needle[path])} in ${JSON.stringify(
+				msg = `The path ${stringify(path)} was not found in ${stringify(
 					haystack
-				)} at ${path}. Got ${JSON.stringify(actual)}`
+				)}`
+			} else {
+				msg = `Expected ${chalk.green(
+					stringify(needle[path])
+				)} but found ${chalk.red(stringify(actual))} at ${stringify(
+					path
+				)} in ${stringify(haystack)}`
 			}
 
 			this.isEqualDeep(expected, actual, msg)
@@ -257,6 +262,10 @@ const spruceAssert: ISpruceAssert = {
 			if (found) {
 				return
 			}
+
+			msg = `Could not find match ${stringify(expected)} at ${stringify(
+				pathAfterFirstArray
+			)} in ${stringify(actualBeforeArray)}.`
 		}
 
 		this.fail(msg)
@@ -266,7 +275,7 @@ const spruceAssert: ISpruceAssert = {
 		functionNames.forEach((name) => {
 			if (typeof obj[name] !== 'function') {
 				this.fail(
-					`A function named "${name}" does not exist on ${JSON.stringify(obj)}`
+					`A function named "${name}" does not exist on ${stringify(obj)}`
 				)
 			}
 		})

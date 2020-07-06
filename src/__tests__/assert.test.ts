@@ -162,6 +162,7 @@ export default class AssertTest extends AbstractSpruceTest {
 
 	@test('include uses string to match string', 'hello world', 'world')
 	@test('assert regex on string', 'hello world', /world/gi)
+	@test('assert regex obj on string', 'hello world', new RegExp('world', 'gis'))
 	@test(
 		'include uses partial and matches 0th level',
 		{ hello: 'world', taco: 'bell' },
@@ -241,13 +242,18 @@ export default class AssertTest extends AbstractSpruceTest {
 		'include fails as expected with strings',
 		'taco',
 		'bravo',
-		/does not include "bravo"/gi
+		/could not find(.*?)"bravo"/gis
+	)
+	@test(
+		'include fails as expected with regex obj on string',
+		'hello world',
+		new RegExp('cheeseball', 'gis')
 	)
 	@test(
 		'include fails as expected matching string against object',
 		{ hello: 'world' },
 		'taco',
-		/does not include "taco"/gi
+		/Could not find(.*?)taco/gis
 	)
 	@test(
 		'include fails as expected matching string against object',
@@ -258,7 +264,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			],
 		},
 		{ 'flavors[].toppings[].meat': false },
-		/does not include/gi
+		/could not find match(.*?)false(.*?)at(.*?)toppings\[\]\.meat/gis
 	)
 	@test(
 		'include fails as expected matching string against object',
@@ -266,9 +272,17 @@ export default class AssertTest extends AbstractSpruceTest {
 			cheese: { size: 'large', toppings: { meat: true } },
 		},
 		{ 'cheese.toppings.stink': false },
-		/was not found/gi
+		/the path(.*?)cheese.toppings.stink(.*?)was not found in/gis
 	)
-	protected static doesIncludeFailsAsExpected(
+	@test(
+		'include fails as expected by not showing full object if path matches but value differs',
+		{
+			cheese: { size: 'large', toppings: { meat: true } },
+		},
+		{ 'cheese.toppings.meat': false },
+		/expected(.*?)false(.*?)but found(.*?)true(.*?) at(.*?)cheese.toppings.meat/gis
+	)
+	protected static doesIncludeThrowsAsExpected(
 		haystack: any,
 		needle: any,
 		matcher: any
@@ -326,13 +340,13 @@ export default class AssertTest extends AbstractSpruceTest {
 	@test()
 	protected static isTrue() {
 		assert.isTrue(true)
-		assert.doesThrow(() => assert.isTrue(false), 'does not equal true')
+		assert.doesThrow(() => assert.isTrue(false), /does not equal(.*?)true/gis)
 	}
 
 	@test()
 	protected static isFalse() {
 		assert.isFalse(false)
-		assert.doesThrow(() => assert.isFalse(true), 'does not equal false')
+		assert.doesThrow(() => assert.isFalse(true), /does not equal(.*?)false/gis)
 	}
 
 	@test()
