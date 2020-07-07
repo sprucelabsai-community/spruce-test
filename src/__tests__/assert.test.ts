@@ -230,6 +230,26 @@ export default class AssertTest extends AbstractSpruceTest {
 		[{ cheese: true }, { meat: true }],
 		{ '[].meat': true }
 	)
+	@test(
+		'include can search array without index',
+		[{ cheese: true }, { meat: true }],
+		{ meat: true }
+	)
+	@test(
+		'finds an array',
+		[
+			{
+				name: 'schemas.types.ts',
+				description: 'Every schema you need based on all your contracts',
+				path:
+					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+				action: 'updated',
+			},
+		],
+		{
+			action: 'updated',
+		}
+	)
 	protected static includeTests(haystack: any, needle: any) {
 		assert.doesInclude(haystack, needle)
 		assert.doesThrow(
@@ -281,6 +301,22 @@ export default class AssertTest extends AbstractSpruceTest {
 		},
 		{ 'cheese.toppings.meat': false },
 		/expected(.*?)false(.*?)but found(.*?)true(.*?) at(.*?)cheese.toppings.meat/gis
+	)
+	@test.only(
+		"include fails when can't find in an array",
+		[
+			{
+				name: 'schemas.types.ts',
+				description: 'Every schema you need based on all your contracts',
+				path:
+					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+				action: 'updated',
+			},
+		],
+		{
+			action: 'star',
+		},
+		/could not find(.*?)"action": "star"/gis
 	)
 	protected static doesIncludeThrowsAsExpected(
 		haystack: any,

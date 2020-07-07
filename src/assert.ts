@@ -221,10 +221,15 @@ const spruceAssert: ISpruceAssert = {
 			return
 		}
 
-		if (isHaystackObject && isObjectLike(needle) && !needleHasArrayNotation) {
+		if (
+			!Array.isArray(haystack) &&
+			isHaystackObject &&
+			isObjectLike(needle) &&
+			!needleHasArrayNotation
+		) {
 			const actual = AssertUtils.valueAtPath(haystack, path)
 
-			if (!actual) {
+			if (typeof actual === 'undefined') {
 				msg = `The path ${stringify(path)} was not found in ${stringify(
 					haystack
 				)}`
