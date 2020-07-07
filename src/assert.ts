@@ -194,7 +194,7 @@ const spruceAssert: ISpruceAssert = {
 		const {
 			needleHasArrayNotation,
 			path,
-			expected,
+			expected
 		} = AssertUtils.parseIncludeNeedle(needle)
 
 		if (Array.isArray(haystack)) {
@@ -221,10 +221,15 @@ const spruceAssert: ISpruceAssert = {
 			return
 		}
 
-		if (isHaystackObject && isObjectLike(needle) && !needleHasArrayNotation) {
+		if (
+			!Array.isArray(haystack) &&
+			isHaystackObject &&
+			isObjectLike(needle) &&
+			!needleHasArrayNotation
+		) {
 			const actual = AssertUtils.valueAtPath(haystack, path)
 
-			if (!actual) {
+			if (typeof actual === 'undefined') {
 				msg = `The path ${stringify(path)} was not found in ${stringify(
 					haystack
 				)}`
@@ -244,7 +249,7 @@ const spruceAssert: ISpruceAssert = {
 		if (isHaystackObject && isObjectLike(needle)) {
 			const {
 				actualBeforeArray,
-				pathAfterFirstArray,
+				pathAfterFirstArray
 			} = AssertUtils.splitPathBasedOnArrayNotation(path, haystack)
 
 			if (!Array.isArray(actualBeforeArray)) {
@@ -254,7 +259,7 @@ const spruceAssert: ISpruceAssert = {
 			const found = AssertUtils.doHaystacksPassCheck(
 				actualBeforeArray,
 				{
-					[pathAfterFirstArray]: expected,
+					[pathAfterFirstArray]: expected
 				},
 				this.doesInclude.bind(this)
 			)
@@ -272,7 +277,7 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	hasAllFunctions(obj, functionNames) {
-		functionNames.forEach((name) => {
+		functionNames.forEach(name => {
 			if (typeof obj[name] !== 'function') {
 				this.fail(
 					`A function named "${name}" does not exist on ${stringify(obj)}`
@@ -308,7 +313,7 @@ const spruceAssert: ISpruceAssert = {
 		this.fail('Expected a thrown error, but never got one!')
 	},
 
-	fail: AssertUtils.fail,
+	fail: AssertUtils.fail
 }
 
 export default spruceAssert
