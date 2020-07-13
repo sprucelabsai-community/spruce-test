@@ -31,6 +31,21 @@ jobs:
       - run: git config --global user.email "$GIT_AUTHOR_EMAIL"
       - run: git config --global user.name "$GIT_AUTHOR_NAME"
       - run: yarn run release
+  upgrade:
+    docker:
+      - image: circleci/node:12
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "ec:9f:2e:aa:1f:c9:ab:49:57:8f:c0:cd:2e:5b:f3:b0"
+      - checkout
+      - run: git checkout -b upgrade_$(date '+%Y-%m-%d') || git checkout -b upgrade_$(date '+%Y-%m-%d')
+      - run: git reset --hard orgin/master
+      - run: git config --global user.email "$GIT_AUTHOR_EMAIL"
+      - run: git config --global user.name "$GIT_AUTHOR_NAME"
+      - run: yarn run upgrade.all
+      - run: git commit -a "chore{{':'}} upgrade all [automated]"
+      - run: git push --force  origin upgrade_$(date '+%Y-%m-%d')
 workflows:
   version: 2
   do_build:
@@ -45,3 +60,11 @@ workflows:
             branches:
               only:
                 - master
+      - upgrade:
+          context: public_package_publish
+          - schedule:
+              cron: "0 0 * * *"
+              filters:
+                branches:
+                  only:
+                    - master
