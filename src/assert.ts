@@ -151,7 +151,14 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	isLength(actual, expected, message) {
-		this.isEqual(actual.length, expected, message)
+		this.isEqual(
+			actual.length,
+			expected,
+			message ??
+				`Expected length of ${stringify(
+					expected
+				)}, but got a length of ${stringify(actual.length)}`
+		)
 	},
 
 	doesNotInclude(haystack: any, needle: any, message?: string) {
@@ -230,6 +237,8 @@ const spruceAssert: ISpruceAssert = {
 			!Array.isArray(haystack) &&
 			isHaystackObject &&
 			isObjectLike(needle) &&
+			isObjectLike(needle) &&
+			Object.keys(needle).length === 1 &&
 			!needleHasArrayNotation
 		) {
 			const actual = AssertUtils.valueAtPath(haystack, path)
