@@ -1,3 +1,10 @@
+# [5.3.0](https://github.com/sprucelabsai/spruce-test/compare/v5.2.7...v5.3.0) (2020-07-14)
+
+
+### Features
+
+* islength ([4e55f7d](https://github.com/sprucelabsai/spruce-test/commit/4e55f7d))
+
 ## [5.2.7](https://github.com/sprucelabsai/spruce-test/compare/v5.2.6...v5.2.7) (2020-07-13)
 
 ## [5.2.6](https://github.com/sprucelabsai/spruce-test/compare/v5.2.5...v5.2.6) (2020-07-08)
