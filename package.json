@@ -31,8 +31,8 @@
 		"release": "semantic-release",
 		"local": "node --inspect=5200 ./build/index.js",
 		"arkit": "arkit -f src/index.ts -o docs/images/arkit.svg",
-		"upgrade.all": "yarn upgrade --latest && rm yarn.lock | true && yarn | true && yarn lint.fix | true",
-		"upgrade.local": "yarn upgrade.all && yarn lint && yarn test && yarn build"
+		"upgrade.base": "yarn upgrade --latest && rm yarn.lock | true && yarn | true && yarn lint.fix | true",
+		"upgrade": "yarn upgrade.base && yarn lint && yarn test && yarn build"
 	},
 	"devDependencies": {
 		"@sprucelabs/semantic-release": "^4.0.4",
