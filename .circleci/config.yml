@@ -26,7 +26,7 @@ jobs:
             COMMIT_MSG=$(git log --format=oneline -n 1 $CIRCLE_SHA1)
             if [[ $COMMIT_MSG == *"[npm-publish]"* ]]; then
               echo "[npm-publish] detected. No publish necessary 👊"
-              circleci step halt
+              circleci-agent step halt
             fi
       - run: yarn install --frozen-lockfile
       - run: yarn run build
@@ -53,7 +53,7 @@ jobs:
             yarn run upgrade.all
             if [[ $(git status) != *"modified"* ]]; then 
               echo "No modifications detected.  No push/PR necessary 👊"
-              circleci step halt
+              circleci-agent step halt
             fi
             git commit -a -m "[chore] upgrade all [automated]"
             git push --force origin $TARGETBRANCH
