@@ -60,6 +60,7 @@ jobs:
           command: |
             git commit -a -m "[chore] upgrade all [automated]"
             git push --force origin $TARGETBRANCH
+            git push --set-upstream origin $TARGETBRANCH
             echo "$(hub pull-request --base master --head $TARGETBRANCH -m 'Weekly Package Upgrade' 2>&1)" |egrep "/pull/|already exists"
 workflows:
   version: 2.1
