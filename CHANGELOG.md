@@ -1,3 +1,10 @@
+## [5.3.2](https://github.com/sprucelabsai/spruce-test/compare/v5.3.1...v5.3.2) (2020-07-14)
+
+
+### Bug Fixes
+
+* cleanup circleci upgrade job, dont push/pr if no changes ([f108e8f](https://github.com/sprucelabsai/spruce-test/commit/f108e8f))
+
 ## [5.3.1](https://github.com/sprucelabsai/spruce-test/compare/v5.3.0...v5.3.1) (2020-07-14)
 
 # [5.3.0](https://github.com/sprucelabsai/spruce-test/compare/v5.2.7...v5.3.0) (2020-07-14)
