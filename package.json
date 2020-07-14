@@ -59,7 +59,7 @@
 		"jest": "^26.1.0",
 		"lodash": "^4.17.19",
 		"ts-expect": "^1.1.0",
-		"ts-jest": "^26.1.1"
+		"ts-jest": "^26.1.2"
 	},
 	"babel": {
 		"presets": [
