@@ -58,6 +58,7 @@ jobs:
       - run:
           name: "Create PR"
           command: |
+            TARGETBRANCH=upgrade_$(date '+%Y-%m-%d')
             git commit -a -m "[chore] upgrade all [automated]"
             git push --force origin $TARGETBRANCH
             git push --set-upstream origin $TARGETBRANCH
