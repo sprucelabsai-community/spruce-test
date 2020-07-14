@@ -48,7 +48,7 @@
 		"typescript": "^3.8"
 	},
 	"dependencies": {
-		"@babel/core": "^7.9.0",
+		"@babel/core": "^7.10.5",
 		"@babel/preset-env": "^7.9.5",
 		"@types/chai": "^4.2.11",
 		"@types/faker": "^4.1.11",
