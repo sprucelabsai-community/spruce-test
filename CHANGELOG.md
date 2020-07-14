@@ -1,3 +1,10 @@
+## [5.3.4](https://github.com/sprucelabsai/spruce-test/compare/v5.3.3...v5.3.4) (2020-07-14)
+
+
+### Bug Fixes
+
+* circleci -> circleci-agent ([c7a5eef](https://github.com/sprucelabsai/spruce-test/commit/c7a5eef))
+
 ## [5.3.3](https://github.com/sprucelabsai/spruce-test/compare/v5.3.2...v5.3.3) (2020-07-14)
 
 ## [5.3.2](https://github.com/sprucelabsai/spruce-test/compare/v5.3.1...v5.3.2) (2020-07-14)
