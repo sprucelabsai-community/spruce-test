@@ -31,6 +31,7 @@ export interface ISpruceAssert {
 	isTrue(actual: boolean, message?: string): asserts actual is true
 	isFalse(actual: boolean, message?: string): asserts actual is false
 	isObject<T extends any>(actual: T, message?: string): void
+	isLength(actual: any[], expected: number, message?: string): void
 	doesNotInclude<T>(
 		haystack: T,
 		needle: RecursivePartial<T>,
@@ -147,6 +148,10 @@ const spruceAssert: ISpruceAssert = {
 		if (!isObjectLike(actual)) {
 			throw this.fail(message ?? `${stringify(actual)} is not an object`)
 		}
+	},
+
+	isLength(actual, expected, message) {
+		this.isEqual(actual.length, expected, message)
 	},
 
 	doesNotInclude(haystack: any, needle: any, message?: string) {
