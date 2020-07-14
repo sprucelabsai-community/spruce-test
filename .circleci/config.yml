@@ -42,16 +42,22 @@ jobs:
             - "ec:9f:2e:aa:1f:c9:ab:49:57:8f:c0:cd:2e:5b:f3:b0"
       - checkout
       - hub/install
-      - run: git checkout -b upgrade_$(date '+%Y-%m-%d') || git checkout upgrade_$(date '+%Y-%m-%d')
-      - run: git reset --hard master
-      - run: git config --global user.email "$GIT_AUTHOR_EMAIL"
-      - run: git config --global user.name "$GIT_AUTHOR_NAME"
-      - run: yarn run upgrade.all
-      - run: git commit -a -m "[chore] upgrade all [automated]"
-      - run: git push --force origin upgrade_$(date '+%Y-%m-%d')
       - run:
-          name: Run HUB Command - Ensure PR
-          command: echo "$(hub pull-request --base master --head upgrade_$(date '+%Y-%m-%d') -m 'Weekly Package Upgrade' 2>&1)" |egrep "/pull/|already exists"
+          name: "Try upgrade / open PR"
+          command: |
+            TARGETBRANCH=upgrade_$(date '+%Y-%m-%d')
+            git checkout -b $TARGETBRANCH || git checkout $TARGETBRANCH
+            git reset --hard master
+            git config --global user.email "$GIT_AUTHOR_EMAIL"
+            git config --global user.name "$GIT_AUTHOR_NAME"
+            yarn run upgrade.all
+            if [[ $(git status) != *"modified"* ]]; then 
+              echo "No modifications detected.  No push/PR necessary 👊"
+              circleci step halt
+            fi
+            git commit -a -m "[chore] upgrade all [automated]"
+            git push --force origin $TARGETBRANCH
+            echo "$(hub pull-request --base master --head $TARGETBRANCH -m 'Weekly Package Upgrade' 2>&1)" |egrep "/pull/|already exists"
 workflows:
   version: 2.1
   do_build:
@@ -72,7 +78,7 @@ workflows:
           context: public_package_publish
     triggers:
       - schedule:
-          cron: "0 3 * * 1"
+          cron: "0 * * * *"
           filters:
             branches:
               only:
