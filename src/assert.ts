@@ -8,7 +8,7 @@ const stringify = AssertUtils.stringify
 
 type RecursivePartial<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]
-		? RecursivePartial<U>[]
+		? RecursivePartial<U>[] // eslint-disable-next-line @typescript-eslint/ban-types
 		: T[P] extends object
 		? RecursivePartial<T[P]>
 		: T[P]
@@ -53,6 +53,7 @@ export interface ISpruceAssert {
 	doesInclude(haystack: any, needle: any, message?: string): void
 
 	isString(actual: any, message?: string): asserts actual is string
+	// eslint-disable-next-line @typescript-eslint/ban-types
 	isFunction(actual: any, message?: string): asserts actual is Function
 	hasAllFunctions(obj: any, functionNames: string[]): void
 	doesThrow(
