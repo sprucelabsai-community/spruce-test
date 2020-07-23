@@ -50,7 +50,7 @@
 	"dependencies": {
 		"@babel/core": "^7.10.5",
 		"@babel/preset-env": "^7.9.5",
-		"@types/chai": "^4.2.11",
+		"@types/chai": "^4.2.12",
 		"@types/faker": "^4.1.11",
 		"@types/jest": "^26.0.6",
 		"babel-jest": "^26.1.0",
