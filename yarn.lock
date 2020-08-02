@@ -3247,10 +3247,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.7.8:
-  version "10.7.8"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.7.8.tgz#cdd3705f71a612d470d7ec3ba628dde5d230b5a8"
-  integrity sha512-kWCrJuvQgJwJ2yDzvYjsrs8nDDv10t4oAUdWrlckXnpdOB7GeTYUwYwE5yPf98YGTmOjsWd5kBRgKXdPep7MKQ==
+eslint-config-spruce@^10.7.9:
+  version "10.7.9"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.7.9.tgz#ac0c9d66fa8c514219e791c6633b4c5ea536a4cb"
+  integrity sha512-eJCGddngZ3EW/bxnt8wH0aKTzoqmZdwcBD6ErmJP3LuAEEhglfkV5hTIuda2URkE1sVlgPfmCDZQo6o8Pe5n1w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^3.7.1"
     "@typescript-eslint/parser" "^3.7.1"
@@ -3260,7 +3260,7 @@ eslint-config-spruce@^10.7.8:
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.20.5"
-    eslint-plugin-spruce "^10.7.8"
+    eslint-plugin-spruce "^10.7.9"
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -3338,10 +3338,10 @@ eslint-plugin-react@^7.20.5:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.7.8:
-  version "10.7.8"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.7.8.tgz#9f8681af05646abc88b7dd233be944cebb88f3b1"
-  integrity sha512-7SjOxP3azQS48PThp19n8b1b/Ac/76t9XWG9btVq/orkE6UP33wPee0tbRZm4z0CGUB+jDe/LTr3yfjxO1bxvQ==
+eslint-plugin-spruce@^10.7.9:
+  version "10.7.9"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.7.9.tgz#b2c99deb9a0b6c9ad338b41717cabaf92957a991"
+  integrity sha512-5LYTQiAXpJFtRTNNKrh/X07ewa6B+M/BKelU2cEwnnMD4C43JKUo6Q0YOFM5FVWvIBN0IYGTi97rjeNx/JqmmA==
   dependencies:
     pascal-case "^3.1.1"
 
@@ -8617,9 +8617,9 @@ typescript@^3.9.7, typescript@~3.9.7:
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 uglify-js@^3.1.4:
-  version "3.10.0"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.10.0.tgz#397a7e6e31ce820bfd1cb55b804ee140c587a9e7"
-  integrity sha512-Esj5HG5WAyrLIdYU74Z3JdG2PxdIusvj6IWHMtlyESxc7kcDz7zYlYjpnSokn1UbpV0d/QX9fan7gkCNd/9BQA==
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.10.1.tgz#dd14767eb7150de97f2573a5ff210db14fffe4ad"
+  integrity sha512-RjxApKkrPJB6kjJxQS3iZlf///REXWYxYJxO/MpmlQzVkDWVI3PSnCBWezMecmTU/TRkNxrl8bmsfFQCp+LO+Q==
 
 uid-number@0.0.6:
   version "0.0.6"
