@@ -256,7 +256,15 @@ const spruceAssert: ISpruceAssert = {
 				)} in ${stringify(haystack)}`
 			}
 
-			this.isEqualDeep(expected, actual, msg)
+			if (
+				typeof expected === 'string' &&
+				typeof actual === 'string' &&
+				actual.search(expected) > -1
+			) {
+				return
+			} else {
+				this.isEqualDeep(expected, actual, msg)
+			}
 
 			return
 		}

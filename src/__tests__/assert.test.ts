@@ -251,7 +251,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		}
 	)
 	@test(
-		"include fails when can't find in an array",
+		'include matches partial object',
 		[
 			{
 				name: 'schemas.types.ts',
@@ -266,7 +266,18 @@ export default class AssertTest extends AbstractSpruceTest {
 			action: 'updated',
 		}
 	)
-	protected static includeTests(haystack: any, needle: any) {
+	@test.only(
+		'include matches object props',
+		{
+			results: {
+				errors: [new Error('test'), new Error('test2')],
+			},
+		},
+		{
+			'results.errors[].stack': 'test2',
+		}
+	)
+	protected static includeAndDoesNotInclude(haystack: any, needle: any) {
 		assert.doesInclude(haystack, needle)
 		assert.doesThrow(
 			() => assert.doesNotInclude(haystack, needle),
