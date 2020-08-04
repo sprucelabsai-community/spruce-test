@@ -262,6 +262,8 @@ const spruceAssert: ISpruceAssert = {
 				actual.search(expected) > -1
 			) {
 				return
+			} else if (expected instanceof RegExp && expected.exec(actual)) {
+				return
 			} else {
 				this.isEqualDeep(expected, actual, msg)
 			}
