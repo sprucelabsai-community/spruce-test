@@ -8,7 +8,7 @@
 			"type": "node",
 			"request": "launch",
 			"name": "test.file",
-			"runtimeExecutable": "${env:NVM_BIN}/node",
+			"runtimeExecutable": "/Users/taylorromero/.nvm/versions/node/v12.16.1/bin/node",
 			"runtimeArgs": [
 				"--inspect-brk",
 				"${workspaceFolder}/node_modules/.bin/jest",
@@ -24,7 +24,7 @@
 			"type": "node",
 			"request": "launch",
 			"name": "test.all",
-			"runtimeExecutable": "${env:NVM_BIN}/node",
+			"runtimeExecutable": "/Users/taylorromero/.nvm/versions/node/v12.16.1/bin/node",
 			"runtimeArgs": [
 				"--inspect-brk",
 				"${workspaceFolder}/node_modules/.bin/jest"
