@@ -266,7 +266,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			action: 'updated',
 		}
 	)
-	@test.only(
+	@test(
 		'include matches object props',
 		{
 			results: {
@@ -275,6 +275,17 @@ export default class AssertTest extends AbstractSpruceTest {
 		},
 		{
 			'results.errors[].stack': 'test2',
+		}
+	)
+	@test(
+		'include matches object props against regex',
+		{
+			results: {
+				errors: [new Error('test'), new Error('test2')],
+			},
+		},
+		{
+			'results.errors[].stack': /test[1|2]/,
 		}
 	)
 	protected static includeAndDoesNotInclude(haystack: any, needle: any) {
@@ -361,6 +372,18 @@ export default class AssertTest extends AbstractSpruceTest {
 			action: '2',
 		},
 		/could not find(.*?)"name": "schemas.types.ts"/gis
+	)
+	@test(
+		'include matches object props against regex',
+		{
+			results: {
+				errors: [new Error('test'), new Error('test2')],
+			},
+		},
+		{
+			'results.errors[].stack': /test3/,
+		},
+		/could not find match/i
 	)
 	protected static doesIncludeThrowsAsExpected(
 		haystack: any,
