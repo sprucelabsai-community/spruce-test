@@ -6,7 +6,7 @@
 	"files": [
 		"build"
 	],
-	"version": "5.3.98",
+	"version": "5.3.105",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
 	"description": "Testing made 🔥🔥🔥 in the Spruce Experience Platform",
@@ -42,7 +42,7 @@
 		"chokidar-cli": "^2.1.0",
 		"concurrently": "^5.0.2",
 		"eslint": "^7.6.0",
-		"eslint-config-spruce": "^10.7.14",
+		"eslint-config-spruce": "^10.7.16",
 		"prettier": "^2.0.5",
 		"ts-node": "^8.8.1",
 		"typescript": "^3.9.7"
