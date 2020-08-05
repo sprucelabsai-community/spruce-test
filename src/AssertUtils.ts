@@ -21,11 +21,11 @@ export class AssertUtils {
 			stringified = JSON.stringify(object, undefined, 2).replace(/\\/g, '')
 		}
 
-		if (stringified.length > 2000) {
+		if (stringified.length > 2500) {
 			stringified =
-				stringified.substr(0, 500) +
+				stringified.substr(0, 1000) +
 				'\n\n... big object ...\n\n' +
-				stringified.substr(stringified.length - 500)
+				stringified.substr(stringified.length - 1000)
 		}
 
 		return `\n\n${chalk.bold(stringified)}\n\n`
