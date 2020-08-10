@@ -53,10 +53,10 @@
 		"@types/chai": "^4.2.12",
 		"@types/faker": "^4.1.11",
 		"@types/jest": "^26.0.9",
-		"babel-jest": "^26.2.2",
+		"babel-jest": "^26.3.0",
 		"deep-equal": "^2.0.3",
 		"faker": "^4.1.0",
-		"jest": "^26.2.2",
+		"jest": "^26.3.0",
 		"lodash": "^4.17.19",
 		"ts-expect": "^1.1.0",
 		"ts-jest": "^26.1.4"
