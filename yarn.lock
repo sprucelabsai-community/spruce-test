@@ -3107,9 +3107,9 @@ editor@~1.0.0:
   integrity sha1-YMf4e9YrzGqJT6jM1q+3gjok90I=
 
 electron-to-chromium@^1.3.523:
-  version "1.3.531"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.531.tgz#fe432e23c306f7b3579506de9ca63703ef086b9d"
-  integrity sha512-cRdM9noPSUvZ2TCJByhFL78amPMjNZlGJG27EPuJZK0CwWzBfj3ei7hJh0hNsjvgC0BayRW8Bc06DTCELcMC9Q==
+  version "1.3.532"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.532.tgz#281efb8b8588ec8a105db8829c39dd2ad178b1f3"
+  integrity sha512-6PYzSCIa/Q2PImAHYLrvKPxuwFqDcvCzRT9w26Szd9psPa9et/t4TzgjaoX7wkBIfkhhgRQWwHWeUHOM4cJdRw==
 
 emittery@^0.7.1:
   version "0.7.1"
@@ -3269,10 +3269,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.8.7:
-  version "10.8.7"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.8.7.tgz#e710d510c9221d31086ed72b2633bdf9f2b0b810"
-  integrity sha512-BV4tvlVLvIFiSsv1aeqKwx2QWB6OXKR35BISLuytELdTLzkxgCQ1A/xD6BU0G3wtcAJy5QUGTtjpq7X2Zmeuvg==
+eslint-config-spruce@^10.8.8:
+  version "10.8.8"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.8.8.tgz#4f121b7ee55e76b60adf50417534dab1e4c873da"
+  integrity sha512-/p4w2IqcSV2TUzGtpD5vzPQ4Rvgp/RejV6s7sYAXpovPCWt7pYVPWAsEIXXAYfcINQNYZdILIAcbAsAc4fDXZQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^3.9.0"
     "@typescript-eslint/parser" "^3.9.0"
@@ -3281,8 +3281,8 @@ eslint-config-spruce@^10.8.7:
     eslint-plugin-import "^2.22.0"
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
-    eslint-plugin-react "^7.20.5"
-    eslint-plugin-spruce "^10.8.7"
+    eslint-plugin-react "^7.20.6"
+    eslint-plugin-spruce "^10.8.8"
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -3343,10 +3343,10 @@ eslint-plugin-prettier@^3.1.4:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-react@^7.20.5:
-  version "7.20.5"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.20.5.tgz#29480f3071f64a04b2c3d99d9b460ce0f76fb857"
-  integrity sha512-ajbJfHuFnpVNJjhyrfq+pH1C0gLc2y94OiCbAXT5O0J0YCKaFEHDV8+3+mDOr+w8WguRX+vSs1bM2BDG0VLvCw==
+eslint-plugin-react@^7.20.6:
+  version "7.20.6"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.20.6.tgz#4d7845311a93c463493ccfa0a19c9c5d0fd69f60"
+  integrity sha512-kidMTE5HAEBSLu23CUDvj8dc3LdBU0ri1scwHBZjI41oDv4tjsWZKU7MQccFzH1QYPYhsnTF2ovh7JlcIcmxgg==
   dependencies:
     array-includes "^3.1.1"
     array.prototype.flatmap "^1.2.3"
@@ -3360,10 +3360,10 @@ eslint-plugin-react@^7.20.5:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.8.7:
-  version "10.8.7"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.8.7.tgz#e980cea0faebb55248230aaced0ab07c54fd4c37"
-  integrity sha512-el39PoK/r5h8HJ8UhiP9Zt1Eaed0UQt2lJEUupZMao/O0QeML+JKtnhOG1yC+5I7bLQBc1hDmtojh+WUfd232A==
+eslint-plugin-spruce@^10.8.8:
+  version "10.8.8"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.8.8.tgz#cc5791726abdbe7b077f7e16b8402f0d60c5891a"
+  integrity sha512-SHKUMb9gcMwN1A39RY+E3ApR/0CFGIlGjUnlJPR0OwCB3BsuM1z+CDwGOzJDi0Q3VjQdsqqES6T+hZl+2m+8LQ==
   dependencies:
     pascal-case "^3.1.1"
 
