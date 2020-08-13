@@ -125,7 +125,12 @@ const spruceAssert: ISpruceAssert = {
 
 	isTruthy(actual, message) {
 		// @ts-ignore
-		if (actual === false || actual === null || typeof actual === 'undefined') {
+		if (
+			actual === false ||
+			actual === null ||
+			typeof actual === 'undefined' ||
+			actual === 0
+		) {
 			this.fail(message ?? `${stringify(actual)} is not truthy`)
 		}
 	},
