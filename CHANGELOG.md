@@ -1,3 +1,15 @@
+# [6.0.0](https://github.com/sprucelabsai/spruce-test/compare/v5.3.150...v6.0.0) (2020-08-13)
+
+
+### Breaking Changes
+
+* isOk -> isTruthy ([904c2d5](https://github.com/sprucelabsai/spruce-test/commit/904c2d5))
+
+
+### Features
+
+* isNull ([bc89a7b](https://github.com/sprucelabsai/spruce-test/commit/bc89a7b))
+
 ## [5.3.150](https://github.com/sprucelabsai/spruce-test/compare/v5.3.149...v5.3.150) (2020-08-13)
 
 ## [5.3.149](https://github.com/sprucelabsai/spruce-test/compare/v5.3.148...v5.3.149) (2020-08-13)
