@@ -32,6 +32,7 @@ export interface ISpruceAssert {
 	isFalse(actual: boolean, message?: string): asserts actual is false
 	isObject<T extends any>(actual: T, message?: string): void
 	isLength(actual: any[], expected: number, message?: string): void
+	isNull(actual: any, message?: string): void
 	doesNotInclude<T>(
 		haystack: T,
 		needle: RecursivePartial<T>,
@@ -322,6 +323,12 @@ const spruceAssert: ISpruceAssert = {
 		}
 
 		this.fail('Expected a thrown error, but never got one!')
+	},
+
+	isNull(actual: any, message?) {
+		if (actual !== null) {
+			this.fail(message ?? `${stringify(actual)} is not null`)
+		}
 	},
 
 	async doesThrowAsync(cb, matcher, msg) {
