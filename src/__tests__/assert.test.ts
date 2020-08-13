@@ -33,7 +33,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			})
 		} catch (err) {
 			detectedNoThrow = true
-			assert.isOk(err)
+			assert.isTruthy(err)
 		}
 
 		assert.isTrue(hitCallback)
@@ -419,19 +419,31 @@ export default class AssertTest extends AbstractSpruceTest {
 	}
 
 	@test()
-	protected static isOk() {
+	protected static isTruthy() {
 		const run = (): string | undefined => {
 			return 'test'
 		}
 
 		const value = run()
-		assert.isOk(value)
+		assert.isTruthy(value)
 
 		assert.isType<string>(value)
 
-		assert.doesThrow(() => assert.isOk(false), /is not ok/)
-		assert.doesThrow(() => assert.isOk(undefined), /is not ok/)
-		assert.doesThrow(() => assert.isOk(null), /is not ok/)
+		assert.doesThrow(() => assert.isTruthy(false), /is not truthy/)
+		assert.doesThrow(() => assert.isTruthy(undefined), /is not truthy/)
+		assert.doesThrow(() => assert.isTruthy(null), /is not truthy/)
+		assert.doesThrow(() => assert.isTruthy(0), /is not truthy/)
+	}
+
+	@test()
+	protected static isFalsy() {
+		assert.isFalsy(null)
+		assert.isFalsy(0)
+		assert.isFalsy(undefined)
+		assert.isFalsy(false)
+
+		assert.doesThrow(() => assert.isFalsy(1), /is not falsy/)
+		assert.doesThrow(() => assert.isFalsy('undefined'), /is not falsy/)
 	}
 
 	@test()
@@ -489,5 +501,12 @@ export default class AssertTest extends AbstractSpruceTest {
 		assert.isLength([], 0)
 		assert.isLength(['test'], 1)
 		assert.doesThrow(() => assert.isLength(['test'], 4), /expected length of/gi)
+	}
+
+	@test()
+	protected static isNull() {
+		assert.isNull(null)
+		assert.doesThrow(() => assert.isNull(false))
+		assert.doesThrow(() => assert.isNull(undefined))
 	}
 }
