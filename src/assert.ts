@@ -23,11 +23,11 @@ export interface ISpruceAssert {
 	isAbove<T extends any>(actual: T, floor: T, message?: string): void
 	isBelow<T extends any>(actual: T, ceiling: T, message?: string): void
 	isUndefined<T extends any>(actual: T, message?: string): void
-	/* Not false, undefined, or null */
-	isOk<T extends any>(
+	isTruthy<T extends any>(
 		value: T,
 		message?: string
 	): asserts value is NonNullable<T>
+	isFalsy(value: any, message?: string): void
 	isTrue(actual: boolean, message?: string): asserts actual is true
 	isFalse(actual: boolean, message?: string): asserts actual is false
 	isObject<T extends any>(actual: T, message?: string): void
@@ -123,10 +123,22 @@ const spruceAssert: ISpruceAssert = {
 		}
 	},
 
-	isOk(actual, message) {
+	isTruthy(actual, message) {
 		// @ts-ignore
 		if (actual === false || actual === null || typeof actual === 'undefined') {
-			this.fail(message ?? `${stringify(actual)} is not ok`)
+			this.fail(message ?? `${stringify(actual)} is not truthy`)
+		}
+	},
+
+	isFalsy(actual, message) {
+		if (actual) {
+			this.fail(message ?? `${stringify(actual)} is not falsy`)
+		}
+	},
+
+	isNull(actual: any, message?) {
+		if (actual !== null) {
+			this.fail(message ?? `${stringify(actual)} is not null`)
 		}
 	},
 
@@ -323,12 +335,6 @@ const spruceAssert: ISpruceAssert = {
 		}
 
 		this.fail('Expected a thrown error, but never got one!')
-	},
-
-	isNull(actual: any, message?) {
-		if (actual !== null) {
-			this.fail(message ?? `${stringify(actual)} is not null`)
-		}
 	},
 
 	async doesThrowAsync(cb, matcher, msg) {

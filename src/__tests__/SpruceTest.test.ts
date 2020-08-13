@@ -50,7 +50,7 @@ export default class SpruceTest extends AbstractSpruceTest {
 	@test()
 	protected static async asyncDebuggerWaits() {
 		const results = await this.wait(1000)
-		assert.isOk(results)
+		assert.isTruthy(results)
 	}
 
 	@test.todo('can create a TODO test')

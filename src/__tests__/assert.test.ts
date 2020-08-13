@@ -33,7 +33,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			})
 		} catch (err) {
 			detectedNoThrow = true
-			assert.isOk(err)
+			assert.isTruthy(err)
 		}
 
 		assert.isTrue(hitCallback)
@@ -425,13 +425,13 @@ export default class AssertTest extends AbstractSpruceTest {
 		}
 
 		const value = run()
-		assert.isOk(value)
+		assert.isTruthy(value)
 
 		assert.isType<string>(value)
 
-		assert.doesThrow(() => assert.isOk(false), /is not ok/)
-		assert.doesThrow(() => assert.isOk(undefined), /is not ok/)
-		assert.doesThrow(() => assert.isOk(null), /is not ok/)
+		assert.doesThrow(() => assert.isTruthy(false), /is not ok/)
+		assert.doesThrow(() => assert.isTruthy(undefined), /is not ok/)
+		assert.doesThrow(() => assert.isTruthy(null), /is not ok/)
 	}
 
 	@test()
