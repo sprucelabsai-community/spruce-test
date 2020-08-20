@@ -7,7 +7,7 @@ export default class PluginsTest extends AbstractSpruceTest {
 	private static expectedPluginAfterAllCalled = false
 
 	protected static async afterAll() {
-		super.afterAll()
+		await super.afterAll()
 		if (this.expectedPluginAfterAllCalled) {
 			this.expectedPluginAfterAllCalled = false
 			assert.isTrue(this.pluginAfterAllCalled)
