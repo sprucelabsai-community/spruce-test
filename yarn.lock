@@ -3257,10 +3257,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.9.3:
-  version "10.9.3"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.3.tgz#63fbae2e6654545941f0bfb0dc81bc118cb81641"
-  integrity sha512-P4EPGpzkCfSCXzymtaXCgF+CSzfbHI2ltzmmRF0aVwISjkVHidE14FetlP/YRClIA8qJE06JZwj99NFu4Dgizg==
+eslint-config-spruce@^10.9.4:
+  version "10.9.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.4.tgz#b2277bf8a46ee625a09f1d211b9037bbc9a41063"
+  integrity sha512-d2Lfk0+xHDZZDiTkd4+zSgCgynh89L6vuryiLYjk3R9QHr/rwBTu7I24/urcsdcDTTqXlnQDqx+9YTuuJLFbaA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^3.9.1"
     "@typescript-eslint/parser" "^3.9.1"
@@ -3270,7 +3270,7 @@ eslint-config-spruce@^10.9.3:
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.20.6"
-    eslint-plugin-spruce "^10.9.3"
+    eslint-plugin-spruce "^10.9.4"
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -3348,10 +3348,10 @@ eslint-plugin-react@^7.20.6:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.9.3:
-  version "10.9.3"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.3.tgz#c3e1bc179b35296bd9f282b9ea480aead7dad438"
-  integrity sha512-XaQEa6fOcVGYsIzu1bV2u7iXTFsR94johGGYcamRrZYj38SOJWPEHSwwHr2CsXg2FLtI5QpARPPjHnEgLyDQfA==
+eslint-plugin-spruce@^10.9.4:
+  version "10.9.4"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.4.tgz#915f6a35d61c82a52f6be92b460e0b4bcf5d83d5"
+  integrity sha512-eHU/JKSvJvd3NAG+KNN+SqWThQ8EInj12kpYwDBXh341lDwUc5sGDDhsk+ikU9R9bXNMuwGJa1tuhqaR7wTvVQ==
   dependencies:
     pascal-case "^3.1.1"
 
@@ -8002,9 +8002,9 @@ split2@^2.0.0:
     through2 "^2.0.2"
 
 split2@^3.1.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/split2/-/split2-3.2.1.tgz#9d093c43ed27498b0c9b78d54bb47dade1dc01fd"
-  integrity sha512-wmX3JdfKWWghQSjezpJyMxlFodG/vNbV/Y9scsCqYSDWo0nCdteOdzqh8z1NDxpcIZB6BhkqWo6642VI/HA3oA==
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/split2/-/split2-3.2.2.tgz#bf2cf2a37d838312c249c89206fd7a17dd12365f"
+  integrity sha512-9NThjpgZnifTkJpzTZ7Eue85S49QwpNhZTq6GRJwObb6jnLFNGB7Qm73V5HewTROPyxD0C29xqmaI68bQtV+hg==
   dependencies:
     readable-stream "^3.0.0"
 
