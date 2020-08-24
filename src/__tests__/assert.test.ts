@@ -437,6 +437,11 @@ export default class AssertTest extends AbstractSpruceTest {
 		[6, 7],
 		9
 	)
+	@test(
+		'include fails when searching an object for a regex',
+		{ foo: 'bar', taco: 'bravo' },
+		/yummy/
+	)
 	protected static doesIncludeThrowsAsExpected(
 		haystack: any,
 		needle: any,

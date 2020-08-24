@@ -265,7 +265,8 @@ const spruceAssert: ISpruceAssert = {
 			isHaystackObject &&
 			isObjectLike(needle) &&
 			Object.keys(needle).length === 1 &&
-			!needleHasArrayNotation
+			!needleHasArrayNotation &&
+			path
 		) {
 			const actual = AssertUtils.valueAtPath(haystack, path)
 
@@ -296,7 +297,7 @@ const spruceAssert: ISpruceAssert = {
 			return
 		}
 
-		if (isHaystackObject && isObjectLike(needle)) {
+		if (isHaystackObject && isObjectLike(needle) && path) {
 			const {
 				actualBeforeArray,
 				pathAfterFirstArray,

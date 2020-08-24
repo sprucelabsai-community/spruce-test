@@ -114,10 +114,12 @@ export class AssertUtils {
 		return get(object, path)
 	}
 
-	public static parseIncludeNeedle(needle: any) {
+	public static parseIncludeNeedle(
+		needle: any
+	): { needleHasArrayNotation: boolean; path?: string; expected?: any } {
 		const path = Object.keys(needle)[0]
-		const expected = needle[path]
-		const needleHasArrayNotation = path && path.search(/\[\]\./) > -1
+		const expected = path && needle[path]
+		const needleHasArrayNotation = !!(path && path.search(/\[\]\./) > -1)
 		return { needleHasArrayNotation, path, expected }
 	}
 
