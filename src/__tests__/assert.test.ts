@@ -288,6 +288,11 @@ export default class AssertTest extends AbstractSpruceTest {
 			'results.errors[].stack': /test[1|2]/,
 		}
 	)
+	@test(
+		'include matches when passed an array and matching against object with numbers',
+		[6, 7],
+		7
+	)
 	protected static includeAndDoesNotInclude(haystack: any, needle: any) {
 		assert.doesInclude(haystack, needle)
 		assert.doesThrow(
@@ -374,7 +379,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		/could not find(.*?)"name": "schemas.types.ts"/gis
 	)
 	@test(
-		'include matches object props against regex',
+		'include fails object props against regex',
 		{
 			results: {
 				errors: [new Error('test'), new Error('test2')],
@@ -384,6 +389,23 @@ export default class AssertTest extends AbstractSpruceTest {
 			'results.errors[].stack': /test3/,
 		},
 		/could not find match/i
+	)
+	@test(
+		'include fails when passed an array and matching against object',
+		['hey', 'there'],
+		{ name: 'hey', foo: 'bar' },
+		/could not find/i
+	)
+	@test(
+		'include fails when passed an array and matching against object with numbers',
+		[6, 7],
+		{ name: 7, foo: 6 },
+		/could not find/i
+	)
+	@test(
+		'include matches when passed an array and matching against numbers',
+		[6, 7],
+		9
 	)
 	protected static doesIncludeThrowsAsExpected(
 		haystack: any,

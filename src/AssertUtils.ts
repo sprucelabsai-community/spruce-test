@@ -124,7 +124,11 @@ export class AssertUtils {
 		isHaystackObject: boolean
 	) {
 		let passed = false
-		if (typeof haystack === 'string' && haystack.search(needle) > -1) {
+		if (
+			typeof haystack === 'string' &&
+			typeof needle === 'string' &&
+			haystack.search(needle) > -1
+		) {
 			passed = true
 		}
 
