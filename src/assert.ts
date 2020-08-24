@@ -246,6 +246,14 @@ const spruceAssert: ISpruceAssert = {
 			}
 		}
 
+		if (isHaystackObject && isObjectLike(needle)) {
+			try {
+				this.isEqualDeep(haystack, needle)
+				return
+				// eslint-disable-next-line no-empty
+			} catch {}
+		}
+
 		if (
 			AssertUtils.foundUsing3rdPartyIncludes(haystack, needle, isHaystackObject)
 		) {
@@ -255,7 +263,6 @@ const spruceAssert: ISpruceAssert = {
 		if (
 			!Array.isArray(haystack) &&
 			isHaystackObject &&
-			isObjectLike(needle) &&
 			isObjectLike(needle) &&
 			Object.keys(needle).length === 1 &&
 			!needleHasArrayNotation
