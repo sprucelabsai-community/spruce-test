@@ -231,7 +231,7 @@ const spruceAssert: ISpruceAssert = {
 		if (Array.isArray(haystack)) {
 			let cleanedNeedle = needle
 
-			if (path.substr(0, 3) === '[].') {
+			if (path && path.substr(0, 3) === '[].') {
 				cleanedNeedle = { [path.substr(3)]: expected }
 			}
 
