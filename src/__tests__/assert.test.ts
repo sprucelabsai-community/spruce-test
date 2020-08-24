@@ -236,7 +236,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		{ meat: true }
 	)
 	@test(
-		'finds an array',
+		'include matches partial object in array',
 		[
 			{
 				name: 'schemas.types.ts',
@@ -251,7 +251,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		}
 	)
 	@test(
-		'include matches partial object',
+		'include matches deep equal on object with nested object in array',
 		[
 			{
 				name: 'schemas.types.ts',
@@ -259,11 +259,41 @@ export default class AssertTest extends AbstractSpruceTest {
 				path:
 					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
 				action: 'updated',
+				deep: {
+					foo: 'bar',
+				},
 			},
 		],
 		{
 			name: 'schemas.types.ts',
+			description: 'Every schema you need based on all your contracts',
+			path:
+				'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
 			action: 'updated',
+			deep: {
+				foo: 'bar',
+			},
+		}
+	)
+	@test(
+		'include matches deep equal on nested object in array',
+		[
+			{
+				name: 'schemas.types.ts',
+				description: 'Every schema you need based on all your contracts',
+				path:
+					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+				action: 'updated',
+				deep: {
+					foo: 'bar',
+				},
+			},
+		],
+		{
+			name: 'schemas.types.ts',
+			deep: {
+				foo: 'bar',
+			},
 		}
 	)
 	@test(

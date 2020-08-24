@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import { includes, get } from 'lodash'
+import { includes, get, isObjectLike } from 'lodash'
 import { ISpruceAssert } from './assert'
 import AssertionError from './AssertionError'
 
@@ -91,7 +91,18 @@ export class AssertUtils {
 				return false
 			}
 
-			if (object[subProp] !== subObject[subProp]) {
+			if (
+				(!isObjectLike(object[subProp]) || !isObjectLike(subObject[subProp])) &&
+				object[subProp] !== subObject[subProp]
+			) {
+				return false
+			}
+
+			if (
+				isObjectLike(object[subProp]) &&
+				isObjectLike(subObject[subProp]) &&
+				!this.partialContains(object[subProp], subObject[subProp])
+			) {
 				return false
 			}
 		}
