@@ -62,7 +62,7 @@ export class AssertUtils {
 		msg?: string | undefined
 	) {
 		const message = err.message ?? '**MISSING ERROR MESSAGE**'
-		debugger
+
 		if (typeof matcher === 'string' && message.search(matcher) === -1) {
 			this.fail(
 				msg ??
