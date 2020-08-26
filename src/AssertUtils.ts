@@ -4,8 +4,8 @@ import { ISpruceAssert } from './assert'
 import AssertionError from './AssertionError'
 
 export class AssertUtils {
-	public static fail(message?: string) {
-		throw new AssertionError(message ?? 'Fail!')
+	public static fail(message?: string, stack?: string) {
+		throw new AssertionError(message ?? 'Fail!', stack)
 	}
 
 	public static stringify(object: any): string {
@@ -58,18 +58,22 @@ export class AssertUtils {
 
 	public static checkDoesThrowError(
 		matcher: string | RegExp | undefined,
-		message: string,
-		msg: string | undefined
+		err: Error,
+		msg?: string | undefined
 	) {
+		const message = err.message ?? '**MISSING ERROR MESSAGE**'
+
 		if (typeof matcher === 'string' && message.search(matcher) === -1) {
 			this.fail(
 				msg ??
-					`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`
+					`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`,
+				err.stack
 			)
 		} else if (matcher instanceof RegExp && message.search(matcher) === -1) {
 			this.fail(
 				msg ??
-					`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`
+					`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`,
+				err.stack
 			)
 		}
 	}

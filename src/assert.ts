@@ -341,8 +341,7 @@ const spruceAssert: ISpruceAssert = {
 		try {
 			cb()
 		} catch (err) {
-			const message = (err.message ?? '**EMPTY ERROR MESSAGE**') as string
-			AssertUtils.checkDoesThrowError(matcher, message, msg)
+			AssertUtils.checkDoesThrowError(matcher, err, msg)
 
 			return err
 		}
@@ -354,9 +353,7 @@ const spruceAssert: ISpruceAssert = {
 		try {
 			await cb()
 		} catch (err) {
-			const message = (err.message ?? '**EMPTY ERROR MESSAGE**') as string
-
-			AssertUtils.checkDoesThrowError(matcher, message, msg)
+			AssertUtils.checkDoesThrowError(matcher, err, msg)
 
 			return err
 		}

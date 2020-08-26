@@ -1,5 +1,6 @@
 import AbstractSpruceTest from '../AbstractSpruceTest'
 import assert from '../assert'
+import { AssertUtils } from '../AssertUtils'
 import test from '../decorators'
 
 interface ICustomObj {
@@ -473,6 +474,23 @@ export default class AssertTest extends AbstractSpruceTest {
 		}
 
 		assert.isTrue(errorHit)
+	}
+
+	@test()
+	protected static doesThrowIncludesOriginalStackTrace() {
+		function throwError() {
+			throw new Error('taco')
+		}
+
+		try {
+			throwError()
+		} catch (err) {
+			const errWithStack = assert.doesThrow(
+				() => AssertUtils.checkDoesThrowError(/bravo/, err),
+				/taco/
+			)
+			assert.doesInclude(errWithStack.stack, /Error: taco/)
+		}
 	}
 
 	@test()
