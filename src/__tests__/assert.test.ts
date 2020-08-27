@@ -584,4 +584,13 @@ export default class AssertTest extends AbstractSpruceTest {
 		assert.doesThrow(() => assert.isNull(false))
 		assert.doesThrow(() => assert.isNull(undefined))
 	}
+
+	@test()
+	protected static isExactType() {
+		const test: 'first' | 'last' | null = null
+		assert.isExactType<typeof test, null>(true)
+
+		let test2: 'first' | 'last' | undefined
+		assert.isExactType<typeof test2, 'first' | 'last' | undefined>(true)
+	}
 }

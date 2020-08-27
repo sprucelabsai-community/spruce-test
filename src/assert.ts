@@ -14,8 +14,17 @@ type RecursivePartial<T> = {
 		: T[P]
 }
 
+type TypeEqual<T, U> = Exclude<T, U> extends never
+	? Exclude<U, T> extends never
+		? true
+		: false
+	: false
+
+function isExactType<T, E, Pass = TypeEqual<T, E>>(_: Pass) {}
+
 export interface ISpruceAssert {
 	isType: typeof expectType
+	isExactType: typeof isExactType
 	areSameType<T extends any>(actual: T, expected: T): void
 	isEqual<T extends any>(actual: T, expected: T, message?: string): void
 	isNotEqual<T extends any>(actual: T, expected: T, message?: string): void
@@ -74,6 +83,8 @@ const spruceAssert: ISpruceAssert = {
 	areSameType() {},
 
 	isType: expectType,
+
+	isExactType,
 
 	isEqual(actual, expected, message) {
 		if (actual !== expected) {
