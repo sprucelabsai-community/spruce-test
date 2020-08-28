@@ -30,6 +30,7 @@ function isExactType<T, E, Pass = TypeEqual<T, E>>(_: Pass) {}
 export interface ISpruceAssert {
 	isType: typeof expectType
 	isExactType: typeof isExactType
+	isArray<T extends any[]>(actual: T, message?: string): asserts actual is T
 	areSameType<T extends any>(actual: T, expected: T): void
 	isEqual<T extends any>(actual: T, expected: T, message?: string): void
 	isNotEqual<T extends any>(actual: T, expected: T, message?: string): void
@@ -182,6 +183,12 @@ const spruceAssert: ISpruceAssert = {
 	isObject(actual, message) {
 		if (!isObjectLike(actual)) {
 			throw this.fail(message ?? `${stringify(actual)} is not an object`)
+		}
+	},
+
+	isArray(actual, message) {
+		if (!Array.isArray(actual)) {
+			throw this.fail(message ?? `${stringify(actual)} is not an array`)
 		}
 	},
 
