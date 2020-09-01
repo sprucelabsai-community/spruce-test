@@ -872,13 +872,19 @@
     is-negated-glob "^1.0.0"
 
 "@eslint/eslintrc@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.1.0.tgz#3d1f19fb797d42fb1c85458c1c73541eeb1d9e76"
-  integrity sha512-bfL5365QSCmH6cPeFT7Ywclj8C7LiF7sO6mUGzZhtAMV7iID1Euq6740u/SRi4C80NOnVz/CEfK8/HO+nCAPJg==
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.1.2.tgz#c889b4f710d4e48cf499dd64888d691143c2fe86"
+  integrity sha512-qyFK2+kQifSPE0VBo9VzF9tCfN3gLMBm1YGAtCugRcKhY4oW13lmcKGmyQGhEAgts9JoiXucAGKQUgc2WThF8w==
   dependencies:
     ajv "^6.12.4"
     debug "^4.1.1"
+    espree "^7.3.0"
+    globals "^12.1.0"
+    ignore "^4.0.6"
     import-fresh "^3.2.1"
+    js-yaml "^3.13.1"
+    lodash "^4.17.19"
+    minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
 "@hapi/bourne@^1.3.2":
