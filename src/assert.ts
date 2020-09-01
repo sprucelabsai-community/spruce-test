@@ -41,6 +41,7 @@ export interface ISpruceAssert {
 	isTruthy<T extends any>(
 		value: T,
 		message?: string
+		// eslint-disable-next-line no-undef
 	): asserts value is NonNullable<T>
 	isFalsy(value: any, message?: string): void
 	isTrue(actual: boolean, message?: string): asserts actual is true
@@ -68,6 +69,7 @@ export interface ISpruceAssert {
 	doesInclude(haystack: any, needle: string, message?: string): void
 	doesInclude(haystack: any, needle: any, message?: string): void
 
+	/*global actual*/
 	isString(actual: any, message?: string): asserts actual is string
 	// eslint-disable-next-line @typescript-eslint/ban-types
 	isFunction(actual: any, message?: string): asserts actual is Function
