@@ -1,3 +1,5 @@
+## [6.0.118](https://github.com/sprucelabsai/spruce-test/compare/v6.0.117...v6.0.118) (2020-09-06)
+
 ## [6.0.117](https://github.com/sprucelabsai/spruce-test/compare/v6.0.116...v6.0.117) (2020-09-06)
 
 ## [6.0.116](https://github.com/sprucelabsai/spruce-test/compare/v6.0.115...v6.0.116) (2020-09-05)
