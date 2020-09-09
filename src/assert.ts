@@ -69,9 +69,9 @@ export interface ISpruceAssert {
 	doesInclude(haystack: any, needle: string, message?: string): void
 	doesInclude(haystack: any, needle: any, message?: string): void
 
-	/*global actual*/
+	// eslint-disable-next-line no-undef
 	isString(actual: any, message?: string): asserts actual is string
-	// eslint-disable-next-line @typescript-eslint/ban-types
+	// eslint-disable-next-line
 	isFunction(actual: any, message?: string): asserts actual is Function
 	hasAllFunctions(obj: any, functionNames: string[]): void
 	doesThrow(
