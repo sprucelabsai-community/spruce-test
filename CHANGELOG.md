@@ -1,3 +1,10 @@
+# [7.0.0](https://github.com/sprucelabsai/spruce-test/compare/v6.0.141...v7.0.0) (2020-09-12)
+
+
+### Breaking Changes
+
+* strictor deep equal ([157bf48](https://github.com/sprucelabsai/spruce-test/commit/157bf48))
+
 ## [6.0.141](https://github.com/sprucelabsai/spruce-test/compare/v6.0.140...v6.0.141) (2020-09-12)
 
 ## [6.0.140](https://github.com/sprucelabsai/spruce-test/compare/v6.0.139...v6.0.140) (2020-09-12)
