@@ -112,7 +112,7 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	isEqualDeep(actual, expected, message) {
-		if (!deepEqual(actual, expected)) {
+		if (!deepEqual(actual, expected, { strict: true })) {
 			this.fail(
 				message ??
 					`${stringify(actual)} does not deep equal(${stringify(expected)})`
