@@ -602,7 +602,16 @@ export default class AssertTest extends AbstractSpruceTest {
 	@test()
 	protected static isArray() {
 		assert.isArray([])
-		//@ts-ignore
 		assert.doesThrow(() => assert.isArray(true), /is not an array/)
+
+		let couldBeArray: number[] | undefined
+		couldBeArray = []
+
+		function test() {
+			assert.isArray(couldBeArray)
+			assert.isExactType<typeof couldBeArray, number[]>(true)
+		}
+
+		test()
 	}
 }
