@@ -3296,10 +3296,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.9.47:
-  version "10.9.47"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.47.tgz#2b38b1387e7440b64dfa57303d7df14d23430957"
-  integrity sha512-MP4X/AIbKUGZ41LViBEB8mbr1ClMTsaF1kzsZt299jiF1gDQE6i3GD2Td8KgZBIeMsH9kQJXaGR1abILKy2Y3A==
+eslint-config-spruce@^10.9.48:
+  version "10.9.48"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.48.tgz#da9fd5a96df62b2a24d4f6595e7ce52fb63c001e"
+  integrity sha512-J6FmXVuY9Qf6DyfxsfM7XiHZI8OFsQN2j1UC/pzVXRsQTFAk7oo9UkZmTly28mrQ7l4C+CZVioDKPIdeT2EMUg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.1.1"
     "@typescript-eslint/parser" "^4.1.1"
@@ -3309,7 +3309,7 @@ eslint-config-spruce@^10.9.47:
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.20.6"
-    eslint-plugin-spruce "^10.9.47"
+    eslint-plugin-spruce "^10.9.48"
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -3387,10 +3387,10 @@ eslint-plugin-react@^7.20.6:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.9.47:
-  version "10.9.47"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.47.tgz#7791eb7b8bd598ed090b5334ccb50080f442badd"
-  integrity sha512-1z5kf4PzNnumyZeYuoytd9L7a9KRyXHtPPrGMEqYYKfEL1kfdxYWExDLdOsNigO7eIBG3K2NAHX9bA4Rso+NvQ==
+eslint-plugin-spruce@^10.9.48:
+  version "10.9.48"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.48.tgz#894e8173990906c8b82f98ca6f3961b65a545f2a"
+  integrity sha512-hTGWbwV9sP9WikUYsKI+rF6cSW9woQeckuWPPjlFOKZrpAULvSk2HNl1G8Fq0tMJUmf9cZnoHHDcvsvIl4m5tA==
   dependencies:
     pascal-case "^3.1.1"
 
@@ -7075,10 +7075,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.1.1.tgz#d9485dd5e499daa6cb547023b87a6cf51bee37d6"
-  integrity sha512-9bY+5ZWCfqj3ghYBLxApy2zf6m+NJo5GzmLTpr9FsApsfjriNnS2dahWReHMi7qNPhhHl9SYHJs2cHZLgexNIw==
+prettier@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.1.2.tgz#3050700dae2e4c8b67c4c3f666cdb8af405e1ce5"
+  integrity sha512-16c7K+x4qVlJg9rEbXl7HEGmQyZlG4R9AgP+oHKRMsMsuk8s+ATStlf1NpDqyBI1HpVyfjLOeMhH2LvuNvV5Vg==
 
 pretty-format@^25.2.1, pretty-format@^25.5.0:
   version "25.5.0"
