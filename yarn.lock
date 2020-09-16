@@ -3296,10 +3296,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.9.48:
-  version "10.9.48"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.48.tgz#da9fd5a96df62b2a24d4f6595e7ce52fb63c001e"
-  integrity sha512-J6FmXVuY9Qf6DyfxsfM7XiHZI8OFsQN2j1UC/pzVXRsQTFAk7oo9UkZmTly28mrQ7l4C+CZVioDKPIdeT2EMUg==
+eslint-config-spruce@^10.9.49:
+  version "10.9.49"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.49.tgz#4b344f27f06c90d0f6fe668c205fda88fc892b97"
+  integrity sha512-XFH9k2VF2z7g1ZhEF+JVImaocgbBBAm5yNUKPPFnNS/wC6n+b+jNdWjtw3JNpnuOTYadoQC03/8qLVxuECBosw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.1.1"
     "@typescript-eslint/parser" "^4.1.1"
@@ -3309,7 +3309,7 @@ eslint-config-spruce@^10.9.48:
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.20.6"
-    eslint-plugin-spruce "^10.9.48"
+    eslint-plugin-spruce "^10.9.49"
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -3387,10 +3387,10 @@ eslint-plugin-react@^7.20.6:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.9.48:
-  version "10.9.48"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.48.tgz#894e8173990906c8b82f98ca6f3961b65a545f2a"
-  integrity sha512-hTGWbwV9sP9WikUYsKI+rF6cSW9woQeckuWPPjlFOKZrpAULvSk2HNl1G8Fq0tMJUmf9cZnoHHDcvsvIl4m5tA==
+eslint-plugin-spruce@^10.9.49:
+  version "10.9.49"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.49.tgz#e5cb8ad74bf02cc4423c9e63140d24000e074f2c"
+  integrity sha512-LrsIleoPV1v65SdRsiR3irhq/D1ztrSTKPiUL4zgde3xx4FDpwR580Z7zORrAFETuv29C1un6sixKpXEI29bGA==
   dependencies:
     pascal-case "^3.1.1"
 
@@ -8028,9 +8028,9 @@ spdx-expression-parse@^3.0.0:
     spdx-license-ids "^3.0.0"
 
 spdx-license-ids@^3.0.0:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.5.tgz#3694b5804567a458d3c8045842a6358632f62654"
-  integrity sha512-J+FWzZoynJEXGphVIS+XEh3kFSjZX/1i9gFBaWQcB+/tmpe2qUsSBABpcxqxnAxFdiUFEgAX1bjYGQvIZmoz9Q==
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.6.tgz#c80757383c28abf7296744998cbc106ae8b854ce"
+  integrity sha512-+orQK83kyMva3WyPf59k1+Y525csj5JejicWut55zeTWANuN17qSiSLUXWtzHeNWORSvT7GLDJ/E/XiIWoXBTw==
 
 split-on-first@^1.0.0:
   version "1.1.0"
