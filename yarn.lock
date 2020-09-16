@@ -3296,10 +3296,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.9.49:
-  version "10.9.49"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.49.tgz#4b344f27f06c90d0f6fe668c205fda88fc892b97"
-  integrity sha512-XFH9k2VF2z7g1ZhEF+JVImaocgbBBAm5yNUKPPFnNS/wC6n+b+jNdWjtw3JNpnuOTYadoQC03/8qLVxuECBosw==
+eslint-config-spruce@^10.9.50:
+  version "10.9.50"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.50.tgz#77e2bd370c8c23c14e9a092bf781974c80855d49"
+  integrity sha512-eiDH0gc4vmoUAcL6+Mj3QHESYPOxyOjd9nQM7LAAC/7lYHBMiiR++ZHgovuVIQg4H1TulMASixhA1R74EmUNug==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.1.1"
     "@typescript-eslint/parser" "^4.1.1"
@@ -3309,7 +3309,7 @@ eslint-config-spruce@^10.9.49:
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.20.6"
-    eslint-plugin-spruce "^10.9.49"
+    eslint-plugin-spruce "^10.9.50"
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -3387,10 +3387,10 @@ eslint-plugin-react@^7.20.6:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.9.49:
-  version "10.9.49"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.49.tgz#e5cb8ad74bf02cc4423c9e63140d24000e074f2c"
-  integrity sha512-LrsIleoPV1v65SdRsiR3irhq/D1ztrSTKPiUL4zgde3xx4FDpwR580Z7zORrAFETuv29C1un6sixKpXEI29bGA==
+eslint-plugin-spruce@^10.9.50:
+  version "10.9.50"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.50.tgz#668d9aba46f794a62e99010c514259c0e352b495"
+  integrity sha512-NN1QyiwX1pEkClLgQghnq3723o3KJLB1USg3CjP7XSnS42TUy8HPrVLcBw7l6frbX5QgyqC0my452nSjQtamGQ==
   dependencies:
     pascal-case "^3.1.1"
 
