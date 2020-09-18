@@ -3296,10 +3296,10 @@ eslint-config-prettier@^6.11.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.9.52:
-  version "10.9.52"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.52.tgz#493ddd96e8ca1dd83eb3362799d5ba3039dc3ef7"
-  integrity sha512-Y5uRfkxpeIoV8C4puaYW6iJuFJSM1+nvybOvZDbKBiHWoRKb0rLnPB5vEtEmNMaJd4TKnQ+wx7tzBzGrrE7dbQ==
+eslint-config-spruce@^10.9.53:
+  version "10.9.53"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.53.tgz#3ddd1c695e6bb8505d6b26f4394858feaf399b0d"
+  integrity sha512-AodGCPXxU6SfQOhoFU/T4lIcbWMV8FAw0VVBUxuIC9C3v2xkTsppMQeqBSKoeSfmoSOZ8Q20/5vwQlU6SuuF5w==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.1.1"
     "@typescript-eslint/parser" "^4.1.1"
@@ -3309,7 +3309,7 @@ eslint-config-spruce@^10.9.52:
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.20.6"
-    eslint-plugin-spruce "^10.9.52"
+    eslint-plugin-spruce "^10.9.53"
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -3387,10 +3387,10 @@ eslint-plugin-react@^7.20.6:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.9.52:
-  version "10.9.52"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.52.tgz#8179f58d9f2080abff2678d7126b63da6c744f31"
-  integrity sha512-kzmkVFPaLkRp4aUkpM0P3G3snbn2BnPKWGaNPXR4ND60BBEqg+R0LrEkRpP2z9d3wxlXUElUo16pkHRoVD0wWw==
+eslint-plugin-spruce@^10.9.53:
+  version "10.9.53"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.53.tgz#d53c0a78fdfb2f41cc4d5e399585da3f36430d4d"
+  integrity sha512-hI4Vgw5Hrj1CfX9jw3BCFQkZqHmI0B0wHz3Go6LxztySwd/bPmWKBYdiaCmrqI4rHXOmmrHdUbnYOuG4hriRJw==
   dependencies:
     pascal-case "^3.1.1"
 
@@ -8673,10 +8673,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.2.tgz#7ea7c88777c723c681e33bf7988be5d008d05ac2"
-  integrity sha512-e4ERvRV2wb+rRZ/IQeb3jm2VxBsirQLpQhdxplZ2MEzGvDkkMmPglecnNDfSUBivMjP93vRbngYYDQqQ/78bcQ==
+typescript@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.0.3.tgz#153bbd468ef07725c1df9c77e8b453f8d36abba5"
+  integrity sha512-tEu6DGxGgRJPb/mVPIZ48e69xCn2yRmCgYmDugAVwmJ6o+0u1RI18eO7E7WBTLYLaEVVOhwQmcdhQHweux/WPg==
 
 typescript@~3.9.7:
   version "3.9.7"
