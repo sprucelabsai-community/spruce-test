@@ -51,12 +51,14 @@ export default class AssertTest extends AbstractSpruceTest {
 	protected static isAbove() {
 		assert.isAbove(10, 5)
 		assert.doesThrow(() => assert.isAbove(5, 10), /is not above/)
+		assert.doesThrow(() => assert.isAbove(undefined, 10), /is not a number/)
 	}
 
 	@test()
 	protected static async isBelow() {
 		assert.isBelow(5, 10)
 		assert.doesThrow(() => assert.isBelow(10, 5), /is not below/)
+		assert.doesThrow(() => assert.isBelow(undefined, 5), /is not a number/)
 	}
 
 	@test()
