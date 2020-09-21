@@ -121,6 +121,9 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	isAbove(actual, floor, message) {
+		if (typeof actual !== 'number') {
+			this.fail(message ?? `${stringify(actual)} is not a number!`)
+		}
 		if (actual <= floor) {
 			this.fail(
 				message ?? `${stringify(actual)} is not above ${stringify(floor)}`
@@ -129,6 +132,10 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	isBelow(actual, ceiling, message) {
+		if (typeof actual !== 'number') {
+			this.fail(message ?? `${stringify(actual)} is not a number!`)
+		}
+
 		if (actual >= ceiling) {
 			this.fail(
 				message ?? `${stringify(actual)} is not below ${stringify(ceiling)}`
