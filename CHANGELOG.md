@@ -1,3 +1,10 @@
+## [7.0.47](https://github.com/sprucelabsai/spruce-test/compare/v7.0.46...v7.0.47) (2020-09-23)
+
+
+### Bug Fixes
+
+* chalk added as dependency ([0641265](https://github.com/sprucelabsai/spruce-test/commit/0641265))
+
 ## [7.0.46](https://github.com/sprucelabsai/spruce-test/compare/v7.0.45...v7.0.46) (2020-09-23)
 
 ## [7.0.45](https://github.com/sprucelabsai/spruce-test/compare/v7.0.44...v7.0.45) (2020-09-23)
