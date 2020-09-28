@@ -1,7 +1,7 @@
 import AbstractSpruceTest from '../AbstractSpruceTest'
 import assert from '../assert'
-import { AssertUtils } from '../AssertUtils'
 import test from '../decorators'
+import assertUtil from '../utilities/assert.utility'
 
 interface ICustomObj {
 	testStr: string
@@ -488,7 +488,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			throwError()
 		} catch (err) {
 			const errWithStack = assert.doesThrow(
-				() => AssertUtils.checkDoesThrowError(/bravo/, err),
+				() => assertUtil.checkDoesThrowError(/bravo/, err),
 				/taco/
 			)
 			assert.doesInclude(errWithStack.stack, /Error: taco/)
