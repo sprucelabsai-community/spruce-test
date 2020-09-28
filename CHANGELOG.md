@@ -1,3 +1,60 @@
+## [7.0.72](https://github.com/sprucelabsai/spruce-test/compare/v7.0.71...v7.0.72) (2020-09-28)
+
+## [7.0.71](https://github.com/sprucelabsai/spruce-test/compare/v7.0.70...v7.0.71) (2020-09-28)
+
+## [7.0.70](https://github.com/sprucelabsai/spruce-test/compare/v7.0.69...v7.0.70) (2020-09-28)
+
+## [7.0.69](https://github.com/sprucelabsai/spruce-test/compare/v7.0.68...v7.0.69) (2020-09-28)
+
+## [7.0.68](https://github.com/sprucelabsai/spruce-test/compare/v7.0.67...v7.0.68) (2020-09-28)
+
+## [7.0.67](https://github.com/sprucelabsai/spruce-test/compare/v7.0.66...v7.0.67) (2020-09-27)
+
+## [7.0.66](https://github.com/sprucelabsai/spruce-test/compare/v7.0.65...v7.0.66) (2020-09-27)
+
+## [7.0.65](https://github.com/sprucelabsai/spruce-test/compare/v7.0.64...v7.0.65) (2020-09-27)
+
+## [7.0.64](https://github.com/sprucelabsai/spruce-test/compare/v7.0.63...v7.0.64) (2020-09-26)
+
+## [7.0.63](https://github.com/sprucelabsai/spruce-test/compare/v7.0.62...v7.0.63) (2020-09-26)
+
+## [7.0.62](https://github.com/sprucelabsai/spruce-test/compare/v7.0.61...v7.0.62) (2020-09-26)
+
+## [7.0.61](https://github.com/sprucelabsai/spruce-test/compare/v7.0.60...v7.0.61) (2020-09-25)
+
+## [7.0.60](https://github.com/sprucelabsai/spruce-test/compare/v7.0.59...v7.0.60) (2020-09-25)
+
+## [7.0.59](https://github.com/sprucelabsai/spruce-test/compare/v7.0.58...v7.0.59) (2020-09-25)
+
+## [7.0.58](https://github.com/sprucelabsai/spruce-test/compare/v7.0.57...v7.0.58) (2020-09-25)
+
+## [7.0.57](https://github.com/sprucelabsai/spruce-test/compare/v7.0.56...v7.0.57) (2020-09-25)
+
+## [7.0.56](https://github.com/sprucelabsai/spruce-test/compare/v7.0.55...v7.0.56) (2020-09-24)
+
+## [7.0.55](https://github.com/sprucelabsai/spruce-test/compare/v7.0.54...v7.0.55) (2020-09-24)
+
+## [7.0.54](https://github.com/sprucelabsai/spruce-test/compare/v7.0.53...v7.0.54) (2020-09-24)
+
+## [7.0.53](https://github.com/sprucelabsai/spruce-test/compare/v7.0.52...v7.0.53) (2020-09-24)
+
+## [7.0.52](https://github.com/sprucelabsai/spruce-test/compare/v7.0.51...v7.0.52) (2020-09-23)
+
+## [7.0.51](https://github.com/sprucelabsai/spruce-test/compare/v7.0.50...v7.0.51) (2020-09-23)
+
+## [7.0.50](https://github.com/sprucelabsai/spruce-test/compare/v7.0.49...v7.0.50) (2020-09-23)
+
+## [7.0.49](https://github.com/sprucelabsai/spruce-test/compare/v7.0.48...v7.0.49) (2020-09-23)
+
+## [7.0.48](https://github.com/sprucelabsai/spruce-test/compare/v7.0.47...v7.0.48) (2020-09-23)
+
+## [7.0.47](https://github.com/sprucelabsai/spruce-test/compare/v7.0.46...v7.0.47) (2020-09-23)
+
+
+### Bug Fixes
+
+* chalk added as dependency ([0641265](https://github.com/sprucelabsai/spruce-test/commit/0641265))
+
 ## [7.0.46](https://github.com/sprucelabsai/spruce-test/compare/v7.0.45...v7.0.46) (2020-09-23)
 
 ## [7.0.45](https://github.com/sprucelabsai/spruce-test/compare/v7.0.44...v7.0.45) (2020-09-23)
