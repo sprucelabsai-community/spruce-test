@@ -1,14 +1,16 @@
 import chalk from 'chalk'
-import { includes, get, isObjectLike } from 'lodash'
-import { ISpruceAssert } from './assert'
-import AssertionError from './AssertionError'
+import { includes, get, isObjectLike, isObject } from 'lodash'
+import { ISpruceAssert } from '../assert'
+import AssertionError from '../AssertionError'
 
-export class AssertUtils {
-	public static fail(message?: string, stack?: string) {
+export const UNDEFINED_PLACEHOLDER = '_____________undefined_____________'
+
+const assertUtil = {
+	fail(message?: string, stack?: string) {
 		throw new AssertionError(message ?? 'Fail!', stack)
-	}
+	},
 
-	public static stringify(object: any): string {
+	stringify(object: any): string {
 		let stringified
 
 		if (object instanceof RegExp) {
@@ -18,7 +20,11 @@ export class AssertUtils {
 		} else if (typeof object === 'string') {
 			stringified = `"${object}"`
 		} else {
-			stringified = JSON.stringify(object, undefined, 2).replace(/\\/g, '')
+			stringified = JSON.stringify(
+				assertUtil.dropInUndefinedPlaceholder(object),
+				undefined,
+				2
+			).replace(/\\/g, '')
 		}
 
 		if (stringified.length > 2500) {
@@ -28,10 +34,36 @@ export class AssertUtils {
 				stringified.substr(stringified.length - 1000)
 		}
 
-		return `\n\n${chalk.bold(stringified)}\n\n`
-	}
+		stringified = assertUtil.styleUndefinedPlaceholders(stringified)
 
-	public static doHaystacksPassCheck(
+		return `\n\n${chalk.bold(stringified)}\n\n`
+	},
+
+	styleUndefinedPlaceholders(str: string) {
+		return str.replace(
+			new RegExp(`"${UNDEFINED_PLACEHOLDER}"`, 'g'),
+			chalk.italic('undefined')
+		)
+	},
+
+	dropInUndefinedPlaceholder(obj: Record<string, any>) {
+		if (!isObject(obj)) {
+			return obj
+		}
+		const updated: Record<string, any> = {}
+		Object.keys(obj).forEach((key) => {
+			updated[key] =
+				// @ts-ignore
+				typeof obj[key] === 'undefined' ? UNDEFINED_PLACEHOLDER : obj[key]
+
+			if (isObject(updated[key])) {
+				updated[key] = this.dropInUndefinedPlaceholder(updated[key])
+			}
+		})
+		return updated
+	},
+
+	doHaystacksPassCheck(
 		haystacks: any[],
 		needle: any,
 		check: ISpruceAssert['doesInclude']
@@ -44,19 +76,15 @@ export class AssertUtils {
 				return false
 			}
 		})
-	}
+	},
 
-	public static assertTypeof(
-		actual: any,
-		type: string,
-		message: string | undefined
-	) {
+	assertTypeof(actual: any, type: string, message: string | undefined) {
 		if (typeof actual !== type) {
 			this.fail(message ?? `${JSON.stringify(actual)} is not a ${type}`)
 		}
-	}
+	},
 
-	public static checkDoesThrowError(
+	checkDoesThrowError(
 		matcher: string | RegExp | undefined,
 		err: Error,
 		msg?: string | undefined
@@ -76,9 +104,9 @@ export class AssertUtils {
 				err.stack
 			)
 		}
-	}
+	},
 
-	public static partialContains(object: any, subObject: any) {
+	partialContains(object: any, subObject: any) {
 		const objProps = object ? Object.getOwnPropertyNames(object) : []
 		const subProps = subObject ? Object.getOwnPropertyNames(subObject) : []
 
@@ -112,30 +140,30 @@ export class AssertUtils {
 		}
 
 		return true
-	}
+	},
 
-	public static valueAtPath(object: Record<string, any>, path: string) {
+	valueAtPath(object: Record<string, any>, path: string) {
 		return get(object, path)
-	}
+	},
 
-	public static parseIncludeNeedle(
+	parseIncludeNeedle(
 		needle: any
 	): { needleHasArrayNotation: boolean; path?: string; expected?: any } {
 		const path = Object.keys(needle)[0]
 		const expected = path && needle[path]
 		const needleHasArrayNotation = !!(path && path.search(/\[\]\./) > -1)
 		return { needleHasArrayNotation, path, expected }
-	}
+	},
 
-	public static splitPathBasedOnArrayNotation(path: string, haystack: any) {
+	splitPathBasedOnArrayNotation(path: string, haystack: any) {
 		const pathParts = path.split('[].')
 		const pathToFirstArray = pathParts.shift() ?? ''
 		const pathAfterFirstArray = pathParts.join('[].')
 		const actualBeforeArray = this.valueAtPath(haystack, pathToFirstArray)
 		return { actualBeforeArray, pathAfterFirstArray }
-	}
+	},
 
-	public static foundUsing3rdPartyIncludes(
+	foundUsing3rdPartyIncludes(
 		haystack: any,
 		needle: any,
 		isHaystackObject: boolean
@@ -157,5 +185,7 @@ export class AssertUtils {
 			passed = true
 		}
 		return passed
-	}
+	},
 }
+
+export default assertUtil

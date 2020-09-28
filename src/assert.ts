@@ -2,9 +2,9 @@ import chalk from 'chalk'
 import deepEqual from 'deep-equal'
 import { isObjectLike, escapeRegExp } from 'lodash'
 import { expectType } from 'ts-expect'
-import { AssertUtils } from './AssertUtils'
+import assertUtil from './utilities/assert.utility'
 
-const stringify = AssertUtils.stringify
+const stringify = assertUtil.stringify
 
 type RecursivePartial<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]
@@ -174,11 +174,11 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	isString(actual, message) {
-		AssertUtils.assertTypeof(actual, 'string', message)
+		assertUtil.assertTypeof(actual, 'string', message)
 	},
 
 	isFunction(actual, message) {
-		AssertUtils.assertTypeof(actual, 'function', message)
+		assertUtil.assertTypeof(actual, 'function', message)
 	},
 
 	isTrue(actual, message) {
@@ -258,7 +258,7 @@ const spruceAssert: ISpruceAssert = {
 			needleHasArrayNotation,
 			path,
 			expected,
-		} = AssertUtils.parseIncludeNeedle(needle)
+		} = assertUtil.parseIncludeNeedle(needle)
 
 		if (Array.isArray(haystack)) {
 			let cleanedNeedle = needle
@@ -267,7 +267,7 @@ const spruceAssert: ISpruceAssert = {
 				cleanedNeedle = { [path.substr(3)]: expected }
 			}
 
-			const found = AssertUtils.doHaystacksPassCheck(
+			const found = assertUtil.doHaystacksPassCheck(
 				haystack,
 				cleanedNeedle,
 				this.doesInclude.bind(this)
@@ -287,7 +287,7 @@ const spruceAssert: ISpruceAssert = {
 		}
 
 		if (
-			AssertUtils.foundUsing3rdPartyIncludes(haystack, needle, isHaystackObject)
+			assertUtil.foundUsing3rdPartyIncludes(haystack, needle, isHaystackObject)
 		) {
 			return
 		}
@@ -300,7 +300,7 @@ const spruceAssert: ISpruceAssert = {
 			!needleHasArrayNotation &&
 			path
 		) {
-			const actual = AssertUtils.valueAtPath(haystack, path)
+			const actual = assertUtil.valueAtPath(haystack, path)
 
 			if (typeof actual === 'undefined') {
 				msg = `The path ${stringify(path)} was not found in ${stringify(
@@ -333,13 +333,13 @@ const spruceAssert: ISpruceAssert = {
 			const {
 				actualBeforeArray,
 				pathAfterFirstArray,
-			} = AssertUtils.splitPathBasedOnArrayNotation(path, haystack)
+			} = assertUtil.splitPathBasedOnArrayNotation(path, haystack)
 
 			if (!Array.isArray(actualBeforeArray)) {
 				this.fail(msg)
 			}
 
-			const found = AssertUtils.doHaystacksPassCheck(
+			const found = assertUtil.doHaystacksPassCheck(
 				actualBeforeArray,
 				{
 					[pathAfterFirstArray]: expected,
@@ -373,7 +373,7 @@ const spruceAssert: ISpruceAssert = {
 		try {
 			cb()
 		} catch (err) {
-			AssertUtils.checkDoesThrowError(matcher, err, msg)
+			assertUtil.checkDoesThrowError(matcher, err, msg)
 
 			return err
 		}
@@ -385,7 +385,7 @@ const spruceAssert: ISpruceAssert = {
 		try {
 			await cb()
 		} catch (err) {
-			AssertUtils.checkDoesThrowError(matcher, err, msg)
+			assertUtil.checkDoesThrowError(matcher, err, msg)
 
 			return err
 		}
@@ -393,7 +393,7 @@ const spruceAssert: ISpruceAssert = {
 		this.fail('Expected a thrown error, but never got one!')
 	},
 
-	fail: AssertUtils.fail,
+	fail: assertUtil.fail,
 }
 
 export default spruceAssert
