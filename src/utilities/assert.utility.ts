@@ -46,17 +46,21 @@ const assertUtil = {
 		)
 	},
 
-	dropInUndefinedPlaceholder(obj: Record<string, any>) {
+	dropInUndefinedPlaceholder(obj: Record<string, any> | any[]) {
 		if (!isObject(obj)) {
 			return obj
 		}
-		const updated: Record<string, any> = {}
+		const updated: Record<string, any> | any[] = Array.isArray(obj) ? [] : {}
+
 		Object.keys(obj).forEach((key) => {
+			//@ts-ignore
 			updated[key] =
 				// @ts-ignore
 				typeof obj[key] === 'undefined' ? UNDEFINED_PLACEHOLDER : obj[key]
 
+			//@ts-ignore
 			if (isObject(updated[key])) {
+				//@ts-ignore
 				updated[key] = this.dropInUndefinedPlaceholder(updated[key])
 			}
 		})

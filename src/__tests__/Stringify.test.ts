@@ -49,6 +49,16 @@ export default class StringifyTest extends AbstractSpruceTest {
   }
 }`
 	)
+	@test(
+		"doesn't mess up array",
+		[{ hello: 'world', foo: undefined }],
+		`[
+  {
+    "hello": "world",
+    "foo": "${UNDEFINED_PLACEHOLDER}"
+  }
+]`
+	)
 	protected static printsUndefinedFieldsAtTopLevel(
 		obj: Record<string, any>,
 		expected: string
