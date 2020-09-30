@@ -1,7 +1,10 @@
 import chalk from 'chalk'
 import AbstractSpruceTest, { assert } from '..'
 import test from '../decorators'
-import assertUtil, { UNDEFINED_PLACEHOLDER } from '../utilities/assert.utility'
+import assertUtil, {
+	FUNCTION_PLACEHOLDER,
+	UNDEFINED_PLACEHOLDER,
+} from '../utilities/assert.utility'
 
 export default class StringifyTest extends AbstractSpruceTest {
 	@test(
@@ -59,6 +62,13 @@ export default class StringifyTest extends AbstractSpruceTest {
   }
 ]`
 	)
+	@test(
+		'prints a function nicely',
+		{ hello: () => {} },
+		`{
+  "hello": "${FUNCTION_PLACEHOLDER}"
+}`
+	)
 	protected static printsUndefinedFieldsAtTopLevel(
 		obj: Record<string, any>,
 		expected: string
@@ -66,9 +76,7 @@ export default class StringifyTest extends AbstractSpruceTest {
 		const stringified = assertUtil.stringify(obj)
 		assert.isEqual(
 			stringified,
-			'\n\n' +
-				chalk.bold(assertUtil.styleUndefinedPlaceholders(expected)) +
-				'\n\n'
+			'\n\n' + chalk.bold(assertUtil.replacePlaceholders(expected)) + '\n\n'
 		)
 	}
 }
