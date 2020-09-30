@@ -4,6 +4,7 @@ import { ISpruceAssert } from '../assert'
 import AssertionError from '../AssertionError'
 
 export const UNDEFINED_PLACEHOLDER = '_____________undefined_____________'
+export const FUNCTION_PLACEHOLDER = '_____________function_____________'
 
 const assertUtil = {
 	fail(message?: string, stack?: string) {
@@ -21,7 +22,7 @@ const assertUtil = {
 			stringified = `"${object}"`
 		} else {
 			stringified = JSON.stringify(
-				assertUtil.dropInUndefinedPlaceholder(object),
+				assertUtil.dropInPlaceholders(object),
 				undefined,
 				2
 			).replace(/\\/g, '')
@@ -34,19 +35,40 @@ const assertUtil = {
 				stringified.substr(stringified.length - 1000)
 		}
 
-		stringified = assertUtil.styleUndefinedPlaceholders(stringified)
+		stringified = assertUtil.replacePlaceholders(stringified)
 
 		return `\n\n${chalk.bold(stringified)}\n\n`
 	},
 
-	styleUndefinedPlaceholders(str: string) {
-		return str.replace(
-			new RegExp(`"${UNDEFINED_PLACEHOLDER}"`, 'g'),
-			chalk.italic('undefined')
-		)
+	replacePlaceholders(str: string) {
+		return str
+			.replace(
+				new RegExp(`"${UNDEFINED_PLACEHOLDER}"`, 'g'),
+				chalk.italic('undefined')
+			)
+			.replace(
+				new RegExp(`"${FUNCTION_PLACEHOLDER}"`, 'g'),
+				chalk.italic('Function')
+			)
 	},
 
-	dropInUndefinedPlaceholder(obj: Record<string, any> | any[]) {
+	dropInPlaceholders(obj: Record<string, any>) {
+		let updated = this.dropInPlaceholder(
+			obj,
+			'undefined',
+			UNDEFINED_PLACEHOLDER
+		)
+
+		updated = this.dropInPlaceholder(updated, 'function', FUNCTION_PLACEHOLDER)
+
+		return updated
+	},
+
+	dropInPlaceholder(
+		obj: Record<string, any>,
+		typeofLiteral: string,
+		placeholder: string
+	) {
 		if (!isObject(obj)) {
 			return obj
 		}
@@ -56,14 +78,20 @@ const assertUtil = {
 			//@ts-ignore
 			updated[key] =
 				// @ts-ignore
-				typeof obj[key] === 'undefined' ? UNDEFINED_PLACEHOLDER : obj[key]
+				typeof obj[key] === typeofLiteral ? placeholder : obj[key]
 
 			//@ts-ignore
-			if (isObject(updated[key])) {
+			if (typeof updated[key] !== 'function' && isObject(updated[key])) {
 				//@ts-ignore
-				updated[key] = this.dropInUndefinedPlaceholder(updated[key])
+				updated[key] = this.dropInPlaceholder(
+					//@ts-ignore
+					updated[key],
+					typeofLiteral,
+					placeholder
+				)
 			}
 		})
+
 		return updated
 	},
 

@@ -326,6 +326,39 @@ export default class AssertTest extends AbstractSpruceTest {
 		[6, 7],
 		7
 	)
+	@test(
+		'include matches object with array property in array of objects',
+		[
+			{
+				methodName: 'use',
+				args: [null],
+			},
+			{
+				methodName: 'on',
+				args: ['confirm-pin', null],
+			},
+			{
+				methodName: 'on',
+				args: ['who-am-i', null],
+			},
+			{
+				methodName: 'on',
+				args: ['authenticate', null],
+			},
+			{
+				methodName: 'on',
+				args: ['can-listen', null],
+			},
+			{
+				methodName: 'emit',
+				args: ['test.what-an-event', null],
+			},
+		],
+		{
+			methodName: 'emit',
+			args: ['test.what-an-event', null],
+		}
+	)
 	protected static includeAndDoesNotInclude(haystack: any, needle: any) {
 		assert.doesInclude(haystack, needle)
 		assert.doesThrow(
