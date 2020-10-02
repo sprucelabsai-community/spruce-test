@@ -3296,10 +3296,10 @@ eslint-config-prettier@^6.12.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.9.69:
-  version "10.9.69"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.69.tgz#7a3b4c5f9913080458e55f9c18a8b77f9e563637"
-  integrity sha512-c6YTyh2qIrarBQcTxNWOicM5FYo6Sw/JxzJQeWe1XBPAHOGy7R9HUY8glJ2JuniwEOAeu4kHZgz+jUINesitMw==
+eslint-config-spruce@^10.9.70:
+  version "10.9.70"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.70.tgz#8fba46fa633809c7e620e6624bae98cec628e8be"
+  integrity sha512-Hx4loOBkj05RNNVKvkhmRQpKO3iqjZACnWZlJTGk+69zp4dwc+int68YDIw1Sw62Zzs/mWMLgEGV9t6FJnRPcQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.3.0"
     "@typescript-eslint/parser" "^4.3.0"
@@ -3309,7 +3309,7 @@ eslint-config-spruce@^10.9.69:
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.21.2"
-    eslint-plugin-spruce "^10.9.69"
+    eslint-plugin-spruce "^10.9.70"
 
 eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
@@ -3387,10 +3387,10 @@ eslint-plugin-react@^7.21.2:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.9.69:
-  version "10.9.69"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.69.tgz#8d20a8247f29a01197e6c2e32e6919291d034afb"
-  integrity sha512-Ihp7h998EGrK5JVA93D1p62U7KEBx2DYsapOMKXAvy1MLb4r/cN3gT4glNIkkXohpGuZwFkxer7vY+h63Qvz3Q==
+eslint-plugin-spruce@^10.9.70:
+  version "10.9.70"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.70.tgz#ab89d2a35d82dadeb50225fe6aa1d817571d354b"
+  integrity sha512-5GIBaKO5tuxVLAv2nYLnqlFjawrBiaJQZSnNsVwbbkCi0xlUn/F1I2SiKdurBFO3FeoM0ewrqbzCpa1tX4HE5g==
   dependencies:
     pascal-case "^3.1.1"
 
@@ -3658,9 +3658,9 @@ fast-levenshtein@^2.0.6, fast-levenshtein@~2.0.6:
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
 fast-redact@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-2.0.0.tgz#17bb8f5e1f56ecf4a38c8455985e5eab4c478431"
-  integrity sha512-zxpkULI9W9MNTK2sJ3BpPQrTEXFNESd2X6O1tXMFpK/XM0G5c5Rll2EVYZH2TqI3xRGK/VaJ+eEOt7pnENJpeA==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/fast-redact/-/fast-redact-2.1.0.tgz#dfe3c1ca69367fb226f110aa4ec10ec85462ffdf"
+  integrity sha512-0LkHpTLyadJavq9sRzzyqIoMZemWli77K2/MGOkafrR64B9ItrvZ9aT+jluvNDsv0YEHjSNhlMBtbokuoqii4A==
 
 fast-safe-stringify@^2.0.7:
   version "2.0.7"
@@ -7220,9 +7220,9 @@ qs@~6.5.2:
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
 query-string@^6.8.2:
-  version "6.13.4"
-  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.13.4.tgz#b35a9a3bd4955bce55f94feb0e819b3d0be6f66f"
-  integrity sha512-E2NPIeJoBEJGQNy3ib1k/Z/OkDBUKIo8IV2ZVwbKfoa65IS9unqWWUlLcbfU70Da0qNoxUZZA8CfKUjKLE641Q==
+  version "6.13.5"
+  resolved "https://registry.yarnpkg.com/query-string/-/query-string-6.13.5.tgz#99e95e2fb7021db90a6f373f990c0c814b3812d8"
+  integrity sha512-svk3xg9qHR39P3JlHuD7g3nRnyay5mHbrPctEBDUxUkHRifPHXJDhBUycdCC0NBjXoDf44Gb+IsOZL1Uwn8M/Q==
   dependencies:
     decode-uri-component "^0.2.0"
     split-on-first "^1.0.0"
