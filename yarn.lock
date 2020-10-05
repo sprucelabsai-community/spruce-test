@@ -1139,9 +1139,9 @@
     universal-user-agent "^5.0.0"
 
 "@octokit/endpoint@^6.0.1":
-  version "6.0.6"
-  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-6.0.6.tgz#4f09f2b468976b444742a1d5069f6fa45826d999"
-  integrity sha512-7Cc8olaCoL/mtquB7j/HTbPM+sY6Ebr4k2X2y4JoXpVKQ7r5xB4iGQE0IoO58wIPsUk4AzoT65AMEpymSbWTgQ==
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-6.0.8.tgz#91b07e236fdb69929c678c6439f7a560dc6058ac"
+  integrity sha512-MuRrgv+bM4Q+e9uEvxAB/Kf+Sj0O2JAOBA131uo1o6lgdq1iS8ejKwtqHgdfY91V3rN9R/hdGKFiQYMzVzVBEQ==
   dependencies:
     "@octokit/types" "^5.0.0"
     is-plain-object "^5.0.0"
@@ -3299,10 +3299,10 @@ eslint-config-prettier@^6.12.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-spruce@^10.9.74:
-  version "10.9.74"
-  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.74.tgz#80e2e6ff91de058c4a405f8f00bf38f180ee2df8"
-  integrity sha512-y+OztUXj56JlwDyCpsIJ7zG6pjH/V0YgGhRCHRQ22ifZICQ3EGAkAbn5O9Fe7NNxg0uLqulk6moyO7xEzSjYgw==
+eslint-config-spruce@^10.9.75:
+  version "10.9.75"
+  resolved "https://registry.yarnpkg.com/eslint-config-spruce/-/eslint-config-spruce-10.9.75.tgz#3ed305708b91ad69a51a8d127879c05b40b57092"
+  integrity sha512-angLTTAiQYt8NWnfKhowt8psHB4cEYjsThMCiuqDxovBh/P2scWWoyOikTRKk6WagNukHmudnIyd0qfmDVRVEw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.3.0"
     "@typescript-eslint/parser" "^4.3.0"
@@ -3312,7 +3312,7 @@ eslint-config-spruce@^10.9.74:
     eslint-plugin-jsx-a11y "^6.3.1"
     eslint-plugin-prettier "^3.1.4"
     eslint-plugin-react "^7.21.3"
-    eslint-plugin-spruce "^10.9.74"
+    eslint-plugin-spruce "^10.9.75"
 
 eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
@@ -3390,10 +3390,10 @@ eslint-plugin-react@^7.21.3:
     resolve "^1.17.0"
     string.prototype.matchall "^4.0.2"
 
-eslint-plugin-spruce@^10.9.74:
-  version "10.9.74"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.74.tgz#528521699f3eba646aace3c966d06735de4b044e"
-  integrity sha512-0RNtzuV/Aifjz/Xyx3E7fdK4IqqERYJEaySXMXaSbRJ3fbPZb8SUML54ZQy7/ze14EddMk7vy4Fl8fc+EwDZ7Q==
+eslint-plugin-spruce@^10.9.75:
+  version "10.9.75"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-spruce/-/eslint-plugin-spruce-10.9.75.tgz#e425c01089eef8f7f77718f951e21d02ee300463"
+  integrity sha512-CZ9v8B8RIkuwlxF7axNoeE0Eg4+dnUARGX7IhN3MY8304D33AItuQf7U/o4ACGdufj4A2qiG3AivD4BBUcfsDw==
   dependencies:
     pascal-case "^3.1.1"
 
