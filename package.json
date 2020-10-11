@@ -38,7 +38,7 @@
 	"devDependencies": {
 		"@sprucelabs/semantic-release": "^4.0.6",
 		"@types/deep-equal": "^1.0.1",
-		"@types/lodash": "^4.14.161",
+		"@types/lodash": "^4.14.162",
 		"arkit": "^1.6.4",
 		"chokidar-cli": "^2.1.0",
 		"concurrently": "^5.3.0",
