@@ -4,11 +4,12 @@ import test from '../decorators'
 import assertUtil, {
 	FUNCTION_PLACEHOLDER,
 	UNDEFINED_PLACEHOLDER,
+	NULL_PLACEHOLDER,
 } from '../utilities/assert.utility'
 
 export default class StringifyTest extends AbstractSpruceTest {
 	@test(
-		'one level deep',
+		'one level deep (undefined)',
 		{
 			hello: 'world',
 			undefined,
@@ -16,6 +17,17 @@ export default class StringifyTest extends AbstractSpruceTest {
 		`{
   "hello": "world",
   "undefined": "${UNDEFINED_PLACEHOLDER}"
+}`
+	)
+	@test(
+		'one level deep (null)',
+		{
+			hello: 'world',
+			null: null,
+		},
+		`{
+  "hello": "world",
+  "null": "${NULL_PLACEHOLDER}"
 }`
 	)
 	@test(
@@ -69,7 +81,7 @@ export default class StringifyTest extends AbstractSpruceTest {
   "hello": "${FUNCTION_PLACEHOLDER}"
 }`
 	)
-	protected static printsUndefinedFieldsAtTopLevel(
+	protected static printsPlaceholderFields(
 		obj: Record<string, any>,
 		expected: string
 	) {

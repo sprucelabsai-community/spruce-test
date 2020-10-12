@@ -5,6 +5,7 @@ import AssertionError from '../AssertionError'
 
 export const UNDEFINED_PLACEHOLDER = '_____________undefined_____________'
 export const FUNCTION_PLACEHOLDER = '_____________function_____________'
+export const NULL_PLACEHOLDER = '_____________null_____________'
 
 const assertUtil = {
 	fail(message?: string, stack?: string) {
@@ -50,23 +51,34 @@ const assertUtil = {
 				new RegExp(`"${FUNCTION_PLACEHOLDER}"`, 'g'),
 				chalk.italic('Function')
 			)
+			.replace(new RegExp(`"${NULL_PLACEHOLDER}"`, 'g'), chalk.italic('NULL'))
 	},
 
 	dropInPlaceholders(obj: Record<string, any>) {
 		let updated = this.dropInPlaceholder(
 			obj,
-			'undefined',
+			(obj) => typeof obj === 'undefined',
 			UNDEFINED_PLACEHOLDER
 		)
 
-		updated = this.dropInPlaceholder(updated, 'function', FUNCTION_PLACEHOLDER)
+		updated = this.dropInPlaceholder(
+			updated,
+			(obj) => typeof obj === 'function',
+			FUNCTION_PLACEHOLDER
+		)
+
+		updated = this.dropInPlaceholder(
+			updated,
+			(obj) => obj === null,
+			NULL_PLACEHOLDER
+		)
 
 		return updated
 	},
 
 	dropInPlaceholder(
 		obj: Record<string, any>,
-		typeofLiteral: string,
+		checker: (obj: any) => boolean,
 		placeholder: string
 	) {
 		if (!isObject(obj)) {
@@ -78,7 +90,7 @@ const assertUtil = {
 			//@ts-ignore
 			updated[key] =
 				// @ts-ignore
-				typeof obj[key] === typeofLiteral ? placeholder : obj[key]
+				checker(obj[key]) ? placeholder : obj[key]
 
 			//@ts-ignore
 			if (typeof updated[key] !== 'function' && isObject(updated[key])) {
@@ -86,7 +98,7 @@ const assertUtil = {
 				updated[key] = this.dropInPlaceholder(
 					//@ts-ignore
 					updated[key],
-					typeofLiteral,
+					checker,
 					placeholder
 				)
 			}
