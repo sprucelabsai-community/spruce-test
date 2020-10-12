@@ -511,7 +511,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		assert.isTrue(errorHit)
 	}
 
-	@test.only(
+	@test.skip(
 		'Enable to review pretty printed output of doesThrow. Always fails.'
 	)
 	protected static doesThrowPrettyPrint() {
