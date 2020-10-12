@@ -138,14 +138,18 @@ const assertUtil = {
 		if (typeof matcher === 'string' && message.search(matcher) === -1) {
 			this.fail(
 				msg ??
-					`Function expected to return error whose message contains "${matcher}", but got back \`${message}\`.`,
-				err.stack
+					`Expected thrown error whose message contains: \n\n'${chalk.bold(
+						matcher
+					)}'\n\nbut got back:\n\n\`${chalk.bold(message)}\`.`,
+				'\n\nStack: ' + err.stack
 			)
 		} else if (matcher instanceof RegExp && message.search(matcher) === -1) {
 			this.fail(
 				msg ??
-					`Function expected to return error whose message matches the regex "${matcher}", but got back \`${message}\`.`,
-				err.stack
+					`Expected thrown error whose message matches the regex: \n\n${chalk.bold(
+						matcher
+					)}\n\nbut got back:\n\n\`${chalk.bold(message)}\`.`,
+				'\n\nStack: ' + err.stack
 			)
 		}
 	},

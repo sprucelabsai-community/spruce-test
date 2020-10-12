@@ -511,6 +511,15 @@ export default class AssertTest extends AbstractSpruceTest {
 		assert.isTrue(errorHit)
 	}
 
+	@test.skip(
+		'Enable to review pretty printed output of doesThrow. Always fails.'
+	)
+	protected static doesThrowPrettyPrint() {
+		assert.doesThrow(() => {
+			throw new Error('go team')
+		}, /stop/)
+	}
+
 	@test()
 	protected static doesThrowIncludesOriginalStackTrace() {
 		function throwError() {

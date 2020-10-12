@@ -21,8 +21,10 @@
 		"url": "https://github.com/sprucelabsai/spruce-test/issues"
 	},
 	"scripts": {
-		"build": "npm run clean && tsc",
-		"build.watch": "chokidar 'index.ts' 'src/**/*.(js|jsx|ts|tsx)' -c 'npm run build'",
+		"build": "yarn build.tsc",
+		"rebuild": "yarn clean && rm -rf node_modules && yarn && yarn build.tsc",
+		"build.watch": "yarn build.tsc -w",
+		"build.tsc": "tsc",
 		"clean": "rm -rf build/",
 		"lint": "eslint '**/*.ts' && tsc -p . --noEmit",
 		"lint.fix": "eslint --fix '**/*.ts'",
@@ -40,7 +42,6 @@
 		"@types/deep-equal": "^1.0.1",
 		"@types/lodash": "^4.14.162",
 		"arkit": "^1.6.4",
-		"chokidar-cli": "^2.1.0",
 		"concurrently": "^5.3.0",
 		"eslint": "^7.11.0",
 		"eslint-config-spruce": "^10.9.90",
