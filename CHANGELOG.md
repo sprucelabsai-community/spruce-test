@@ -1,3 +1,12 @@
+## [7.1.1](https://github.com/sprucelabsai/spruce-test/compare/v7.1.0...v7.1.1) (2020-10-12)
+
+# [7.1.0](https://github.com/sprucelabsai/spruce-test/compare/v7.0.139...v7.1.0) (2020-10-12)
+
+
+### Features
+
+* export utils ([8a81d6a](https://github.com/sprucelabsai/spruce-test/commit/8a81d6a))
+
 ## [7.0.139](https://github.com/sprucelabsai/spruce-test/compare/v7.0.138...v7.0.139) (2020-10-12)
 
 ## [7.0.138](https://github.com/sprucelabsai/spruce-test/compare/v7.0.137...v7.0.138) (2020-10-11)
