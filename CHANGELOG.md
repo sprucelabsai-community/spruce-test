@@ -1,3 +1,10 @@
+# [7.2.0](https://github.com/sprucelabsai/spruce-test/compare/v7.1.4...v7.2.0) (2020-11-06)
+
+
+### Features
+
+* pretty printing of diff on deepEqual ([3d00ef7](https://github.com/sprucelabsai/spruce-test/commit/3d00ef7))
+
 ## [7.1.4](https://github.com/sprucelabsai/spruce-test/compare/v7.1.3...v7.1.4) (2020-10-12)
 
 ## [7.1.3](https://github.com/sprucelabsai/spruce-test/compare/v7.1.2...v7.1.3) (2020-10-12)
