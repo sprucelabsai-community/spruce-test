@@ -6,7 +6,7 @@
 	"files": [
 		"build"
 	],
-	"version": "7.1.1",
+	"version": "7.1.4",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
 	"description": "T.D.D by the 3 Laws in the Spruce Experience Platform. 🛡",
@@ -34,7 +34,7 @@
 		"local": "node --inspect=5200 ./build/index.js",
 		"arkit": "arkit -f src/index.ts -o docs/images/arkit.svg",
 		"upgrade.packages": "yarn upgrade --latest && rm yarn.lock | true && yarn | true && yarn lint.fix | true",
-		"upgrade.packages.all": "yarn upgrade.packages",
+		"upgrade.packages.all": "yarn install && yarn upgrade.packages",
 		"upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build && yarn test"
 	},
 	"devDependencies": {
@@ -44,7 +44,7 @@
 		"arkit": "^1.6.4",
 		"concurrently": "^5.3.0",
 		"eslint": "^7.11.0",
-		"eslint-config-spruce": "^10.9.90",
+		"eslint-config-spruce": "^10.9.91",
 		"prettier": "^2.1.2",
 		"ts-node": "^9.0.0"
 	},
