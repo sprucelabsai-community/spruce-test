@@ -2,6 +2,7 @@ import chalk from 'chalk'
 import deepEqual from 'deep-equal'
 import { isObjectLike, escapeRegExp } from 'lodash'
 import { expectType } from 'ts-expect'
+import diff from 'variable-diff'
 import assertUtil from './utilities/assert.utility'
 
 const stringify = assertUtil.stringify
@@ -113,9 +114,10 @@ const spruceAssert: ISpruceAssert = {
 
 	isEqualDeep(actual, expected, message) {
 		if (!deepEqual(actual, expected, { strict: true })) {
+			let result = diff(actual, expected)
 			this.fail(
 				message ??
-					`${stringify(actual)} does not deep equal(${stringify(expected)})`
+					`Deep equal failed.\n\nActual would need the following changes to match expected:\n\n${result.text}`
 			)
 		}
 	},

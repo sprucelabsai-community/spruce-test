@@ -588,12 +588,12 @@ export default class AssertTest extends AbstractSpruceTest {
 		assert.isEqualDeep({ test: true }, { test: true })
 		assert.doesThrow(
 			() => assert.isEqualDeep({ test: true }, { test: false }),
-			/does not deep equal/
+			/true => false/
 		)
 
 		assert.doesThrow(
 			() => assert.isEqualDeep({ test: '1' }, { test: 1 }),
-			/does not deep equal/
+			/"1" => 1/
 		)
 	}
 
@@ -657,5 +657,13 @@ export default class AssertTest extends AbstractSpruceTest {
 		}
 
 		test()
+	}
+
+	@test.skip('Example of pretty print. Remove skip() to see. Always fails.')
+	protected static printsNiceDiff() {
+		assert.isEqualDeep(
+			{ test: true, taco: 'bell' },
+			{ test: false, burger: 'king' }
+		)
 	}
 }
