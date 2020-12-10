@@ -45,8 +45,8 @@ export interface ISpruceAssert {
 		// eslint-disable-next-line no-undef
 	): asserts value is NonNullable<T>
 	isFalsy(value: any, message?: string): void
-	isTrue(actual: boolean, message?: string): asserts actual is true
-	isFalse(actual: boolean, message?: string): asserts actual is false
+	isTrue(actual: boolean | undefined | null, message?: string): asserts actual is true
+	isFalse(actual: boolean | undefined | null, message?: string): asserts actual is false
 	isObject<T extends any>(actual: T, message?: string): void
 	isLength(actual: any[], expected: number, message?: string): void
 	isNull(actual: any, message?: string): void
