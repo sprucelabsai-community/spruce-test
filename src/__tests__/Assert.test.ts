@@ -575,14 +575,20 @@ export default class AssertTest extends AbstractSpruceTest {
 	protected static isTrue() {
 		assert.isTrue(true)
 		assert.doesThrow(() => assert.isTrue(false), /does not equal(.*?)true/gis)
-		assert.doesThrow(() => assert.isTrue(undefined), /does not equal(.*?)true/gis)
+		assert.doesThrow(
+			() => assert.isTrue(undefined),
+			/does not equal(.*?)true/gis
+		)
 	}
-	
+
 	@test()
 	protected static isFalse() {
 		assert.isFalse(false)
 		assert.doesThrow(() => assert.isFalse(true), /does not equal(.*?)false/gis)
-		assert.doesThrow(() => assert.isFalse(undefined), /does not equal(.*?)false/gis)
+		assert.doesThrow(
+			() => assert.isFalse(undefined),
+			/does not equal(.*?)false/gis
+		)
 	}
 
 	@test()
