@@ -1,3 +1,10 @@
+# [7.3.0](https://github.com/sprucelabsai/spruce-test/compare/v7.2.1...v7.3.0) (2020-12-10)
+
+
+### Features
+
+* isTrue/isFalse accepts wider range of vars ([53719d1](https://github.com/sprucelabsai/spruce-test/commit/53719d1))
+
 ## [7.2.1](https://github.com/sprucelabsai/spruce-test/compare/v7.2.0...v7.2.1) (2020-12-07)
 
 # [7.2.0](https://github.com/sprucelabsai/spruce-test/compare/v7.1.4...v7.2.0) (2020-11-06)
