@@ -38,7 +38,7 @@
 		"upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build && yarn test"
 	},
 	"devDependencies": {
-		"@sprucelabs/semantic-release": "^4.0.6",
+		"@sprucelabs/semantic-release": "latest",
 		"@types/deep-equal": "^1.0.1",
 		"@types/lodash": "^4.14.162",
 		"arkit": "^1.6.4",
@@ -81,6 +81,11 @@
 		"testPathIgnorePatterns": [
 			"<rootDir>/build/",
 			"<rootDir>/node_modules/"
+		]
+	},
+	"yarn-upgrade-all": {
+		"ignore": [
+			"sprucelabs/semantic-release"
 		]
 	}
 }
