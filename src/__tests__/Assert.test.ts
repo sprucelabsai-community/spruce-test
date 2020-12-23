@@ -633,6 +633,8 @@ export default class AssertTest extends AbstractSpruceTest {
 		assert.isLength([], 0)
 		assert.isLength(['test'], 1)
 		assert.doesThrow(() => assert.isLength(['test'], 4), /expected length of/gi)
+		assert.doesThrow(() => assert.isLength(undefined, 4), /undefined/gi)
+		assert.doesThrow(() => assert.isLength(null, 4), /null/gi)
 	}
 
 	@test()

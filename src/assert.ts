@@ -54,7 +54,11 @@ export interface ISpruceAssert {
 		message?: string
 	): asserts actual is false
 	isObject<T extends any>(actual: T, message?: string): void
-	isLength(actual: any[], expected: number, message?: string): void
+	isLength(
+		actual: any[] | undefined | null,
+		expected: number,
+		message?: string
+	): void
 	isNull(actual: any, message?: string): void
 	doesNotInclude<T>(
 		haystack: T,
@@ -210,6 +214,13 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	isLength(actual, expected, message) {
+		if (!actual) {
+			throw this.fail(
+				message ??
+					`Expected array of length ${expected}, but got ${stringify(actual)}`
+			)
+		}
+
 		this.isEqual(
 			actual.length,
 			expected,
