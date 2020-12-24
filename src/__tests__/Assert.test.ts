@@ -671,9 +671,11 @@ export default class AssertTest extends AbstractSpruceTest {
 
 	@test.skip('Example of pretty print. Remove skip() to see. Always fails.')
 	protected static printsNiceDiff() {
-		assert.isEqualDeep(
-			{ test: true, taco: 'bell' },
-			{ test: false, burger: 'king' }
-		)
+		// assert.isEqualDeep(
+		// 	{ test: true, taco: 'bell' },
+		// 	{ test: false, burger: 'king' }
+		// )
+
+		assert.isFalsy(new Error('yay'))
 	}
 }

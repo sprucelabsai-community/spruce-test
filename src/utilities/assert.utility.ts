@@ -15,7 +15,9 @@ const assertUtil = {
 	stringify(object: any): string {
 		let stringified
 
-		if (object instanceof RegExp) {
+		if (object instanceof Error) {
+			stringified = `${object.stack ?? object.message}`
+		} else if (object instanceof RegExp) {
 			stringified = `${object.toString()}`
 		} else if (typeof object === 'undefined') {
 			stringified = 'undefined'
