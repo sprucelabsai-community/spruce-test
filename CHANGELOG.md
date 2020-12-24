@@ -1,3 +1,10 @@
+# [7.4.0](https://github.com/sprucelabsai/spruce-test/compare/v7.3.2...v7.4.0) (2020-12-23)
+
+
+### Features
+
+* isArary supports undefined/null ([89d72c2](https://github.com/sprucelabsai/spruce-test/commit/89d72c2))
+
 ## [7.3.2](https://github.com/sprucelabsai/spruce-test/compare/v7.3.1...v7.3.2) (2020-12-23)
 
 ## [7.3.1](https://github.com/sprucelabsai/spruce-test/compare/v7.3.0...v7.3.1) (2020-12-23)
