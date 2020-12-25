@@ -15,7 +15,9 @@ const assertUtil = {
 	stringify(object: any): string {
 		let stringified
 
-		if (object instanceof Error) {
+		if (typeof object === 'number') {
+			stringified = ` ${object} `
+		} else if (object instanceof Error) {
 			stringified = `${object.stack ?? object.message}`
 		} else if (object instanceof RegExp) {
 			stringified = `${object.toString()}`
@@ -31,7 +33,7 @@ const assertUtil = {
 			).replace(/\\/g, '')
 		}
 
-		if (stringified.length > 2500) {
+		if (stringified.length > 5000) {
 			stringified =
 				stringified.substr(0, 1000) +
 				'\n\n... big object ...\n\n' +
