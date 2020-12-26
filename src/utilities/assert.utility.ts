@@ -16,7 +16,8 @@ const assertUtil = {
 		let stringified
 
 		if (typeof object === 'number') {
-			stringified = ` ${object} `
+			// this hack allows the Spruce Test Reporter to render number errors (they got eaten by terminal-kit's style regex)
+			stringified = chalk.bgBlack.black(` ${object} `)
 		} else if (object instanceof Error) {
 			stringified = `${object.stack ?? object.message}`
 		} else if (object instanceof RegExp) {
