@@ -252,10 +252,7 @@ const spruceAssert: ISpruceAssert = {
 
 	doesInclude(haystack: any, needle: any, message?: string) {
 		let msg =
-			message ??
-			`Could not find ${chalk.green(stringify(needle))} in ${chalk.italic(
-				stringify(haystack)
-			)}`
+			message ?? `Could not find ${stringify(needle)} in ${stringify(haystack)}`
 
 		const isNeedleString = typeof needle === 'string'
 		const isNeedleRegex = needle instanceof RegExp
