@@ -668,7 +668,6 @@ export default class AssertTest extends AbstractSpruceTest {
 		// 	{ test: false, burger: 'king' }
 		// )
 
-		debugger
 		assert.isFalsy([new Error('yay')])
 	}
 }
