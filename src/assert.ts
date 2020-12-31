@@ -5,7 +5,7 @@ import { expectType } from 'ts-expect'
 import diff from 'variable-diff'
 import assertUtil from './utilities/assert.utility'
 
-const stringify = assertUtil.stringify
+const stringify = assertUtil.stringify.bind(assertUtil)
 
 type RecursivePartial<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]

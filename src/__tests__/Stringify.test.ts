@@ -65,16 +65,6 @@ export default class StringifyTest extends AbstractSpruceTest {
 }`
 	)
 	@test(
-		"doesn't mess up array",
-		[{ hello: 'world', foo: undefined }],
-		`[
-  {
-    "hello": "world",
-    "foo": "${UNDEFINED_PLACEHOLDER}"
-  }
-]`
-	)
-	@test(
 		'prints a function nicely',
 		{ hello: () => {} },
 		`{
@@ -86,6 +76,7 @@ export default class StringifyTest extends AbstractSpruceTest {
 		expected: string
 	) {
 		const stringified = assertUtil.stringify(obj)
+
 		assert.isEqual(
 			stringified,
 			'\n\n' + chalk.bold(assertUtil.replacePlaceholders(expected)) + '\n\n'

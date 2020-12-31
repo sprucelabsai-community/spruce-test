@@ -511,15 +511,6 @@ export default class AssertTest extends AbstractSpruceTest {
 		assert.isTrue(errorHit)
 	}
 
-	@test.skip(
-		'Enable to review pretty printed output of doesThrow. Always fails.'
-	)
-	protected static doesThrowPrettyPrint() {
-		assert.doesThrow(() => {
-			throw new Error('go team')
-		}, /stop/)
-	}
-
 	@test()
 	protected static doesThrowIncludesOriginalStackTrace() {
 		function throwError() {
@@ -533,7 +524,8 @@ export default class AssertTest extends AbstractSpruceTest {
 				() => assertUtil.checkDoesThrowError(/bravo/, err),
 				/taco/
 			)
-			assert.doesInclude(errWithStack.stack, /Error: taco/)
+
+			assert.doesInclude(errWithStack.message, /at new Promise/)
 		}
 	}
 
@@ -676,6 +668,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		// 	{ test: false, burger: 'king' }
 		// )
 
-		assert.isFalsy(new Error('yay'))
+		debugger
+		assert.isFalsy([new Error('yay')])
 	}
 }
