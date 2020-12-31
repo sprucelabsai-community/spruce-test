@@ -142,7 +142,7 @@ const assertUtil = {
 		err: Error,
 		msg?: string | undefined
 	) {
-		const message = err.message ?? '**MISSING ERROR MESSAGE**'
+		const message = err.stack ?? err.message ?? '**MISSING ERROR MESSAGE**'
 
 		if (typeof matcher === 'string' && message.search(matcher) === -1) {
 			this.fail(
