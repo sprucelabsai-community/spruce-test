@@ -14,7 +14,9 @@ function hookupTestClass(target: any) {
 		// @ts-ignore
 		if (global[hook]) {
 			// @ts-ignore
-			global[hook](async () => target[hook]())
+			global[hook](async () => {
+				return target[hook]()
+			})
 		}
 	})
 }
@@ -33,6 +35,11 @@ export default function test(description?: string, ...args: any[]) {
 
 		// Make sure each test gets the spruce
 		it(description ?? propertyKey, async () => {
+			//@ts-ignore
+			global.activeTest = {
+				file: target.name,
+				test: propertyKey,
+			}
 			return bound(...args)
 		})
 	}
