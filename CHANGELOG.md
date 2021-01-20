@@ -1,3 +1,10 @@
+# [7.5.0](https://github.com/sprucelabsai/spruce-test/compare/v7.4.10...v7.5.0) (2021-01-15)
+
+
+### Features
+
+* tracking for whichever test is running in global.activeTest ([d20e712](https://github.com/sprucelabsai/spruce-test/commit/d20e712))
+
 ## [7.4.10](https://github.com/sprucelabsai/spruce-test/compare/v7.4.9...v7.4.10) (2021-01-09)
 
 ## [7.4.9](https://github.com/sprucelabsai/spruce-test/compare/v7.4.8...v7.4.9) (2021-01-09)
