@@ -29,6 +29,7 @@ type TypeEqual<T, U> = IsAny<T> extends never
 function isExactType<T, E, Pass = TypeEqual<T, E>>(_: Pass) {}
 
 export interface ISpruceAssert {
+	isNumber(actual: any, message?: string): asserts actual is number
 	isType: typeof expectType
 	isExactType: typeof isExactType
 	isArray<T extends any[]>(actual: any, message?: string): asserts actual is T
@@ -104,6 +105,12 @@ const spruceAssert: ISpruceAssert = {
 	isType: expectType,
 
 	isExactType,
+
+	isNumber(actual, message) {
+		if (typeof actual !== 'number') {
+			this.fail(message ?? `${stringify(actual)} is not a number!`)
+		}
+	},
 
 	isEqual(actual, expected, message) {
 		if (actual !== expected) {

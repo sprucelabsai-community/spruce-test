@@ -661,6 +661,14 @@ export default class AssertTest extends AbstractSpruceTest {
 		test()
 	}
 
+	@test()
+	protected static isNumber() {
+		assert.doesThrow(() => assert.isNumber('test'))
+		assert.doesThrow(() => assert.isNumber('1'))
+		assert.isNumber(1)
+		assert.isNumber(2)
+	}
+
 	@test.skip('Example of pretty print. Remove skip() to see. Always fails.')
 	protected static printsNiceDiff() {
 		// assert.isEqualDeep(
