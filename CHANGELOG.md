@@ -1,3 +1,10 @@
+# [7.6.0](https://github.com/sprucelabsai/spruce-test/compare/v7.5.6...v7.6.0) (2021-02-02)
+
+
+### Features
+
+* is number assertion ([8b40a45](https://github.com/sprucelabsai/spruce-test/commit/8b40a45))
+
 ## [7.5.6](https://github.com/sprucelabsai/spruce-test/compare/v7.5.5...v7.5.6) (2021-01-31)
 
 ## [7.5.5](https://github.com/sprucelabsai/spruce-test/compare/v7.5.4...v7.5.5) (2021-01-29)
