@@ -5,9 +5,80 @@ import assertUtil, {
 	FUNCTION_PLACEHOLDER,
 	UNDEFINED_PLACEHOLDER,
 	NULL_PLACEHOLDER,
+	CIRCULAR_PLACEHOLDER,
 } from '../utilities/assert.utility'
 
+const teammate = {
+	firstName: 'tay',
+}
+
+const team: Record<string, any> = {
+	teammate: { ...teammate },
+}
+
+team.teammate.team = team
+
+const team2 = {
+	teammate,
+	teammate2: teammate,
+}
+
+const team3 = {
+	teammate: {
+		...teammate,
+		age: 100,
+	},
+	coach: {
+		name: {
+			firstName: 'tay',
+			age: 100,
+		},
+	},
+}
+
 export default class StringifyTest extends AbstractSpruceTest {
+	@test('placeholdering simple object', { test: true }, { test: true })
+	@test(
+		'placeholdering object with null',
+		{ test: null },
+		{ test: NULL_PLACEHOLDER }
+	)
+	@test(
+		'placeholdering object with function',
+		{ test: () => {} },
+		{ test: FUNCTION_PLACEHOLDER }
+	)
+	@test('placeholdering circular object', team, {
+		teammate: {
+			firstName: 'tay',
+			team: CIRCULAR_PLACEHOLDER,
+		},
+	})
+	@test('placeholdering same object on same level', team2, {
+		teammate: {
+			firstName: 'tay',
+		},
+		teammate2: {
+			firstName: 'tay',
+		},
+	})
+	@test('placeholdering objects with same values at different levels', team3, {
+		teammate: {
+			firstName: 'tay',
+			age: 100,
+		},
+		coach: {
+			name: {
+				firstName: 'tay',
+				age: 100,
+			},
+		},
+	})
+	protected static dropInPlaceholders(obj: any, expected: any) {
+		const placholder = assertUtil.dropInPlaceholders(obj)
+		assert.isEqualDeep(placholder, expected)
+	}
+
 	@test(
 		'one level deep (undefined)',
 		{

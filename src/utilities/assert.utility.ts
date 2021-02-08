@@ -5,6 +5,7 @@ import AssertionError from '../AssertionError'
 
 export const UNDEFINED_PLACEHOLDER = '_____________undefined_____________'
 export const FUNCTION_PLACEHOLDER = '_____________function_____________'
+export const CIRCULAR_PLACEHOLDER = '_____________circular_____________'
 export const NULL_PLACEHOLDER = '_____________null_____________'
 
 const assertUtil = {
@@ -64,8 +65,29 @@ const assertUtil = {
 	},
 
 	dropInPlaceholders(obj: Record<string, any>) {
+		const checkedObjects: { obj: any; depth: number }[] = [{ obj, depth: 0 }]
+
 		let updated = this.dropInPlaceholder(
 			obj,
+			(obj, depth) => {
+				if (
+					isObject(obj) &&
+					checkedObjects.some((checked) => {
+						return checked.obj === obj && checked.depth < depth
+					})
+				) {
+					return true
+				}
+
+				checkedObjects.push({ obj, depth })
+
+				return false
+			},
+			CIRCULAR_PLACEHOLDER
+		)
+
+		updated = this.dropInPlaceholder(
+			updated,
 			(obj) => typeof obj === 'undefined',
 			UNDEFINED_PLACEHOLDER
 		)
@@ -87,8 +109,9 @@ const assertUtil = {
 
 	dropInPlaceholder(
 		obj: Record<string, any>,
-		checker: (obj: any) => boolean,
-		placeholder: string
+		checker: (obj: any, depth: number) => boolean,
+		placeholder: string,
+		depth = 1
 	) {
 		if (!isObject(obj)) {
 			return obj
@@ -99,7 +122,7 @@ const assertUtil = {
 			//@ts-ignore
 			updated[key] =
 				// @ts-ignore
-				checker(obj[key]) ? placeholder : obj[key]
+				checker(obj[key], depth) ? placeholder : obj[key]
 
 			//@ts-ignore
 			if (typeof updated[key] !== 'function' && isObject(updated[key])) {
@@ -108,7 +131,8 @@ const assertUtil = {
 					//@ts-ignore
 					updated[key],
 					checker,
-					placeholder
+					placeholder,
+					depth + 1
 				)
 			}
 		})

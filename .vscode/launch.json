@@ -29,12 +29,46 @@
 		{
 			"type": "node",
 			"request": "launch",
+			"name": "wach.test.file",
+			"runtimeExecutable": "${env:NVM_BIN}/node",
+			"runtimeArgs": [
+				"--inspect-brk",
+				"--trace-warnings",
+				"${workspaceFolder}/node_modules/.bin/jest",
+				"${fileBasenameNoExtension}",
+				"--detectOpenHandles",
+				"--watch"
+			],
+			"port": 9229,
+			"cwd": "${workspaceFolder}",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
 			"name": "test.all",
 			"runtimeExecutable": "${env:NVM_BIN}/node",
 			"runtimeArgs": [
 				"--inspect-brk",
 				"--trace-warnings",
 				"${workspaceFolder}/node_modules/.bin/jest"
+			],
+			"port": 9229,
+			"cwd": "${workspaceFolder}",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "watch.tests",
+			"runtimeExecutable": "${env:NVM_BIN}/node",
+			"runtimeArgs": [
+				"--inspect-brk",
+				"--trace-warnings",
+				"${workspaceFolder}/node_modules/.bin/jest",
+				"--watch"
 			],
 			"port": 9229,
 			"cwd": "${workspaceFolder}",
