@@ -47,8 +47,8 @@
 		"watch.tests": "jest --watch"
 	},
 	"dependencies": {
-		"@babel/core": "^7.13.1",
-		"@babel/preset-env": "^7.13.5",
+		"@babel/core": "^7.13.8",
+		"@babel/preset-env": "^7.13.8",
 		"@types/jest": "^26.0.20",
 		"babel-jest": "^26.6.3",
 		"chalk": "^4.1.0",
