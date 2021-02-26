@@ -3,12 +3,21 @@
 	"publishConfig": {
 		"access": "public"
 	},
+	"version": "7.6.10",
 	"files": [
 		"build"
 	],
-	"version": "7.6.10",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
+	"exports": {
+        ".": {
+            "node": "./build/index.js",
+            "require": "./build/index.js",
+            "import": "./build/esm/index.js",
+            "default": "./build/esm/index.js"
+        }
+    },
+    "module": "./build/esm/index.js",
 	"description": "T.D.D by the 3 Laws in the Spruce Experience Platform. 🛡",
 	"keywords": [
 		"node",
@@ -21,8 +30,8 @@
 		"url": "https://github.com/sprucelabsai/spruce-test/issues"
 	},
 	"scripts": {
-		"arkit": "arkit -f src/index.ts -o docs/images/arkit.svg",
-		"build": "yarn build.tsc",
+		"build": "yarn build.tsc && yarn build.dist",
+		"build.dist": "tsc --project tsconfig.dist.json",
 		"build.tsc": "tsc",
 		"clean": "rm -rf build/",
 		"lint": "eslint '**/*.ts' && tsc -p . --noEmit",
@@ -55,7 +64,6 @@
 		"@sprucelabs/semantic-release": "^4.0.6",
 		"@types/deep-equal": "^1.0.1",
 		"@types/lodash": "^4.14.168",
-		"arkit": "^1.6.4",
 		"concurrently": "^5.3.0",
 		"eslint": "^7.20.0",
 		"eslint-config-spruce": "latest",
