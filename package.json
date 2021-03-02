@@ -30,27 +30,25 @@
 		"url": "https://github.com/sprucelabsai/spruce-test/issues"
 	},
 	"scripts": {
-		"build": "yarn build.tsc && yarn build.dist",
-		"build.dist": "tsc --project tsconfig.dist.json",
+		"build.dev": "yarn build.tsc",
+		"build.dist": "tsc --project tsconfig.dist.json && yarn build.esm-postbuild",
+		"build.esm-postbuild": "esm-postbuild --target build/esm --patterns '**/*.js'",
 		"build.tsc": "tsc",
 		"clean": "rm -rf build/",
+		"clean.all": "rm -rf node_modules/ yarn.lock ; yarn clean",
+		"fix.lint": "eslint --fix '**/*.ts'",
 		"lint": "eslint '**/*.ts' && tsc -p . --noEmit",
 		"local": "node --inspect=5200 ./build/index.js",
-		"fix.lint": "eslint --fix '**/*.ts'",
-		"rebuild": "yarn clean && rm -rf node_modules && yarn && yarn build.tsc",
+		"rebuild": "yarn clean.all && yarn && yarn build.dev",
 		"release": "semantic-release",
 		"test": "jest",
-		"upgrade.packages": "yarn-upgrade-all && rm -f yarn.lock ; yarn ; yarn lint.fix | true",
+		"upgrade.packages": "yarn-upgrade-all && rm -f yarn.lock ; yarn ; yarn lint.fix ; true",
 		"upgrade.packages.all": "yarn install && yarn upgrade.packages",
-		"upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build && yarn test",
+		"upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build.dev && yarn test",
 		"watch.build": "yarn build.tsc -w",
 		"watch.tests": "jest --watch"
 	},
 	"dependencies": {
-		"@babel/core": "^7.13.8",
-		"@babel/preset-env": "^7.13.9",
-		"@types/jest": "^26.0.20",
-		"babel-jest": "^26.6.3",
 		"chalk": "^4.1.0",
 		"deep-equal": "^2.0.5",
 		"jest": "^26.6.3",
@@ -64,25 +62,12 @@
 		"@sprucelabs/semantic-release": "^4.0.6",
 		"@types/deep-equal": "^1.0.1",
 		"@types/lodash": "^4.14.168",
-		"concurrently": "^6.0.0",
+		"@types/jest": "^26.0.20",
 		"eslint": "^7.21.0",
 		"eslint-config-spruce": "latest",
 		"prettier": "^2.2.1",
 		"ts-node": "^9.1.1",
 		"yarn-upgrade-all": "^0.5.4"
-	},
-	"babel": {
-		"presets": [
-			[
-				"@babel/preset-env",
-				{
-					"targets": {
-						"node": "current"
-					}
-				}
-			],
-			"@babel/preset-typescript"
-		]
 	},
 	"jest": {
 		"preset": "ts-jest",
