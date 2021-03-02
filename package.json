@@ -59,10 +59,11 @@
 		"variable-diff": "^2.0.2"
 	},
 	"devDependencies": {
+		"@sprucelabs/esm-postbuild": "latest",
 		"@sprucelabs/semantic-release": "^4.0.6",
 		"@types/deep-equal": "^1.0.1",
-		"@types/lodash": "^4.14.168",
 		"@types/jest": "^26.0.20",
+		"@types/lodash": "^4.14.168",
 		"eslint": "^7.21.0",
 		"eslint-config-spruce": "latest",
 		"prettier": "^2.2.1",
@@ -79,6 +80,7 @@
 	},
 	"yarn-upgrade-all": {
 		"ignore": [
+			"@sprucelabs/esm-postbuild",
 			"sprucelabs/semantic-release",
 			"eslint-config-spruce"
 		]
