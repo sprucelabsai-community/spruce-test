@@ -1,3 +1,10 @@
+## [7.6.25](https://github.com/sprucelabsai/spruce-test/compare/v7.6.24...v7.6.25) (2021-03-02)
+
+
+### Bug Fixes
+
+* include regular build in dist ([45ead05](https://github.com/sprucelabsai/spruce-test/commit/45ead05))
+
 ## [7.6.24](https://github.com/sprucelabsai/spruce-test/compare/v7.6.23...v7.6.24) (2021-03-02)
 
 ## [7.6.23](https://github.com/sprucelabsai/spruce-test/compare/v7.6.22...v7.6.23) (2021-03-02)
