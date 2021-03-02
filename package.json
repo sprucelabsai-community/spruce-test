@@ -31,7 +31,7 @@
 	},
 	"scripts": {
 		"build.dev": "yarn build.tsc",
-		"build.dist": "tsc --project tsconfig.dist.json && yarn build.esm-postbuild",
+		"build.dist": "yarn build.tsc && tsc --project tsconfig.dist.json && yarn build.esm-postbuild",
 		"build.esm-postbuild": "esm-postbuild --target build/esm --patterns '**/*.js'",
 		"build.tsc": "tsc",
 		"clean": "rm -rf build/",
