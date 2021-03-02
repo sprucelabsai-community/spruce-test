@@ -45,7 +45,7 @@
 		"upgrade.packages": "yarn-upgrade-all && rm -f yarn.lock ; yarn ; yarn lint.fix ; true",
 		"upgrade.packages.all": "yarn install && yarn upgrade.packages",
 		"upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build.dev && yarn test",
-		"watch.build": "yarn build.tsc -w",
+		"watch.build.dev": "yarn build.tsc -w",
 		"watch.tests": "jest --watch"
 	},
 	"dependencies": {
