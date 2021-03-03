@@ -18,6 +18,7 @@
 		}
 	},
 	"module": "./build/esm/index.js",
+	"sideEffects": false,
 	"description": "T.D.D by the 3 Laws in the Spruce Experience Platform. 🛡",
 	"keywords": [
 		"node",
