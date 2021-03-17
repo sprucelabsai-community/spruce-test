@@ -55,7 +55,7 @@
 		"@sprucelabs/esm-postbuild": "latest",
 		"@sprucelabs/semantic-release": "^4.0.6",
 		"@types/deep-equal": "^1.0.1",
-		"@types/jest": "^26.0.20",
+		"@types/jest": "^26.0.21",
 		"@types/lodash": "^4.14.168",
 		"eslint": "^7.22.0",
 		"eslint-config-spruce": "latest",
