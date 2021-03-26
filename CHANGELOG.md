@@ -1,3 +1,5 @@
+## [7.6.34](https://github.com/sprucelabsai/spruce-test/compare/v7.6.33...v7.6.34) (2021-03-26)
+
 ## [7.6.33](https://github.com/sprucelabsai/spruce-test/compare/v7.6.32...v7.6.33) (2021-03-25)
 
 ## [7.6.32](https://github.com/sprucelabsai/spruce-test/compare/v7.6.31...v7.6.32) (2021-03-17)
