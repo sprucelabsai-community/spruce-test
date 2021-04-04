@@ -1,3 +1,10 @@
+# [7.7.0](https://github.com/sprucelabsai/spruce-test/compare/v7.6.34...v7.7.0) (2021-04-04)
+
+
+### Features
+
+* log available on abstract test to write to stderr ([da842a8](https://github.com/sprucelabsai/spruce-test/commit/da842a8))
+
 ## [7.6.34](https://github.com/sprucelabsai/spruce-test/compare/v7.6.33...v7.6.34) (2021-03-26)
 
 ## [7.6.33](https://github.com/sprucelabsai/spruce-test/compare/v7.6.32...v7.6.33) (2021-03-25)
