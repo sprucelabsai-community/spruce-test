@@ -1,3 +1,74 @@
+## [7.6.34](https://github.com/sprucelabsai/spruce-test/compare/v7.6.33...v7.6.34) (2021-03-26)
+
+## [7.6.33](https://github.com/sprucelabsai/spruce-test/compare/v7.6.32...v7.6.33) (2021-03-25)
+
+## [7.6.32](https://github.com/sprucelabsai/spruce-test/compare/v7.6.31...v7.6.32) (2021-03-17)
+
+## [7.6.31](https://github.com/sprucelabsai/spruce-test/compare/v7.6.30...v7.6.31) (2021-03-17)
+
+## [7.6.30](https://github.com/sprucelabsai/spruce-test/compare/v7.6.29...v7.6.30) (2021-03-12)
+
+## [7.6.29](https://github.com/sprucelabsai/spruce-test/compare/v7.6.28...v7.6.29) (2021-03-05)
+
+## [7.6.28](https://github.com/sprucelabsai/spruce-test/compare/v7.6.27...v7.6.28) (2021-03-04)
+
+## [7.6.27](https://github.com/sprucelabsai/spruce-test/compare/v7.6.26...v7.6.27) (2021-03-04)
+
+## [7.6.26](https://github.com/sprucelabsai/spruce-test/compare/v7.6.25...v7.6.26) (2021-03-03)
+
+## [7.6.25](https://github.com/sprucelabsai/spruce-test/compare/v7.6.24...v7.6.25) (2021-03-02)
+
+
+### Bug Fixes
+
+* include regular build in dist ([45ead05](https://github.com/sprucelabsai/spruce-test/commit/45ead05))
+
+## [7.6.24](https://github.com/sprucelabsai/spruce-test/compare/v7.6.23...v7.6.24) (2021-03-02)
+
+## [7.6.23](https://github.com/sprucelabsai/spruce-test/compare/v7.6.22...v7.6.23) (2021-03-02)
+
+## [7.6.22](https://github.com/sprucelabsai/spruce-test/compare/v7.6.21...v7.6.22) (2021-03-01)
+
+## [7.6.21](https://github.com/sprucelabsai/spruce-test/compare/v7.6.20...v7.6.21) (2021-02-27)
+
+## [7.6.20](https://github.com/sprucelabsai/spruce-test/compare/v7.6.19...v7.6.20) (2021-02-26)
+
+## [7.6.19](https://github.com/sprucelabsai/spruce-test/compare/v7.6.18...v7.6.19) (2021-02-26)
+
+## [7.6.18](https://github.com/sprucelabsai/spruce-test/compare/v7.6.17...v7.6.18) (2021-02-23)
+
+## [7.6.17](https://github.com/sprucelabsai/spruce-test/compare/v7.6.16...v7.6.17) (2021-02-23)
+
+## [7.6.16](https://github.com/sprucelabsai/spruce-test/compare/v7.6.15...v7.6.16) (2021-02-23)
+
+## [7.6.15](https://github.com/sprucelabsai/spruce-test/compare/v7.6.14...v7.6.15) (2021-02-23)
+
+## [7.6.14](https://github.com/sprucelabsai/spruce-test/compare/v7.6.13...v7.6.14) (2021-02-22)
+
+## [7.6.13](https://github.com/sprucelabsai/spruce-test/compare/v7.6.12...v7.6.13) (2021-02-20)
+
+## [7.6.12](https://github.com/sprucelabsai/spruce-test/compare/v7.6.11...v7.6.12) (2021-02-20)
+
+## [7.6.11](https://github.com/sprucelabsai/spruce-test/compare/v7.6.10...v7.6.11) (2021-02-18)
+
+## [7.6.10](https://github.com/sprucelabsai/spruce-test/compare/v7.6.9...v7.6.10) (2021-02-13)
+
+## [7.6.9](https://github.com/sprucelabsai/spruce-test/compare/v7.6.8...v7.6.9) (2021-02-12)
+
+## [7.6.8](https://github.com/sprucelabsai/spruce-test/compare/v7.6.7...v7.6.8) (2021-02-12)
+
+## [7.6.7](https://github.com/sprucelabsai/spruce-test/compare/v7.6.6...v7.6.7) (2021-02-11)
+
+## [7.6.6](https://github.com/sprucelabsai/spruce-test/compare/v7.6.5...v7.6.6) (2021-02-10)
+
+## [7.6.5](https://github.com/sprucelabsai/spruce-test/compare/v7.6.4...v7.6.5) (2021-02-10)
+
+## [7.6.4](https://github.com/sprucelabsai/spruce-test/compare/v7.6.3...v7.6.4) (2021-02-09)
+
+## [7.6.3](https://github.com/sprucelabsai/spruce-test/compare/v7.6.2...v7.6.3) (2021-02-09)
+
+## [7.6.2](https://github.com/sprucelabsai/spruce-test/compare/v7.6.1...v7.6.2) (2021-02-08)
+
 ## [7.6.1](https://github.com/sprucelabsai/spruce-test/compare/v7.6.0...v7.6.1) (2021-02-03)
 
 # [7.6.0](https://github.com/sprucelabsai/spruce-test/compare/v7.5.6...v7.6.0) (2021-02-02)
