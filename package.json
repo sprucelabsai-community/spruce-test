@@ -57,7 +57,7 @@
 		"@types/deep-equal": "^1.0.1",
 		"@types/jest": "^26.0.22",
 		"@types/lodash": "^4.14.168",
-		"eslint": "^7.23.0",
+		"eslint": "^7.24.0",
 		"eslint-config-spruce": "latest",
 		"prettier": "^2.2.1",
 		"ts-node": "^9.1.1",
