@@ -385,7 +385,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		/Could not find(.*?)taco/gis
 	)
 	@test(
-		'include fails as expected matching string against object',
+		'include fails as expected matching string against object with array',
 		{
 			flavors: [
 				{ size: 'large', toppings: [{ meat: true }, { cheese: true }] },
@@ -395,8 +395,8 @@ export default class AssertTest extends AbstractSpruceTest {
 		{ 'flavors[].toppings[].meat': false },
 		/could not find match(.*?)false(.*?)at(.*?)toppings\[\]\.meat/gis
 	)
-	@test(
-		'include fails as expected matching string against object',
+	@test.only(
+		'include fails as expected matching string against nested object',
 		{
 			cheese: { size: 'large', toppings: { meat: true } },
 		},

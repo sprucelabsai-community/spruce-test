@@ -36,7 +36,12 @@ export interface ISpruceAssert {
 	areSameType<T extends any>(actual: T, expected: T): void
 	isEqual<T extends any>(actual: T, expected: T, message?: string): void
 	isNotEqual<T extends any>(actual: T, expected: T, message?: string): void
-	isEqualDeep<T extends any>(actual: T, expected: T, message?: string): void
+	isEqualDeep<T extends any>(
+		actual: T,
+		expected: T,
+		message?: string,
+		shouldAppendDelta?: boolean
+	): void
 	isAbove<T extends any>(actual: T, floor: T, message?: string): void
 	isBelow<T extends any>(actual: T, ceiling: T, message?: string): void
 	isUndefined<T extends any>(actual: T, message?: string): void
@@ -129,14 +134,14 @@ const spruceAssert: ISpruceAssert = {
 		}
 	},
 
-	isEqualDeep(actual, expected, message) {
+	isEqualDeep(actual, expected, message, shouldAppendDelta = true) {
 		if (!deepEqual(actual, expected, { strict: true })) {
 			let result = diff(actual, expected)
 			this.fail(
 				`${
 					message ??
 					`Deep equal failed.\n\nActual would need the following changes to match expected:`
-				}\n\n${result.text}`
+				}${shouldAppendDelta ? `\n\n${result.text}` : ``}`
 			)
 		}
 	},
@@ -348,7 +353,7 @@ const spruceAssert: ISpruceAssert = {
 			} else if (expected instanceof RegExp && expected.exec(actual)) {
 				return
 			} else {
-				this.isEqualDeep(expected, actual, msg)
+				this.isEqualDeep(expected, actual, msg, false)
 			}
 
 			return
