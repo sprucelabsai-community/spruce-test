@@ -133,8 +133,10 @@ const spruceAssert: ISpruceAssert = {
 		if (!deepEqual(actual, expected, { strict: true })) {
 			let result = diff(actual, expected)
 			this.fail(
-				message ??
-					`Deep equal failed.\n\nActual would need the following changes to match expected:\n\n${result.text}`
+				`${
+					message ??
+					`Deep equal failed.\n\nActual would need the following changes to match expected:`
+				}\n\n${result.text}`
 			)
 		}
 	},
