@@ -1,3 +1,22 @@
+## [7.7.6](https://github.com/sprucelabsai/spruce-test/compare/v7.7.5...v7.7.6) (2021-04-26)
+
+## [7.7.5](https://github.com/sprucelabsai/spruce-test/compare/v7.7.4...v7.7.5) (2021-04-23)
+
+## [7.7.4](https://github.com/sprucelabsai/spruce-test/compare/v7.7.3...v7.7.4) (2021-04-21)
+
+## [7.7.3](https://github.com/sprucelabsai/spruce-test/compare/v7.7.2...v7.7.3) (2021-04-15)
+
+## [7.7.2](https://github.com/sprucelabsai/spruce-test/compare/v7.7.1...v7.7.2) (2021-04-09)
+
+## [7.7.1](https://github.com/sprucelabsai/spruce-test/compare/v7.7.0...v7.7.1) (2021-04-07)
+
+# [7.7.0](https://github.com/sprucelabsai/spruce-test/compare/v7.6.34...v7.7.0) (2021-04-04)
+
+
+### Features
+
+* log available on abstract test to write to stderr ([da842a8](https://github.com/sprucelabsai/spruce-test/commit/da842a8))
+
 ## [7.6.34](https://github.com/sprucelabsai/spruce-test/compare/v7.6.33...v7.6.34) (2021-03-26)
 
 ## [7.6.33](https://github.com/sprucelabsai/spruce-test/compare/v7.6.32...v7.6.33) (2021-03-25)
