@@ -2,10 +2,33 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "npm",
-            "script": "watch.build",
+            "label": "problem.watcher",
+            "command": "yarn",
             "group": "build",
-            "label": "watch.build",
+            "args": [
+                "watch.tsc",
+                "--noEmit",
+                "--project",
+                "tsconfig.json"
+            ],
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "isBackground": true,
+            "presentation": {
+                "reveal": "never",
+                "focus": false
+            },
+            "problemMatcher": {
+                "base": "$tsc-watch",
+                "applyTo": "allDocuments"
+            }
+        },
+        {
+            "type": "npm",
+            "script": "watch.build.dev",
+            "group": "build",
+            "label": "watch.build.dev",
             "isBackground": true,
             "runOptions": {
                 "runOn": "folderOpen"
@@ -16,6 +39,29 @@
                 "focus": false,
                 "reveal": "silent"
             }
+        },
+        {
+            "label": "test.file",
+            "command": "spruce",
+            "args": [
+                "test",
+                "--inspect",
+                "5200",
+                "--pattern",
+                "${fileBasenameNoExtension}",
+                "--watchMode",
+                "standard"
+            ],
+            "promptOnClose": false,
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+            },
+            "problemMatcher": []
         },
         {
             "label": "spruce",
@@ -30,9 +76,9 @@
             }
         },
         {
-            "label": "yarn",
+            "label": "shell",
             "type": "shell",
-            "command": "yarn ${input:yarnCommand}",
+            "command": "${input:command} ${input:optionsCommand}",
             "problemMatcher": [],
             "presentation": {
                 "reveal": "always",
@@ -50,8 +96,14 @@
             "type": "promptString"
         },
         {
-            "id": "yarnCommand",
-            "description": "yarn command",
+            "id": "command",
+            "description": "command",
+            "default": "yarn",
+            "type": "promptString"
+        },
+        {
+            "id": "optionsCommand",
+            "description": "optionsCommand",
             "default": "add",
             "type": "promptString"
         }
