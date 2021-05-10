@@ -1,5 +1,6 @@
 export default class StackCleaner {
-	private static matchPattern = /spruce-test\/(?!src\/__tests__)|node_modules|internal\/process\/task_queues|@babel|regenerator-runtime\/runtime/gi
+	private static matchPattern =
+		/spruce-test\/(?!src\/__tests__)|node_modules|internal\/process\/task_queues|@babel|regenerator-runtime\/runtime/gi
 
 	public static clean(stack: string): string {
 		const lines = stack.split(/\r?\n/)

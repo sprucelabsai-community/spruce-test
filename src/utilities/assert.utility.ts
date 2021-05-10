@@ -227,9 +227,11 @@ const assertUtil = {
 		return get(object, path)
 	},
 
-	parseIncludeNeedle(
-		needle: any
-	): { needleHasArrayNotation: boolean; path?: string; expected?: any } {
+	parseIncludeNeedle(needle: any): {
+		needleHasArrayNotation: boolean
+		path?: string
+		expected?: any
+	} {
 		const path = Object.keys(needle)[0]
 		const expected = path && needle[path]
 		const needleHasArrayNotation = !!(path && path.search(/\[\]\./) > -1)
