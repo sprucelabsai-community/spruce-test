@@ -244,8 +244,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			{
 				name: 'schemas.types.ts',
 				description: 'Every schema you need based on all your contracts',
-				path:
-					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+				path: '/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
 				action: 'updated',
 			},
 		],
@@ -259,8 +258,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			{
 				name: 'schemas.types.ts',
 				description: 'Every schema you need based on all your contracts',
-				path:
-					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+				path: '/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
 				action: 'updated',
 				deep: {
 					foo: 'bar',
@@ -270,8 +268,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		{
 			name: 'schemas.types.ts',
 			description: 'Every schema you need based on all your contracts',
-			path:
-				'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+			path: '/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
 			action: 'updated',
 			deep: {
 				foo: 'bar',
@@ -284,8 +281,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			{
 				name: 'schemas.types.ts',
 				description: 'Every schema you need based on all your contracts',
-				path:
-					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+				path: '/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
 				action: 'updated',
 				deep: {
 					foo: 'bar',
@@ -417,8 +413,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			{
 				name: 'schemas.types.ts',
 				description: 'Every schema you need based on all your contracts',
-				path:
-					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+				path: '/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
 				action: 'updated',
 			},
 		],
@@ -433,8 +428,7 @@ export default class AssertTest extends AbstractSpruceTest {
 			{
 				name: 'schemas.types.ts',
 				description: 'Every schema you need based on all your contracts',
-				path:
-					'/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
+				path: '/var/folders/qw/v2bfr0c94bn37vclwvcltsj40000gn/tmp/5b49b673-7df0-4edd-ba9d-683a69a70f72/src/.spruce/schemas/schemas.types.ts',
 				action: 'updated',
 			},
 		],
