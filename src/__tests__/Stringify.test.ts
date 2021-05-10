@@ -153,4 +153,10 @@ export default class StringifyTest extends AbstractSpruceTest {
 			'\n\n' + chalk.bold(assertUtil.replacePlaceholders(expected)) + '\n\n'
 		)
 	}
+
+	@test.skip('array looks good', ['hello', 'world'])
+	@test.skip('objects looks good', { hello: 'world' })
+	protected static canRenderWithoutStrippingCharactorsInTestReporter(obj: any) {
+		process.stderr.write(assertUtil.stringify(obj))
+	}
 }
