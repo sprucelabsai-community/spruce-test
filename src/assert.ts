@@ -284,11 +284,8 @@ const spruceAssert: ISpruceAssert = {
 		}
 
 		const isHaystackObject = isObjectLike(haystack)
-		const {
-			needleHasArrayNotation,
-			path,
-			expected,
-		} = assertUtil.parseIncludeNeedle(needle)
+		const { needleHasArrayNotation, path, expected } =
+			assertUtil.parseIncludeNeedle(needle)
 
 		if (Array.isArray(haystack)) {
 			let cleanedNeedle = needle
@@ -360,10 +357,8 @@ const spruceAssert: ISpruceAssert = {
 		}
 
 		if (isHaystackObject && isObjectLike(needle) && path) {
-			const {
-				actualBeforeArray,
-				pathAfterFirstArray,
-			} = assertUtil.splitPathBasedOnArrayNotation(path, haystack)
+			const { actualBeforeArray, pathAfterFirstArray } =
+				assertUtil.splitPathBasedOnArrayNotation(path, haystack)
 
 			if (!Array.isArray(actualBeforeArray)) {
 				this.fail(msg)
