@@ -23,6 +23,7 @@
 		"url": "https://github.com/sprucelabsai/spruce-test/issues"
 	},
 	"scripts": {
+		"build.ci": "yarn build.tsc",
 		"build.dev": "yarn build.tsc",
 		"build.dist": "yarn build.tsc && tsc --project tsconfig.dist.json && yarn build.esm-postbuild",
 		"build.esm-postbuild": "esm-postbuild --target build/esm --patterns '**/*.js'",
