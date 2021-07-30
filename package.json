@@ -47,7 +47,7 @@
 		"watch.tsc": "tsc -w"
 	},
 	"dependencies": {
-		"chalk": "^4.1.1",
+		"chalk": "^4.1.2",
 		"deep-equal": "^2.0.5",
 		"jest": "^27.0.6",
 		"lodash": "^4.17.21",
