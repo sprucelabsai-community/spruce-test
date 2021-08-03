@@ -61,7 +61,7 @@
 		"@sprucelabs/semantic-release": "^4.0.6",
 		"@types/deep-equal": "^1.0.1",
 		"@types/jest": "^26.0.24",
-		"@types/lodash": "^4.14.171",
+		"@types/lodash": "^4.14.172",
 		"eslint": "^7.32.0",
 		"eslint-config-spruce": "latest",
 		"prettier": "^2.3.2",
