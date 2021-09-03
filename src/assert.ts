@@ -274,11 +274,7 @@ const spruceAssert: ISpruceAssert = {
 		if (
 			typeof haystack === 'string' &&
 			(isNeedleString || isNeedleRegex) &&
-			haystack.search(
-				isNeedleString && !(needle instanceof RegExp)
-					? escapeRegExp(needle)
-					: needle
-			) > -1
+			haystack.search(isNeedleString ? escapeRegExp(needle) : needle) > -1
 		) {
 			return
 		}
