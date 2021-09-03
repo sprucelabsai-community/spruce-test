@@ -397,7 +397,7 @@ const spruceAssert: ISpruceAssert = {
 	doesThrow(cb, matcher, msg) {
 		try {
 			cb()
-		} catch (err) {
+		} catch (err: any) {
 			assertUtil.checkDoesThrowError(matcher, err, msg)
 
 			return err
@@ -409,7 +409,7 @@ const spruceAssert: ISpruceAssert = {
 	async doesThrowAsync(cb, matcher, msg) {
 		try {
 			await cb()
-		} catch (err) {
+		} catch (err: any) {
 			assertUtil.checkDoesThrowError(matcher, err, msg)
 
 			return err

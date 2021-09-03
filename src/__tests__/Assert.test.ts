@@ -497,7 +497,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		let errorHit = false
 		try {
 			assert.hasAllFunctions(obj, ['func1', 'func3'])
-		} catch (err) {
+		} catch (err: any) {
 			errorHit = true
 			assert.doesInclude(err.message, 'func3')
 		}
@@ -513,7 +513,7 @@ export default class AssertTest extends AbstractSpruceTest {
 
 		try {
 			throwError()
-		} catch (err) {
+		} catch (err: any) {
 			const errWithStack = assert.doesThrow(
 				() => assertUtil.checkDoesThrowError(/bravo/, err),
 				/taco/
