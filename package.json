@@ -65,7 +65,6 @@
     "eslint": "^7.32.0",
     "eslint-config-spruce": "^10.10.10",
     "prettier": "^2.4.1",
-    "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.11.0",
     "yarn-upgrade-all": "^0.5.4"
   },
