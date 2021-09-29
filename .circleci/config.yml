@@ -73,17 +73,30 @@ jobs:
             TARGETBRANCH=upgrade-$(date '+%Y-%m-%d')
             echo "export TARGETBRANCH=$TARGETBRANCH" >> $BASH_ENV
       - run:
+          name: "Install Spruce CLI"
+          command: |
+            yarn global add @sprucelabs/spruce-cli
+      - run:
           name: "Try to upgrade"
           command: |
             git checkout -b $TARGETBRANCH || git checkout $TARGETBRANCH
             git reset --hard master
             git config --global user.email "$GIT_AUTHOR_EMAIL"
             git config --global user.name "$GIT_AUTHOR_NAME"
-            yarn run upgrade.packages.all
-            yarn fix.lint
+            ~/.yarn/bin/spruce upgrade
             if [[ $(git status) != *"modified"* ]]; then 
               echo "No modifications detected.  No push/PR necessary 👊"
               circleci-agent step halt
+            fi
+      - run:
+          name: "Check for only newline diff"
+          command: |
+            if [[ $(git status --porcelain | awk '{print $2}' | wc -l) -eq 1 ]]; then
+              if [[ $(git status --porcelain | awk '{print $2}' | grep package.json | wc -l ) -eq 1 ]]; then
+                if [[ $(git diff -w package.json | wc -l) -eq 0 ]]; then
+                  circleci-agent step halt
+                fi
+              fi
             fi
       - run:
           name: "Create PR"

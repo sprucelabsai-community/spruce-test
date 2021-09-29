@@ -5,6 +5,15 @@
     ]
   },
   "scriptUpdater": {
+    "skipped": [
+      "build.ci",
+      "build.dev",
+      "build.tsc",
+      "build.copy-files",
+      "build.resolve-paths",
+      "post.watch.build",
+      "watch.lint"
+    ],
     "skips": []
   }
 }
