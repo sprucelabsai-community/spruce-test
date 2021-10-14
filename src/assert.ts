@@ -33,23 +33,19 @@ export interface ISpruceAssert {
 	isType: typeof expectType
 	isExactType: typeof isExactType
 	isArray<T extends any[]>(actual: any, message?: string): asserts actual is T
-	areSameType<T extends any>(actual: T, expected: T): void
-	isEqual<T extends any>(actual: T, expected: T, message?: string): void
-	isNotEqual<T extends any>(actual: T, expected: T, message?: string): void
-	isEqualDeep<T extends any>(
+	areSameType<T>(actual: T, expected: T): asserts actual is T
+	isEqual<T>(actual: T, expected: T, message?: string): asserts actual is T
+	isNotEqual<T>(actual: T, expected: T, message?: string): asserts actual is T
+	isEqualDeep<T>(
 		actual: T,
 		expected: T,
 		message?: string,
 		shouldAppendDelta?: boolean
-	): void
-	isAbove<T extends any>(actual: T, floor: T, message?: string): void
-	isBelow<T extends any>(actual: T, ceiling: T, message?: string): void
-	isUndefined<T extends any>(actual: T, message?: string): void
-	isTruthy<T extends any>(
-		value: T,
-		message?: string
-		// eslint-disable-next-line no-undef
-	): asserts value is NonNullable<T>
+	): asserts actual is T
+	isAbove<T>(actual: T, floor: T, message?: string): void
+	isBelow<T>(actual: T, ceiling: T, message?: string): void
+	isUndefined<T>(actual: T, message?: string): void
+	isTruthy<T = any>(value: T, message?: string): asserts value is NonNullable<T>
 	isFalsy(value: any, message?: string): void
 	isTrue(
 		actual: boolean | undefined | null,
@@ -59,7 +55,7 @@ export interface ISpruceAssert {
 		actual: boolean | undefined | null,
 		message?: string
 	): asserts actual is false
-	isObject<T extends any>(actual: T, message?: string): void
+	isObject<T>(actual: T, message?: string): void
 	isLength(
 		actual: any[] | undefined | null,
 		expected: number,
@@ -175,8 +171,7 @@ const spruceAssert: ISpruceAssert = {
 		}
 	},
 
-	isTruthy(actual, message) {
-		// @ts-ignore
+	isTruthy(actual: any, message) {
 		if (
 			actual === false ||
 			actual === null ||
@@ -208,10 +203,12 @@ const spruceAssert: ISpruceAssert = {
 	},
 
 	isTrue(actual, message) {
+		//@ts-ignore
 		this.isEqual(actual, true, message)
 	},
 
 	isFalse(actual, message) {
+		//@ts-ignore
 		this.isEqual(actual, false, message)
 	},
 
@@ -235,6 +232,7 @@ const spruceAssert: ISpruceAssert = {
 			)
 		}
 
+		//@ts-ignore
 		this.isEqual(
 			actual.length,
 			expected,
@@ -303,6 +301,7 @@ const spruceAssert: ISpruceAssert = {
 
 		if (isHaystackObject && isObjectLike(needle)) {
 			try {
+				//@ts-ignore
 				this.isEqualDeep(haystack, needle)
 				return
 				// eslint-disable-next-line no-empty
@@ -346,6 +345,7 @@ const spruceAssert: ISpruceAssert = {
 			} else if (expected instanceof RegExp && expected.exec(actual)) {
 				return
 			} else {
+				//@ts-ignore
 				this.isEqualDeep(expected, actual, msg, false)
 			}
 
