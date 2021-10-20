@@ -75,8 +75,8 @@
     "variable-diff": "^2.0.2"
   },
   "devDependencies": {
-    "@sprucelabs/esm-postbuild": "^1.0.267",
-    "@sprucelabs/semantic-release": "^4.0.7",
+    "@sprucelabs/esm-postbuild": "^1.0.268",
+    "@sprucelabs/semantic-release": "^4.0.8",
     "@types/deep-equal": "^1.0.1",
     "@types/jest": "^27.0.2",
     "@types/lodash": "^4.14.175",
