@@ -229,6 +229,13 @@ export default class AssertTest extends AbstractSpruceTest {
 		{ meat: true }
 	)
 	@test(
+		'include can match on partial object',
+		{ cheese: true, meat: true },
+		{
+			meat: true,
+		}
+	)
+	@test(
 		'include can search array without index',
 		[{ cheese: true }, { meat: true }],
 		{ '[].meat': true }
