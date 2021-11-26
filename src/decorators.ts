@@ -1,9 +1,9 @@
 /** Hooks up before, after, etc. */
 function hookupTestClass(target: any) {
-	if (target.__isHookedUp) {
+	if (target.__isTestingHookedUp) {
 		return
 	}
-	target.__isHookedUp = true
+	target.__isTestingHookedUp = true
 	const hooks = ['beforeAll', 'beforeEach', 'afterAll', 'afterEach']
 	hooks.forEach((hook) => {
 		// Have they defined a hook
