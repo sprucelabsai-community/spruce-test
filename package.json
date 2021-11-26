@@ -10,6 +10,7 @@
       "@sprucelabs/resolve-path-aliases",
       "@sprucelabs/spruce-test-fixtures",
       "@types/node",
+      "chalk",
       "chokidar-cli",
       "concurrently",
       "ts-node"
