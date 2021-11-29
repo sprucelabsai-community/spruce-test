@@ -4,6 +4,7 @@
 		"esModuleInterop": true,
 		"target": "ES2017",
 		"lib": [
+			"DOM",
 			"es2017",
 			"ES2020"
 		],
