@@ -76,12 +76,12 @@
     "variable-diff": "^2.0.2"
   },
   "devDependencies": {
-    "@sprucelabs/esm-postbuild": "^1.0.296",
+    "@sprucelabs/esm-postbuild": "^1.0.297",
     "@sprucelabs/semantic-release": "^4.0.8",
     "@types/deep-equal": "^1.0.1",
     "@types/jest": "^27.0.3",
     "@types/lodash": "^4.14.177",
-    "eslint": "^8.4.0",
+    "eslint": "^8.4.1",
     "eslint-config-spruce": "^10.10.16",
     "prettier": "^2.5.1",
     "tsc-watch": "^4.5.0",
