@@ -149,10 +149,7 @@ workflows:
     jobs:
       - upgrade:
           context: public_package_publish
-    triggers:
-      - schedule:
-          cron: "45 * * * *"
           filters:
             branches:
               only:
-                - master
+                - neverRunOnlyForCron
