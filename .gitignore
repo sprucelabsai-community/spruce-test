@@ -7,6 +7,7 @@ yarn.lock
 coverage/
 __TEST__/
 build/
+esm/
 
 # Logs
 *.log
