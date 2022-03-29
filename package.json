@@ -88,7 +88,7 @@
     "prettier": "^2.6.1",
     "tsc-watch": "^4.6.2",
     "tsconfig-paths": "^3.14.1",
-    "yarn-upgrade-all": "^0.6.1"
+    "yarn-upgrade-all": "^0.7.0"
   },
   "jest": {
     "preset": "ts-jest",
