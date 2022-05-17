@@ -173,7 +173,7 @@ const assertUtil = {
 				msg ??
 					`Expected thrown error whose message contains: \n\n'${chalk.bold(
 						matcher
-					)}'\n\nbut got back:\n\n\`${chalk.bold(message)}\`.`,
+					)}\n\nbut got back:\n\n\`${chalk.bold(message)}\`.`,
 				'\n\nStack: ' + err.stack
 			)
 		} else if (matcher instanceof RegExp && message.search(matcher) === -1) {
