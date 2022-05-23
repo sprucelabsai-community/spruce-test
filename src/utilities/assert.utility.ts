@@ -171,7 +171,7 @@ const assertUtil = {
 		if (typeof matcher === 'string' && message.search(matcher) === -1) {
 			this.fail(
 				msg ??
-					`Expected thrown error whose message contains: \n\n'${chalk.bold(
+					`Expected thrown error whose message contains: \n\n${chalk.bold(
 						matcher
 					)}\n\nbut got back:\n\n\`${chalk.bold(message)}\`.`,
 				'\n\nStack: ' + err.stack
