@@ -82,7 +82,7 @@
     "@sprucelabs/esm-postbuild": "^1.0.304",
     "@sprucelabs/semantic-release": "^4.0.8",
     "@types/deep-equal": "^1.0.1",
-    "@types/jest": "^28.1.5",
+    "@types/jest": "^28.1.6",
     "@types/lodash": "^4.14.182",
     "eslint": "^8.19.0",
     "eslint-config-spruce": "^10.11.3",
