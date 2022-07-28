@@ -1,5 +1,8 @@
 import chalk from 'chalk'
-import { includes, get, isObjectLike, isObject } from 'lodash'
+import get from 'lodash/get'
+import includes from 'lodash/includes'
+import isObject from 'lodash/isObject'
+import isObjectLike from 'lodash/isObjectLike'
 import { ISpruceAssert } from '../assert'
 import AssertionError from '../AssertionError'
 

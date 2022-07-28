@@ -1,6 +1,7 @@
 import chalk from 'chalk'
 import deepEqual from 'deep-equal'
-import { isObjectLike, escapeRegExp } from 'lodash'
+import escapeRegExp from 'lodash/escapeRegExp'
+import isObjectLike from 'lodash/isObjectLike'
 import { expectType } from 'ts-expect'
 import diff from 'variable-diff'
 import assertUtil from './utilities/assert.utility'
