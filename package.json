@@ -15,7 +15,8 @@
       "chokidar-cli",
       "concurrently",
       "ts-jest",
-      "ts-node"
+      "ts-node",
+      "typescript"
     ]
   },
   "files": [
@@ -75,7 +76,7 @@
     "lodash": "^4.17.21",
     "ts-expect": "^1.3.0",
     "ts-jest": "next",
-    "typescript": "^4.7.4",
+    "typescript": "4.7.4",
     "variable-diff": "^2.0.2"
   },
   "devDependencies": {
