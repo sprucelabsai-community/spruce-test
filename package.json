@@ -15,8 +15,7 @@
       "chokidar-cli",
       "concurrently",
       "ts-jest",
-      "ts-node",
-      "typescript"
+      "ts-node"
     ]
   },
   "files": [
