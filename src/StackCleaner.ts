@@ -1,3 +1,6 @@
+/**
+ * @deprecated delete and re-import from @sprucelabs/test-utils
+ */
 export default class StackCleaner {
 	private static matchPattern =
 		/spruce-test\/(?!src\/__tests__)|node_modules|internal\/process\/task_queues|@babel|regenerator-runtime\/runtime/gi
