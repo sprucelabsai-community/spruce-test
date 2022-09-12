@@ -101,6 +101,9 @@ export interface ISpruceAssert {
 	fail(message?: string): void
 }
 
+/**
+ * @deprecated delete and re-import from @sprucelabs/test-utils
+ */
 const spruceAssert: ISpruceAssert = {
 	areSameType() {},
 

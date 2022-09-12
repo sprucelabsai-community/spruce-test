@@ -10,7 +10,9 @@ export const UNDEFINED_PLACEHOLDER = '_____________undefined_____________'
 export const FUNCTION_PLACEHOLDER = '_____________function_____________'
 export const CIRCULAR_PLACEHOLDER = '_____________circular_____________'
 export const NULL_PLACEHOLDER = '_____________null_____________'
-
+/**
+ * @deprecated delete and re-import from @sprucelabs/test-utils
+ */
 const assertUtil = {
 	fail(message?: string, stack?: string) {
 		throw new AssertionError(message ?? 'Fail!', stack)

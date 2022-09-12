@@ -1,5 +1,8 @@
 import StackCleaner from './StackCleaner'
 
+/**
+ * @deprecated delete and re-import from @sprucelabs/test-utils
+ */
 export default class AssertionError extends Error {
 	public constructor(message: string, stack?: string) {
 		super(message)

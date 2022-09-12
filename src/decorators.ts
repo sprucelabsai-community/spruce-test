@@ -21,7 +21,9 @@ function hookupTestClass(target: any) {
 	})
 }
 
-/** Test decorator */
+/**
+ * @deprecated delete and re-import from @sprucelabs/test-utils
+ */
 export default function test(description?: string, ...args: any[]) {
 	return function (
 		target: any,
@@ -45,7 +47,9 @@ export default function test(description?: string, ...args: any[]) {
 	}
 }
 
-/** Only decorator */
+/**
+ * @deprecated delete and re-import from @sprucelabs/test-utils
+ */
 test.only = (description?: string, ...args: any[]) => {
 	return function (
 		target: any,
@@ -64,7 +68,9 @@ test.only = (description?: string, ...args: any[]) => {
 	}
 }
 
-/** Todo decorator */
+/**
+ * @deprecated delete and re-import from @sprucelabs/test-utils
+ */
 test.todo = (description?: string, ..._args: any[]) => {
 	return function (target: any, propertyKey: string) {
 		// Lets attach before/after
@@ -75,7 +81,9 @@ test.todo = (description?: string, ..._args: any[]) => {
 	}
 }
 
-/** Skip decorator */
+/**
+ * @deprecated delete and re-import from @sprucelabs/test-utils
+ */
 test.skip = (description?: string, ...args: any[]) => {
 	return function (
 		target: any,
