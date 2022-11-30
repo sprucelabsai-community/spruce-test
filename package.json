@@ -88,7 +88,7 @@
     "eslint-config-spruce": "^10.11.4",
     "prettier": "^2.8.0",
     "tsc-watch": "^5.0.3",
-    "tsconfig-paths": "^4.1.0",
+    "tsconfig-paths": "^4.1.1",
     "yarn-upgrade-all": "^0.7.1"
   },
   "jest": {
