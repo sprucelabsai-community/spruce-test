@@ -86,7 +86,7 @@
     "@types/lodash": "^4.14.191",
     "eslint": "^8.31.0",
     "eslint-config-spruce": "^10.11.6",
-    "prettier": "^2.8.1",
+    "prettier": "^2.8.2",
     "tsc-watch": "^6.0.0",
     "tsconfig-paths": "^4.1.2",
     "yarn-upgrade-all": "^0.7.1"
