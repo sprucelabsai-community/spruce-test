@@ -75,7 +75,7 @@
     "lodash": "^4.17.21",
     "ts-expect": "^1.3.0",
     "ts-jest": "next",
-    "typescript": "^5.0.4",
+    "typescript": "^5.1.3",
     "variable-diff": "^2.0.2"
   },
   "devDependencies": {
