@@ -398,7 +398,7 @@ export default class AssertTest extends AbstractSpruceTest {
 		{ 'flavors[].toppings[].meat': false },
 		/could not find match(.*?)false(.*?)at(.*?)toppings\[\]\.meat/gis
 	)
-	@test.only(
+	@test(
 		'include fails as expected matching string against nested object',
 		{
 			cheese: { size: 'large', toppings: { meat: true } },
