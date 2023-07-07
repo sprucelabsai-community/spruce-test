@@ -1,3 +1,10 @@
+# [8.0.0](https://github.com/sprucelabsai-community/spruce-test/compare/v7.7.454...v8.0.0) (2023-07-07)
+
+
+### Breaking Changes
+
+* upgrade ([0545b3a](https://github.com/sprucelabsai-community/spruce-test/commit/0545b3a))
+
 ## [7.7.454](https://github.com/sprucelabsai-community/spruce-test/compare/v7.7.453...v7.7.454) (2023-07-07)
 
 ## [7.7.453](https://github.com/sprucelabsai-community/spruce-test/compare/v7.7.452...v7.7.453) (2023-06-16)
