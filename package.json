@@ -84,7 +84,7 @@
     "@types/deep-equal": "^1.0.3",
     "@types/jest": "^29.5.7",
     "@types/lodash": "^4.14.200",
-    "eslint": "^8.52.0",
+    "eslint": "^8.53.0",
     "eslint-config-spruce": "^10.13.6",
     "prettier": "^3.0.3",
     "tsc-watch": "^6.0.4",
