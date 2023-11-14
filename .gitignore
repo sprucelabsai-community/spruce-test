@@ -17,5 +17,5 @@ yarn-error.log*
 
 
 # Mac
-.DS_IGNORE
+# .DS_STORE
 .eslintcache

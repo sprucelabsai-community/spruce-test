@@ -12,8 +12,8 @@ type RecursivePartial<T> = {
 	[P in keyof T]?: T[P] extends (infer U)[]
 		? RecursivePartial<U>[] // eslint-disable-next-line @typescript-eslint/ban-types
 		: T[P] extends object
-		? RecursivePartial<T[P]>
-		: T[P]
+		  ? RecursivePartial<T[P]>
+		  : T[P]
 }
 
 type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N
