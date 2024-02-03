@@ -82,11 +82,11 @@
     "@sprucelabs/esm-postbuild": "^2.0.22",
     "@sprucelabs/semantic-release": "^4.0.8",
     "@types/deep-equal": "^1.0.4",
-    "@types/jest": "^29.5.11",
+    "@types/jest": "^29.5.12",
     "@types/lodash": "^4.14.202",
     "eslint": "^8.56.0",
     "eslint-config-spruce": "^10.13.6",
-    "prettier": "^3.1.1",
+    "prettier": "^3.2.4",
     "tsc-watch": "^6.0.4",
     "tsconfig-paths": "^4.2.0",
     "yarn-upgrade-all": "^0.7.2"
