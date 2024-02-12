@@ -19,13 +19,14 @@ type RecursivePartial<T> = {
 type IfAny<T, Y, N> = 0 extends 1 & T ? Y : N
 type IsAny<T> = IfAny<T, true, never>
 
-type TypeEqual<T, U> = IsAny<T> extends never
-	? Exclude<T, U> extends never
-		? Exclude<U, T> extends never
-			? true
+type TypeEqual<T, U> =
+	IsAny<T> extends never
+		? Exclude<T, U> extends never
+			? Exclude<U, T> extends never
+				? true
+				: false
 			: false
 		: false
-	: false
 
 function isExactType<T, E, Pass = TypeEqual<T, E>>(_: Pass) {}
 
