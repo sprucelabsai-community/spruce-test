@@ -19,3 +19,5 @@ yarn-error.log*
 # Mac
 .DS_STORE
 .eslintcache
+
+**/.spruce/*cache.json
