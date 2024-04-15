@@ -20,7 +20,9 @@ export function hookupTestClass(target: any) {
         }
     })
 }
-
+/**
+ * @deprecated - Remove and re-import from @sprucelabs/test-utils
+ */
 export default function test(description?: string, ...args: any[]) {
     return function (
         target: any,
