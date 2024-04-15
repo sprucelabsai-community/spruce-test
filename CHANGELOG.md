@@ -1,3 +1,10 @@
+# [9.0.0](https://github.com/sprucelabsai-community/spruce-test/compare/v8.0.51...v9.0.0) (2024-04-15)
+
+
+### Breaking Changes
+
+* upgrade to eslint 9 and removed export for deprecated componets ([f9244c8](https://github.com/sprucelabsai-community/spruce-test/commit/f9244c8))
+
 ## [8.0.51](https://github.com/sprucelabsai-community/spruce-test/compare/v8.0.50...v8.0.51) (2024-04-12)
 
 ## [8.0.50](https://github.com/sprucelabsai-community/spruce-test/compare/v8.0.49...v8.0.50) (2024-04-04)
