@@ -1,6 +1,2 @@
-export { default } from './AbstractSpruceTest'
-export { default as assert } from './assert'
-export * from './assert'
-export { default as test } from './decorators'
-export { default as assertUtil } from './utilities/assert.utility'
-export { default as StackCleaner } from './StackCleaner'
+export { default } from './lib/AbstractSpruceTest'
+export { default as StackCleaner } from './lib/StackCleaner'

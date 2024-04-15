@@ -21,7 +21,6 @@
 				"${fileBasenameNoExtension}",
 				"--detectOpenHandles"
 			],
-			"port": 9229,
 			"cwd": "${workspaceFolder}",
 			"console": "integratedTerminal",
 			"internalConsoleOptions": "neverOpen"
@@ -36,7 +35,6 @@
 				"--trace-warnings",
 				"${workspaceFolder}/node_modules/.bin/jest"
 			],
-			"port": 9229,
 			"cwd": "${workspaceFolder}",
 			"console": "integratedTerminal",
 			"internalConsoleOptions": "neverOpen"
@@ -52,7 +50,6 @@
 				"--trace-warnings",
 				"boot.local"
 			],
-			"port": 9229,
 			"cwd": "${workspaceFolder}",
 			"console": "integratedTerminal",
 			"internalConsoleOptions": "neverOpen"
