@@ -35,7 +35,7 @@ export default function test(description?: string, ...args: any[]) {
         const bound = descriptor.value.bind(target)
 
         // Make sure each test gets the spruce
-        // eslint-disable-next-line no-undef
+
         it(description ?? propertyKey, async () => {
             //@ts-ignore
             global.activeTest = {
@@ -62,7 +62,7 @@ test.only = (description?: string, ...args: any[]) => {
         const bound = descriptor.value.bind(target)
 
         // Make sure each test gets the spruce
-        // eslint-disable-next-line no-undef
+
         it.only(description ?? propertyKey, async () => {
             return bound(...args)
         })
@@ -78,7 +78,7 @@ test.todo = (description?: string, ..._args: any[]) => {
         hookupTestClass(target)
 
         // Make sure each test gets the spruce
-        // eslint-disable-next-line no-undef
+
         it.todo(description ?? propertyKey)
     }
 }
@@ -98,7 +98,7 @@ test.skip = (description?: string, ...args: any[]) => {
         const bound = descriptor.value.bind(target)
 
         // Make sure each test gets the spruce
-        // eslint-disable-next-line no-undef
+
         it.skip(description ?? propertyKey, async () => {
             return bound(...args)
         })
