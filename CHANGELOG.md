@@ -1,3 +1,5 @@
+## [9.0.29](https://github.com/sprucelabsai-community/spruce-test/compare/v9.0.28...v9.0.29) (2024-06-17)
+
 ## [9.0.28](https://github.com/sprucelabsai-community/spruce-test/compare/v9.0.27...v9.0.28) (2024-06-14)
 
 ## [9.0.27](https://github.com/sprucelabsai-community/spruce-test/compare/v9.0.26...v9.0.27) (2024-06-12)
