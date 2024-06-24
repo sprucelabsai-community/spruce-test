@@ -15,7 +15,10 @@
       "chokidar-cli",
       "ts-jest",
       "ts-node"
-    ]
+    ],
+    "blockedCommands": {
+      "upgrade": "You have to run yarn upgrade.packages.all to upgrade the packages in this skill."
+    }
   },
   "files": [
     "build"
@@ -77,13 +80,13 @@
     "variable-diff": "^2.0.2"
   },
   "devDependencies": {
-    "@sprucelabs/esm-postbuild": "^5.0.163",
+    "@sprucelabs/esm-postbuild": "^6.0.50",
     "@sprucelabs/semantic-release": "^5.0.1",
     "@types/deep-equal": "^1.0.4",
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.17.5",
     "eslint": "^9.5.0",
-    "eslint-config-spruce": "^11.2.24",
+    "eslint-config-spruce": "^11.2.25",
     "prettier": "^3.3.2",
     "tsc-watch": "^6.2.0",
     "tsconfig-paths": "^4.2.0",
@@ -98,6 +101,14 @@
     ]
   },
   "yarn-upgrade-all": {
-    "ignore": []
+    "ignore": [
+      "@sprucelabs/resolve-path-aliases",
+      "@sprucelabs/spruce-test-fixtures",
+      "@types/node",
+      "chalk",
+      "chokidar-cli",
+      "ts-jest",
+      "ts-node"
+    ]
   }
 }
