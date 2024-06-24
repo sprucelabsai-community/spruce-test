@@ -15,10 +15,7 @@
       "chokidar-cli",
       "ts-jest",
       "ts-node"
-    ],
-    "blockedCommands": {
-      "upgrade": "You have to run yarn upgrade.packages.all to upgrade the packages in this skill."
-    }
+    ]
   },
   "files": [
     "build"
@@ -61,9 +58,6 @@
     "resolve-paths.lint": "yarn run build.resolve-paths ; yarn run lint",
     "test": "jest",
     "update.dependencies": "yarn run clean.dependencies && yarn",
-    "upgrade.packages": "yarn-upgrade-all && rm -f yarn.lock ; yarn ; yarn fix.lint ; true",
-    "upgrade.packages.all": "yarn install && yarn upgrade.packages",
-    "upgrade.packages.test": "yarn upgrade.packages.all && yarn lint && yarn build.dev && yarn test",
     "watch.build.dev": "tsc-watch --sourceMap --onCompilationComplete 'yarn run post.watch.build'",
     "watch.rebuild": "yarn run clean.all && yarn install && yarn run watch.build.dev",
     "watch.tests": "jest --watch",
@@ -89,8 +83,7 @@
     "eslint-config-spruce": "^11.2.25",
     "prettier": "^3.3.2",
     "tsc-watch": "^6.2.0",
-    "tsconfig-paths": "^4.2.0",
-    "yarn-upgrade-all": "^0.7.2"
+    "tsconfig-paths": "^4.2.0"
   },
   "jest": {
     "preset": "ts-jest",
@@ -98,17 +91,6 @@
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/node_modules/"
-    ]
-  },
-  "yarn-upgrade-all": {
-    "ignore": [
-      "@sprucelabs/resolve-path-aliases",
-      "@sprucelabs/spruce-test-fixtures",
-      "@types/node",
-      "chalk",
-      "chokidar-cli",
-      "ts-jest",
-      "ts-node"
     ]
   }
 }
