@@ -81,7 +81,7 @@
     "@types/lodash": "^4.17.13",
     "eslint": "^9.15.0",
     "eslint-config-spruce": "^11.2.26",
-    "prettier": "^3.3.3",
+    "prettier": "^3.4.0",
     "tsc-watch": "^6.2.1",
     "tsconfig-paths": "^4.2.0"
   },
