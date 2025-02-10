@@ -79,9 +79,9 @@
     "@types/deep-equal": "^1.0.4",
     "@types/jest": "^29.5.14",
     "@types/lodash": "^4.17.15",
-    "eslint": "^9.19.0",
+    "eslint": "^9.20.0",
     "eslint-config-spruce": "^11.2.26",
-    "prettier": "^3.4.2",
+    "prettier": "^3.5.0",
     "tsc-watch": "^6.2.1",
     "tsconfig-paths": "^4.2.0"
   },
