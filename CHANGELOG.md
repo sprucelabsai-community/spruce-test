@@ -1,3 +1,10 @@
+# [10.0.0](https://github.com/sprucelabsai-community/spruce-test/compare/v9.0.83...v10.0.0) (2025-06-10)
+
+
+### Breaking Changes
+
+* jest upgrade ([d721075](https://github.com/sprucelabsai-community/spruce-test/commit/d721075))
+
 ## [9.0.83](https://github.com/sprucelabsai-community/spruce-test/compare/v9.0.82...v9.0.83) (2025-05-31)
 
 ## [9.0.82](https://github.com/sprucelabsai-community/spruce-test/compare/v9.0.81...v9.0.82) (2025-05-25)
