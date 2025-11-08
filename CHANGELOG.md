@@ -1,3 +1,7 @@
+## <small>10.0.27 (2025-11-08)</small>
+
+* Automated CI/CD permissions update ([8305a22](https://github.com/sprucelabsai-community/spruce-test/commit/8305a22))
+
 ## [10.0.26](https://github.com/sprucelabsai-community/spruce-test/compare/v10.0.25...v10.0.26) (2025-11-08)
 
 ## [10.0.25](https://github.com/sprucelabsai-community/spruce-test/compare/v10.0.24...v10.0.25) (2025-10-17)
