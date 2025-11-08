@@ -75,7 +75,7 @@
   },
   "devDependencies": {
     "@sprucelabs/esm-postbuild": "^6.0.50",
-    "@sprucelabs/semantic-release": "^5.0.2",
+    "@sprucelabs/semantic-release": "^5.0.3",
     "@types/deep-equal": "^1.0.4",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.20",
