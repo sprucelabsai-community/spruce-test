@@ -1,3 +1,8 @@
+## <small>10.0.28 (2025-11-08)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([ef2b34e](https://github.com/sprucelabsai-community/spruce-test/commit/ef2b34e))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([b02f566](https://github.com/sprucelabsai-community/spruce-test/commit/b02f566))
+
 ## <small>10.0.27 (2025-11-08)</small>
 
 * Automated CI/CD permissions update ([8305a22](https://github.com/sprucelabsai-community/spruce-test/commit/8305a22))
