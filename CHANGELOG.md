@@ -1,3 +1,8 @@
+## <small>11.1.1 (2026-01-19)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([4d73680](https://github.com/sprucelabsai-community/spruce-test/commit/4d73680))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([8965747](https://github.com/sprucelabsai-community/spruce-test/commit/8965747))
+
 ## 11.1.0 (2026-01-07)
 
 * feat: add exports field for proper ESM support in Node.js ([e701ef3](https://github.com/sprucelabsai-community/spruce-test/commit/e701ef3))
