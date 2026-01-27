@@ -1,3 +1,8 @@
+## <small>11.1.2 (2026-01-27)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([84b0e33](https://github.com/sprucelabsai-community/spruce-test/commit/84b0e33))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([d32675a](https://github.com/sprucelabsai-community/spruce-test/commit/d32675a))
+
 ## <small>11.1.1 (2026-01-19)</small>
 
 * chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([4d73680](https://github.com/sprucelabsai-community/spruce-test/commit/4d73680))
