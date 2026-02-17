@@ -92,7 +92,7 @@ export default class AssertTest extends AbstractSpruceTest {
             assert.doesThrow(() => {
                 throw new Error('doesNotMatchErrorByBadString: Match on string')
             }, 'on string2')
-        } catch (err) {
+        } catch {
             errorThrown = true
         }
 
@@ -132,7 +132,7 @@ export default class AssertTest extends AbstractSpruceTest {
             assert.doesThrow(() => {
                 throw new Error('Match on string')
             }, /on string2/)
-        } catch (err) {
+        } catch {
             errorThrown = true
         }
 
@@ -146,7 +146,7 @@ export default class AssertTest extends AbstractSpruceTest {
             await assert.doesThrowAsync(async () => {
                 throw new Error('Match on string')
             }, /on string2/)
-        } catch (err) {
+        } catch {
             errorThrown = true
         }
 
@@ -664,9 +664,11 @@ export default class AssertTest extends AbstractSpruceTest {
 
     @test()
     protected static isExactType() {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const test: 'first' | 'last' | null = null
         assert.isExactType<typeof test, null>(true)
 
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         let test2: 'first' | 'last' | undefined
         assert.isExactType<typeof test2, 'first' | 'last' | undefined>(true)
     }
