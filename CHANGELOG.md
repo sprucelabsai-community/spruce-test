@@ -1,3 +1,8 @@
+## <small>11.1.4 (2026-02-18)</small>
+
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([ab85886](https://github.com/sprucelabsai-community/spruce-test/commit/ab85886))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([8d3968d](https://github.com/sprucelabsai-community/spruce-test/commit/8d3968d))
+
 ## <small>11.1.3 (2026-02-17)</small>
 
 * patch: upgarde ([28528dc](https://github.com/sprucelabsai-community/spruce-test/commit/28528dc))
