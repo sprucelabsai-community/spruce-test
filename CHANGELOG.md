@@ -1,3 +1,10 @@
+## <small>11.1.7 (2026-04-07)</small>
+
+* Fix TypeScript 6.0 deprecations in tsconfig.dist.json ([e9f6cc9](https://github.com/sprucelabsai-community/spruce-test/commit/e9f6cc9))
+* Upgrade dependencies and fix TypeScript 6.0 tsconfig deprecations ([1a36328](https://github.com/sprucelabsai-community/spruce-test/commit/1a36328))
+* chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([7ed07bb](https://github.com/sprucelabsai-community/spruce-test/commit/7ed07bb))
+* chore(auto-upgrade): upgraded packages [upgrade-all] ([fac6114](https://github.com/sprucelabsai-community/spruce-test/commit/fac6114))
+
 ## <small>11.1.6 (2026-02-23)</small>
 
 * chore(auto-upgrade): Upgrade Tests Passed [auto-merge] ([5e5f227](https://github.com/sprucelabsai-community/spruce-test/commit/5e5f227))
